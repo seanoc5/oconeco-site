@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from "astro:content";
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("pages");
+  return entries
+    .filter((e) => e.data.slug !== "index" && e.data.slug !== "home")
+    .map((entry) => ({
+      params: { slug: entry.data.slug },
+      props: { entry },
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<SiteLayout title={entry.data.title}>
+  <h1>{entry.data.title}</h1>
+  <Content />
+</SiteLayout>

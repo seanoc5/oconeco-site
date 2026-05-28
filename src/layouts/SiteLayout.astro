@@ -1,0 +1,48 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+const pageTitle = title === "Oconeco" ? "Oconeco" : `${title} — Oconeco`;
+
+const nav = [
+  { href: "/", label: "Home" },
+  { href: "/our-services/", label: "Service levels" },
+  { href: "/ot/", label: "Toolkit" },
+  { href: "/about-you/", label: "Adding value" },
+  { href: "/reference-materials/", label: "Reference" },
+  { href: "/about-us/", label: "About us" },
+  { href: "/contact/", label: "Contact" },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    {description && <meta name="description" content={description} />}
+    <title>{pageTitle}</title>
+    <link rel="stylesheet" href="/styles/site.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">OconEco</a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          {nav.map((item) => (
+            <li><a href={item.href}>{item.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+    <main class="site-main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>&copy; {new Date().getFullYear()} OconEco. <a href="/site-map/">Site map</a></p>
+    </footer>
+  </body>
+</html>

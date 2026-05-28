@@ -1,0 +1,13 @@
+---
+import { getEntry, render } from "astro:content";
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+const entry = await getEntry("pages", "index");
+if (!entry) throw new Error("Missing src/content/pages/index.md");
+const { Content } = await render(entry);
+---
+
+<SiteLayout title={entry.data.title}>
+  <h1>{entry.data.title}</h1>
+  <Content />
+</SiteLayout>

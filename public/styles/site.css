@@ -1,0 +1,71 @@
+:root {
+  --color-text: #1d1d1f;
+  --color-muted: #555;
+  --color-bg: #fff;
+  --color-accent: #1f5b3b;
+  --color-rule: #e6e6e6;
+  --max-content: 68ch;
+  --font-body: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--color-accent); }
+a:hover { text-decoration: underline; }
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--color-rule);
+}
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  text-decoration: none;
+}
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+
+.site-main {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+.site-main h1 {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  line-height: 1.2;
+  margin-top: 0;
+}
+.site-main h2, .site-main h3 { font-family: var(--font-display); }
+
+.site-footer {
+  border-top: 1px solid var(--color-rule);
+  color: var(--color-muted);
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.site-footer a { color: var(--color-muted); }
