@@ -2,9 +2,10 @@
 interface Props {
   title: string;
   description?: string;
+  mainClass?: string;
 }
-const { title, description } = Astro.props;
-const pageTitle = title === "Oconeco" ? "Oconeco" : `${title} — Oconeco`;
+const { title, description, mainClass = "" } = Astro.props;
+const pageTitle = title === "Oconeco" ? "OconEco" : `${title} — OconEco`;
 
 const nav = [
   { href: "/", label: "Home" },
@@ -15,6 +16,13 @@ const nav = [
   { href: "/about-us/", label: "About us" },
   { href: "/contact/", label: "Contact" },
 ];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+function isCurrent(href: string): boolean {
+  const normalized = href.replace(/\/$/, "") || "/";
+  if (normalized === "/") return currentPath === "/";
+  return currentPath === normalized || currentPath.startsWith(normalized + "/");
+}
 ---
 
 <!doctype html>
@@ -25,24 +33,47 @@ const nav = [
     <meta name="generator" content={Astro.generator} />
     {description && <meta name="description" content={description} />}
     <title>{pageTitle}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
+    />
     <link rel="stylesheet" href="/styles/site.css" />
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="/">OconEco</a>
-      <nav class="site-nav" aria-label="Primary">
-        <ul>
-          {nav.map((item) => (
-            <li><a href={item.href}>{item.label}</a></li>
-          ))}
-        </ul>
-      </nav>
+      <div class="site-header-inner">
+        <a class="brand" href="/">Ocon<span class="brand-mark">Eco</span></a>
+        <nav class="site-nav" aria-label="Primary">
+          <ul>
+            {nav.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  aria-current={isCurrent(item.href) ? "page" : undefined}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
     </header>
-    <main class="site-main">
+    <slot name="hero" />
+    <main class={`site-main ${mainClass}`}>
       <slot />
     </main>
     <footer class="site-footer">
-      <p>&copy; {new Date().getFullYear()} OconEco. <a href="/site-map/">Site map</a></p>
+      <div class="site-footer-inner">
+        <p>&copy; {new Date().getFullYear()} OconEco. All rights reserved.</p>
+        <p>
+          <a href="/site-map/">Site map</a>
+          &nbsp;·&nbsp;
+          <a href="/contact/">Contact</a>
+        </p>
+      </div>
     </footer>
   </body>
 </html>

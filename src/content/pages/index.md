@@ -3,6 +3,8 @@ title: "Oconeco"
 rawTitle: "Oconeco"
 slug: "index"
 sourceUrl: "https://oconeco.webnode.page/"
+tagline: "Workspaces that turn local knowledge into resource-allocation decisions."
+description: "OconEco builds IT workspaces that surface local economic intelligence — a smart grid for resource-allocation decisions across multiple scales."
 ---
 
 The world is swinging away from trust in central authorities--national governments, the global economic power grid they built at the end of World War II, and multinational corporations. This may be a temporary mood swing. Or, like managers of coal-fired power plants, central authorities

@@ -7,7 +7,25 @@ if (!entry) throw new Error("Missing src/content/pages/index.md");
 const { Content } = await render(entry);
 ---
 
-<SiteLayout title={entry.data.title}>
-  <h1>{entry.data.title}</h1>
+<SiteLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  mainClass="has-hero"
+>
+  <section class="hero" slot="hero">
+    <div class="hero-inner">
+      <h1>OconEco</h1>
+      {entry.data.tagline && (
+        <p class="hero-tagline">{entry.data.tagline}</p>
+      )}
+      <p class="hero-cta">
+        <a href="/our-services/">Service levels</a>
+        &nbsp;·&nbsp;
+        <a href="/ot/">Toolkit</a>
+        &nbsp;·&nbsp;
+        <a href="/contact/">Contact us</a>
+      </p>
+    </div>
+  </section>
   <Content />
 </SiteLayout>

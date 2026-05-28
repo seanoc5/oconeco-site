@@ -9,6 +9,7 @@ const pages = defineCollection({
     slug: z.string(),
     sourceUrl: z.string().url().optional(),
     description: z.string().optional(),
+    tagline: z.string().optional(),
   }),
 });
 
