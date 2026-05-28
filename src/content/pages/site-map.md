@@ -5,48 +5,48 @@ slug: "site-map"
 sourceUrl: "https://oconeco.webnode.page/site-map/"
 ---
 
-[Home](../home/index.html)
+[Home](/)
 
 [Toolkit](https://oconeco.webnode.page/big-data-tools/)  
 
- [M-LA](../multi-local-analytics-mla/index.html)
+ [M-LA](/multi-local-analytics-mla/)
 
- [FIND](../stakeholder-engagement-find/index.html)
+ [FIND](/stakeholder-engagement-find/)
 
- [ISPP](../ispp/index.html)
+ [ISPP](/ispp/)
 
- [TRoI](../sroi/index.html)
+ [TRoI](/sroi/)
 
-[Adding value](../about-you/index.html) 
+[Adding value](/about-you/) 
 
- [Procedures](../procedures/index.html)
+ [Procedures](/procedures/)
 
- [Processes](../processes/index.html)
+ [Processes](/processes/)
 
- [Evidence](../evidentiary-processes/index.html)
+ [Evidence](/evidentiary-processes/)
 
- [Scales](../scales/index.html)
+ [Scales](/scales/)
 
-[Service levels](../our-services/index.html)
+[Service levels](/our-services/)
 
- [A. 2xP3 logic](../a-2xp3-logic/index.html)
+ [A. 2xP3 logic](/a-2xp3-logic/)
 
- [B. SWOT logic](../b-swot-logic/index.html)
+ [B. SWOT logic](/b-swot-logic/)
 
- [C. Disruptive logic](../c-disruptive-logic/index.html)
+ [C. Disruptive logic](/c-disruptive-logic/)
 
-[Reference materials](../reference-materials/index.html)  
+[Reference materials](/reference-materials/)  
 
- [Work in progress & sampler](../works-in-progress-samplers/index.html)
+ [Work in progress & sampler](/works-in-progress-samplers/)
 
-  [Work in progress](../in-progress/index.html)
+  [Work in progress](/in-progress/)
 
-  [Sampler](../appetizers/index.html)
+  [Sampler](/appetizers/)
 
- [Publications](../working-papers/index.html)
+ [Publications](/working-papers/)
 
-[Mind-benders from others](../mind-benders-from-others/index.html)  
+[Mind-benders from others](/mind-benders-from-others/)  
 
-[About us](../about-us/index.html)  
+[About us](/about-us/)  
 
-[Contact](../contact/index.html)
+[Contact](/contact/)

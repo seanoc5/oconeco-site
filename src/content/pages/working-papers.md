@@ -17,7 +17,7 @@ sourceUrl: "https://oconeco.webnode.page/working-papers/"
 
 *"*Coping with Complexity," Invited Paper, 50th Session of the International Statistical Institute, Beijing, August 1995
 
-*[Monitoring Environmental Progress](https://www.amazon.com/Monitoring-Environmental-Progress-Environmentally-Sustainable/dp/0821333658)*, World Bank, October 1995 (Press reports [here](../monitoring-environmental-progress/index.html))
+*[Monitoring Environmental Progress](https://www.amazon.com/Monitoring-Environmental-Progress-Environmentally-Sustainable/dp/0821333658)*, World Bank, October 1995 (Press reports [here](/monitoring-environmental-progress/))
 
 "Monitoring Environmental Progress-And More: Lessons from Land Quality Indicators," in *Developing Indicators for Environmental Sustainability: The Nuts and Bolts,* Sandra S. Batie (ed.); Proceedings of the Resource Policy Consortium Symposium, June 12-13 1995
 

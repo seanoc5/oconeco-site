@@ -14,7 +14,7 @@ This page contains private content available only to registered members. Please 
 
 Some pages of this website are available only to registered users. Create an account now to gain access to restricted pages of this website.
 
-[Create new account](../user-registration/index.html)
+[Create new account](/user-registration/)
 
 ## Login
 
@@ -24,4 +24,4 @@ Password
 
 Log in
 
-[Did you forget your password?](../user-recovery/index.html)
+[Did you forget your password?](/user-recovery/)

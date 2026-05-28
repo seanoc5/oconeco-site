@@ -9,17 +9,17 @@ ISPP essentially extends the stakeholder engagement process beyond a client init
 
 ***Identifying interests***
 
-Our proprietary [Concept Hierarchy](../concept-hierarchy/index.html), like Princeton's [WordNet](https://wordnet.princeton.edu/), is built around the psycho-linguistic assumption our minds organize objects, and nouns we use as their tokens, hierarchically. It has  thousands of search terms mined from many word- & number-oriented sources about sustainable development, loosely defined. This makes it an intuitive way to collate answer a reporter's objective questions: Where, When, Who & What.
+Our proprietary [Concept Hierarchy](/concept-hierarchy/), like Princeton's [WordNet](https://wordnet.princeton.edu/), is built around the psycho-linguistic assumption our minds organize objects, and nouns we use as their tokens, hierarchically. It has  thousands of search terms mined from many word- & number-oriented sources about sustainable development, loosely defined. This makes it an intuitive way to collate answer a reporter's objective questions: Where, When, Who & What.
 
 Fuzzy matching interleaves descriptors for number-oriented sources with alphanumeric strings in word-oriented sources. Our pattern recognition algorithms makes inferences about where users are on the [abstraction ladder](https://study.com/academy/lesson/ladder-of-abstraction-definition-example.html) across the range of concepts relevant to a client's 'workspace'.
 
 We provide clients with user profiles summarizing similarities and differences in breadth depth of the stakeholder interests for those they invite into their engagement process. 
 
-[More on Concept Hierarchy](../concept-hierarchy/index.html)
+[More on Concept Hierarchy](/concept-hierarchy/)
 
 *** Recognizing arguments***
 
-*[Corpus Minder](../corpus-minder/index.html) *searches for answers to a reporter's How & Why questions. It culls sources that rely on those in our Concept Hierarchy.
+*[Corpus Minder](/corpus-minder/) *searches for answers to a reporter's How & Why questions. It culls sources that rely on those in our Concept Hierarchy.
 
 Its number-oriented focus is models for the US, down to Counties. Terms from their equations are added to the Concept Hierarchy but the main task is capturing model structure. We see this as how each strings together
 measured objects; or hypotheses about functional links among them.
@@ -32,11 +32,11 @@ Clients may add to number- and word-oriented databases run through triage.
 
 obvious ease of despite the onand equal chance of affecting decisions. to on equal footing with quantitative is agnostic about Quantification is superfluous for concepts few discuss; concepts often discussed but rarely measured should be priorities for number-crunchers.  
 
-More on [Corpus Minder](../corpus-minder/index.html)
+More on [Corpus Minder](/corpus-minder/)
 
 ***Seeking consensus***
 
-Our virtual Workspaces let clients invite stakeholders to communicate what they consider most relevant--in what our 'pump priming' work organizes. We collect and aggregate stakeholder views into [Value Signals](../value-signals/index.html).
+Our virtual Workspaces let clients invite stakeholders to communicate what they consider most relevant--in what our 'pump priming' work organizes. We collect and aggregate stakeholder views into [Value Signals](/value-signals/).
 
 Our user interface qualifies stakeholders in broad terms, for two reasons. First, it lets us aggregate their views of  'pump priming'  content information in a client's workspace. Second, it structures client dialogue with stakeholders about what more should be added to the workspace before making resource allocation decisions. 
 
@@ -48,4 +48,4 @@ Our modern version of the [Dashboard of Sustainability](https://en.wikipedia.or
 
 Virtual Workspaces help clients decide who best represents views of each stakeholder group and clarify criteria for selecting participants in follow-up meetings.
 
-More on [Value Signals](../value-signals/index.html)
+More on [Value Signals](/value-signals/)

@@ -5,11 +5,11 @@ slug: "works-in-progress-samplers"
 sourceUrl: "https://oconeco.webnode.page/works-in-progress-samplers/"
 ---
 
-## [Sampler](../appetizers/index.html)
+## [Sampler](/appetizers/)
 
   
 
-## [Works in progress](../in-progress/index.html)
+## [Works in progress](/in-progress/)
 
 Towards County-level measures of wealth
 
