@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /deep-dive/
+
+Sitemap: https://oconeco.com/sitemap-index.xml
