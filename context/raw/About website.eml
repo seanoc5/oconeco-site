@@ -1,0 +1,515 @@
+Delivered-To: seanoc5@gmail.com
+Received: by 2002:a05:6504:1355:b0:2f9:68b3:4177 with SMTP id m21csp1330253ltp;
+        Sun, 10 May 2026 07:23:08 -0700 (PDT)
+X-Received: by 2002:a05:620a:46a0:b0:8cf:e32e:8a0a with SMTP id af79cd13be357-9090e6e2f8dmr877140785a.18.1778422987981;
+        Sun, 10 May 2026 07:23:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778422987; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ZFqmBEGY1LsOqT05KcCXbMROSjnRbXQf2AnuUNR9O65UAQyrVHV7Jqhiv8zBOuVHWu
+         ru6l3PPINWJirW+kLJ28/YQwS0DsSzWZAaQB5szlssO3T5FsBUbD9rDt7IFtt123FgAa
+         wf2gLMGdm/jHi4mK86MM6eXGRLjdW3yBF/4z98991ci/g031ut6OtOy6IhYIGaMZqjRa
+         um+O6cwFGWxs9gg5y+/K8wWCwNAplhKVWLy19XC+x3Td6Un/rBj63sL05T+DuFjLrlLa
+         z7PfnaPlDX46lgPPPeBXa+hYN2ceT5jYbVa3iJHtYJLGxIbkGD41g2KnwkoKxRdJyIgm
+         IMwQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :to:from:dkim-signature;
+        bh=pAct+9IixsnuU48eKV0/6/CTcSCcQAS1PCSza4kz6tY=;
+        fh=S1lB9usicUHNLpWr/42raFkgqlK6JXN4OANUZwq3Qik=;
+        b=k0lnLq3lX5s9p+CS1plXKZbe0quqiBwVquahUiPn6TnrLBcGn4G5/Gd+53fAP/0TBI
+         xVwEhusyH+FOVjJmYvR1WF+ZnXs/nLzroJhLHvoLETyTKJbj4xJG+FnQhRCknWQ5sYhv
+         kGgho6AM1Mv4XzINTVh7lLYd2AjD9Th8bOfcvemLnegQ9EhCznoLUxdNbIr/P3M9v7bK
+         YfFx4gavBH75YDOZaxS4sEH4UHwauRkYVj1SjkbXgkSofXgmz045jtZjTsJd10lZyPv6
+         xT7XciextX7PcRxWWtNJXrvSJFUfCne9G2tHHB43kZ1ENVBnkHgYy2rTaVfU6Ad+1I/K
+         hYNA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20251104 header.b=L+8Acqwg;
+       spf=pass (google.com: domain of johnoconeco@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=johnoconeco@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <johnoconeco@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id af79cd13be357-907f6d63728sor655051385a.11.2026.05.10.07.23.07
+        for <seanoc5@gmail.com>
+        (Google Transport Security);
+        Sun, 10 May 2026 07:23:07 -0700 (PDT)
+Received-SPF: pass (google.com: domain of johnoconeco@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20251104 header.b=L+8Acqwg;
+       spf=pass (google.com: domain of johnoconeco@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=johnoconeco@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778422987; x=1779027787; dara=google.com;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=pAct+9IixsnuU48eKV0/6/CTcSCcQAS1PCSza4kz6tY=;
+        b=L+8AcqwgtuEdXqSYaGrV+9eT1bu9Wdga11grbcYxJU4v0SZmiCSrSco2031WpmuijG
+         XEBWUveXXPGvyF7F3b00ttPuStd/ABv7fjKnlcoAgoxEFeNnbVOcgk+Fqsv5pQhQz4Ie
+         qM6c1x6BnXc8O/ypYBoKcHCe+impoWHJVv7YrA6chOagacPpKopZCY66hNCs+/IOoUMI
+         9VFGEiUvwM5EdqlGDEo1vbWUPvNeQOnyRSkg9zrzr+YeiV37PrLkpOp01k0uSm1sN3r0
+         anV6e2oXKSAH1sHvs38ynt9eR0htnnzKz23eQTFZAgfO1ZGRUgtssG8ZO7KmNFg9y5vv
+         AwfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778422987; x=1779027787;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pAct+9IixsnuU48eKV0/6/CTcSCcQAS1PCSza4kz6tY=;
+        b=h/3dUoF8exf/T3dCe0kJK0kYOIMorp6hUU5vdwJEBbeuI4CwtsWMy4FSy7iFoRkLNi
+         eRJLizSilXsg46QqRxz/FZWd067AyG2fsAPlgfasvinISsqTC4cdSLYXjTEd0qTYD+Ii
+         0Uye9Bbnw9hS0F8cE1AyD7mnjjgAMMIclrxfJhYRXBYeoXKak8s9Mdtz1A2nMfZ3Zd17
+         y82uHLm170N+NQ0E7+bDnxqipAhDinyY6fflPFH5lLz8+zDjaa7y4JzZ8XJeqCaE+lB2
+         l3LLsQWb6rqD7o7WarzOvKNEb2tQZ8SsV74MI0eAEgBc8iJrgIMyQNUK5n/p6dpHxOrv
+         RvuQ==
+X-Gm-Message-State: AOJu0YxGxyOtbKGhELRZ0bOGlWgORi9wh6T+TUq62cKtqKtmcgvX3T93
+	HWDWdVMT8sEsMUnlZwU2aDALvJAHmOfAPc+dIi1N/W0Y8V/xCubN88PLvMociw==
+X-Gm-Gg: Acq92OEiw2wIm4u7j1ieq0wW4d5ZDrd/9BFXPLCeESCeBIjpR2HnvwKDZnJqIpP12N6
+	SYdxJJMVhbxkWqS4sdDVBi/PMvypHL7US0W3ETG51AAQGV1SYFUnB4Mb/jVy8NtVpu/Gude5OLN
+	HNQTCcOTre1eKsQn6GQOs17DTjMLi6PMCSpwjDtx8tyAEql/8DceMmrv8zk8aUf8H1+zZfoXOnp
+	4yk8X9Kn5mO6JLhMMpsnyBvtVTJ2RVGKkQkMNJjT81jwPB5/2Ov6JiNDcVy+rlxyuwl1FG1XKFZ
+	YsqJNZxWBPp++tkZFGDL4mVEv3VUSHusfQeWAP7SS4NjdWY8IrYmttGo3d5LIeZJwq6fPPO03/W
+	j55xWdvT/V84xPU0ZabgT88/WkZFJS7f36FRUuxObKcA2dYaTI9NbQVqsNkH8zZ3DfdZK5Zle6M
+	eTXkYjqHMVqPGqZ3kuvbDBmVXesC3dp7X0vwaeFA25GJh6aV1JNkn6AmG/bgm9/qYlm3Uz7eQca
+	6Xc0E+irbLxtz7moSNcw4gNpGg=
+X-Received: by 2002:a05:6214:5901:b0:8b7:548c:6671 with SMTP id 6a1803df08f44-8c1a2fd87bbmr93561726d6.11.1778422987272;
+        Sun, 10 May 2026 07:23:07 -0700 (PDT)
+Return-Path: <johnoconeco@gmail.com>
+Received: from JOCSamsung ([46.110.130.114])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8bf39c7e4d4sm69662296d6.26.2026.05.10.07.23.06
+        for <seanoc5@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 10 May 2026 07:23:06 -0700 (PDT)
+From: "John C. O'Connor" <johnoconeco@gmail.com>
+X-Google-Original-From: "John C. O'Connor" <Johnoconeco@gmail.com>
+To: "'Sean O'Connor'" <seanoc5@gmail.com>
+Subject: About website
+Date: Sun, 10 May 2026 10:23:06 -0400
+Message-ID: <001701dce088$853995f0$8facc1d0$@gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+	boundary="----=_NextPart_000_0018_01DCE066.FE27F5F0"
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AdzgiF2bRUmOjUVNRRq70s5bgiZfNg==
+Content-Language: en-us
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_0018_01DCE066.FE27F5F0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_001_0019_01DCE066.FE27F5F0"
+
+
+------=_NextPart_001_0019_01DCE066.FE27F5F0
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+Claude exceeded my expectations. Right or wrong about specifics, this made
+enough sense to me to just send it for your reaction
+
+
+------=_NextPart_001_0019_01DCE066.FE27F5F0
+Content-Type: text/html;
+	charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40"><head><meta =
+http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Dus-ascii"><meta name=3DGenerator content=3D"Microsoft Word 15 =
+(filtered medium)"><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Aptos;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;
+	mso-ligatures:standardcontextual;}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"Aptos",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DEN-US =
+link=3D"#467886" vlink=3D"#96607D" style=3D'word-wrap:break-word'><div =
+class=3DWordSection1><p class=3DMsoNormal><span =
+style=3D'font-size:11.0pt'>Claude exceeded my expectations. Right or =
+wrong about specifics, this made enough sense to me to just send it for =
+your reaction<o:p></o:p></span></p></div></body></html>
+------=_NextPart_001_0019_01DCE066.FE27F5F0--
+
+------=_NextPart_000_0018_01DCE066.FE27F5F0
+Content-Type: application/octet-stream;
+	name="Website_Brief_for_Sean.md"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment;
+	filename="Website_Brief_for_Sean.md"
+
+# OconEco Website Overhaul =E2=80=94 Brief for Sean=0A=
+=0A=
+**From:** John (with Claude)  =0A=
+**To:** Sean (with Claude)  =0A=
+**Date:** 10 May 2026  =0A=
+**Purpose:** Initial scoping for one iteration between us before you =
+brief the developer.=0A=
+=0A=
+---=0A=
+=0A=
+## The Situation=0A=
+=0A=
+The current site (oconeco.webnode.page) landing page still captures who =
+we are. Everything else is from a decade ago and doesn't reflect what =
+we've built. Over the past year, the FAND project has produced:=0A=
+=0A=
+- A complete national balance sheet for 200+ countries (CW =3D PA + NC + =
+HR + SI), 1950=E2=80=932025=0A=
+- Two narrated video presentations proving the concept empirically=0A=
+- A 12-stage reproducible Python pipeline with SHA-256 audit trail=0A=
+- US subnational wealth estimates at state and county level (3,258 =
+counties)=0A=
+- 10 Operational Guidelines codifying methodology=0A=
+- A 30-term glossary of novel constructs (Hohfeldian framework, =
+Commonwealth-as-w=C4=93le, etc.)=0A=
+- Active institutional outreach (Haishan Fu, Jean Pesme, IARIW =
+submission)=0A=
+=0A=
+The website needs to make this visible =E2=80=94 not as a static =
+brochure, but as a working research platform with gated access for =
+institutional peers.=0A=
+=0A=
+---=0A=
+=0A=
+## What the Site Should Communicate=0A=
+=0A=
+Three things, in this order of priority:=0A=
+=0A=
+1. **Empirical results exist.** This is not a proposal or a think-piece. =
+We have numbers, we have videos showing what the numbers reveal, we have =
+code that reproduces them. The "Global Leaves" crosstab (7,101 =
+administrative units, 237 countries, the 38x measurement asymmetry =
+finding) is the flagship proof-of-concept. The FAND-vs-CWoN comparative =
+analysis (Appendix E) shows why our approach differs and why it matters.=0A=
+=0A=
+2. **The conceptual architecture is deep and coherent.** The balance =
+sheet identity, the Hohfeldian classification of rights, the five-scale =
+nested Where hierarchy, the "IS-Branch Principle" (institutional =
+infrastructure that conventional methodologies assume but don't =
+measure). These aren't just ideas =E2=80=94 they're implemented in code =
+and validated against data.=0A=
+=0A=
+3. **This has lineage.** John pioneered the Changing Wealth of Nations =
+at the World Bank 30 years ago. FAND is the continuation =E2=80=94 what =
+MEP 1995 would look like if you could rebuild it with modern data, =
+modern compute, and the lessons of three decades watching what worked =
+and what didn't.=0A=
+=0A=
+---=0A=
+=0A=
+## Proposed Site Structure=0A=
+=0A=
+### Public Sections=0A=
+=0A=
+**Landing Page** =E2=80=94 Retain the voice of the current page. Add a =
+30-second hook video (FAND TL1 Overview.mp4 already exists), three =
+pathway cards to the sections below, and a "latest results" signal.=0A=
+=0A=
+**"The Evidence"** =E2=80=94 Lead with this, not theory.=0A=
+- Global Leaves video (mp4, 10 min) + a static or interactive version of =
+the 5x5 crosstab=0A=
+- FAND vs. CWoN comparison (Appendix E video + key charts)=0A=
+- Country samplers: India, China, USA=0A=
+- US subnational teaser: state-level CW, county-level GTP=0A=
+=0A=
+**"The Framework"** =E2=80=94 For those who want to understand the =
+architecture.=0A=
+- Thin Description of FAND (500 words =E2=80=94 already written)=0A=
+- The five scales (TL1 =E2=86=92 Block Group)=0A=
+- Interactive glossary (Glossary of Novel Constructs, 30 entries)=0A=
+- The balance sheet identity with a worked example=0A=
+=0A=
+**"The Standards"** =E2=80=94 Signals rigor to institutional peers.=0A=
+- One-line summary of each Operational Guideline (OG-001 through OG-010)=0A=
+- Expandable for those who want depth=0A=
+- Link to Replication Package (GitHub or gated)=0A=
+=0A=
+**"About"** =E2=80=94 John's career timeline (IMF 1964 =E2=86=92 SNA =
+1968 =E2=86=92 Bolivia =E2=86=92 DataBank =E2=86=92 MEP 1995 =E2=86=92 =
+OconEco). The AI-augmented workflow note. Contact.=0A=
+=0A=
+### Gated Section (Password or Simple Login)=0A=
+=0A=
+For institutional outreach (Haishan, Steer, Serageldin, IARIW reviewers):=0A=
+- Full working papers and Appendix E=0A=
+- Downloadable workbooks (PA, CW, HR, NC branches)=0A=
+- Replication Package with documentation=0A=
+- Full OG documents=0A=
+=0A=
+---=0A=
+=0A=
+## Key Assets Already Built=0A=
+=0A=
+| Asset | Format | Ready? |=0A=
+|-------|--------|--------|=0A=
+| Global Leaves CrossTab v4 | .pptx + .mp4 (1080p, 10 min) | Yes |=0A=
+| Appendix E Comparative Analysis v6JOC | .pptx (John's edit) + =
+narration scripts (HeyGen_AppxE_v2/) | Yes (needs video render from JOC =
+version) |=0A=
+| FAND TL1 Overview v3 | .pptx + .mp4 | Yes |=0A=
+| Thin Description of FAND | .docx | Yes |=0A=
+| Glossary of Novel Constructs | .md (30 entries) | Yes |=0A=
+| FAND Long Haul (five-scale architecture) | .md | Yes |=0A=
+| First Principles of FAND Accounting | .docx | Yes |=0A=
+| Operational Guidelines (10) | .docx + .md | Yes |=0A=
+| Replication Package | Python + MANIFEST.md + checksums | Yes |=0A=
+| Country CrossTabs (India/China/USA) | .pptx | Yes |=0A=
+| US state/county workbooks | .xlsx + .csv panels | Yes |=0A=
+=0A=
+---=0A=
+=0A=
+## What We Don't Need=0A=
+=0A=
+- The "My Life in Numbers" memoir =E2=80=94 separate channel, different =
+audience, defer=0A=
+- A blog (for now) =E2=80=94 we're not ready to maintain one; the =
+presentations and papers ARE the content=0A=
+- Consulting services framing =E2=80=94 premature; the site should =
+establish credibility first=0A=
+- Any raw data files (QCEW CSVs, BEA ZIPs) =E2=80=94 pipeline inputs =
+don't belong on a public site=0A=
+=0A=
+---=0A=
+=0A=
+## Technical Notes for the Developer=0A=
+=0A=
+1. **Video hosting** =E2=80=94 Two .mp4 files (Global Leaves ~10 min, =
+FAND Overview ~5 min) need clean embedding. Vimeo or YouTube unlisted =
+with embed is fine.=0A=
+=0A=
+2. **Gated access** =E2=80=94 Must support password-protected pages. =
+Track access if possible (did Haishan's team look at the workbooks?). =
+WordPress + membership plugin is the obvious path; a simpler static-site =
++ auth layer (Netlify Identity, Supabase Auth) works too.=0A=
+=0A=
+3. **Interactive stretch goals** =E2=80=94 If budget allows: the 5x5 =
+Global Leaves crosstab as a clickable D3 visualization, the =
+What-hierarchy as a collapsible tree, and the Where-gazetteer as a map. =
+These are Phase 2, not blockers for launch.=0A=
+=0A=
+4. **Domain** =E2=80=94 Register oconeco.com if available. If not, =
+alternatives TBD.=0A=
+=0A=
+5. **Content management** =E2=80=94 John needs to be able to update text =
+and upload new documents without developer involvement. Whatever the =
+platform, this is non-negotiable.=0A=
+=0A=
+---=0A=
+=0A=
+## How We Prepare the Materials (Division of Labor)=0A=
+=0A=
+The developer should never have to interpret, distill, or navigate our =
+working folders. That's not his job =E2=80=94 and frankly the material =
+in its current form would be incomprehensible to anyone who hasn't lived =
+inside the project.=0A=
+=0A=
+**What we (John + Claude) deliver to Sean, who delivers to the =
+developer:**=0A=
+=0A=
+For each section of the site, we produce a *website-ready content =
+packet* =E2=80=94 final text, final images, final video files, all named =
+and sequenced so the developer's job is purely layout and =
+implementation. Specifically:=0A=
+=0A=
+1. **Landing page packet** =E2=80=94 Final prose (HTML-ready markdown), =
+hero image, embedded video file (or YouTube/Vimeo link), card text for =
+the three pathway links. Delivered as a single folder.=0A=
+=0A=
+2. **Evidence section packet** =E2=80=94 For each sub-page (Global =
+Leaves, Appendix E, Country Samplers, US Subnational): final explanatory =
+text (2-3 paragraphs per page), the video embed link, and 3-5 static =
+chart images exported from the .pptx files as high-res PNGs with =
+captions. If we do an interactive crosstab, we deliver the working =
+D3/Observable notebook =E2=80=94 but that's Phase 2.=0A=
+=0A=
+3. **Framework section packet** =E2=80=94 The Thin Description (already =
+written, needs minor web-formatting edit), the glossary entries as =
+structured data (term / definition / cross-references =E2=80=94 easily =
+rendered as an accordion or searchable list), and the five-scale diagram =
+as an SVG or high-res image with alt text.=0A=
+=0A=
+4. **Standards section packet** =E2=80=94 One-line summary + =
+one-paragraph expansion for each OG, delivered as a structured markdown =
+file the developer drops into an accordion component.=0A=
+=0A=
+5. **About page packet** =E2=80=94 Career timeline entries (year, role, =
+institution, one sentence), portrait photo, and 2-3 paragraphs of prose.=0A=
+=0A=
+6. **Gated section** =E2=80=94 File list with download links. We =
+organize the PDFs/workbooks into a clean folder structure with a README; =
+the developer just wires up the download UI and auth layer.=0A=
+=0A=
+**Timeline estimate for content preparation:**=0A=
+=0A=
+- Landing page + About: 1 session (we could do this today)=0A=
+- Evidence section (all sub-pages): 2-3 sessions =E2=80=94 the main work =
+is exporting charts from .pptx as images and writing the contextual =
+prose for each=0A=
+- Framework section: 1-2 sessions =E2=80=94 mostly reformatting existing =
+documents=0A=
+- Standards section: 1 session =E2=80=94 mechanical extraction from OG =
+documents=0A=
+- Gated section file organization: 1 session=0A=
+=0A=
+Total: roughly **6-8 working sessions between John and Claude** to =
+produce everything the developer needs. Call it 2-3 weeks if we do one =
+session per day on this track, interspersed with other FAND work. Could =
+compress to 1 week if this is the sole focus.=0A=
+=0A=
+**What Sean's role is:** Review each packet for tone, check that the =
+developer can work from it without questions, and handle the developer =
+relationship (timeline, budget, feedback loops). Sean does NOT need to =
+understand the methodology or make editorial judgments about which chart =
+goes where =E2=80=94 we handle that.=0A=
+=0A=
+**What the developer's role is:** Take our content packets and build =
+pages. Choose fonts, spacing, responsive breakpoints, implement the auth =
+layer, optimize images, deploy. He should never need to open a .pptx =
+file, read a session log, or decide what content means.=0A=
+=0A=
+---=0A=
+=0A=
+## Implications for LightSpot / CorpusMinder Integration=0A=
+=0A=
+This website exercise isn't just about a public-facing site. It's also a =
+forcing function for deciding what gets ingested into Sean's LLM =
+platform and in what form.=0A=
+=0A=
+**The website content packets become LLM training/reference material.**=0A=
+=0A=
+Every piece we prepare for the website =E2=80=94 the Thin Description, =
+the glossary entries, the OG summaries, the chart captions, the evidence =
+narratives =E2=80=94 is simultaneously a candidate for structured =
+ingestion into LightSpot/CorpusMinder. The act of distilling our working =
+materials into web-ready prose produces exactly the kind of =
+authoritative, self-contained, well-scoped text chunks that an LLM needs =
+as grounding material.=0A=
+=0A=
+**What the website exercise surfaces for Sean's architecture:**=0A=
+=0A=
+1. **The "What" hierarchy as a retrieval scaffold.** The 415-node =
+classification tree isn't just a website navigation element =E2=80=94 =
+it's potentially the taxonomy LightSpot uses to route queries. When =
+someone asks "what's Nigeria's natural capital position?", the system =
+needs to know that Natural Capital =3D code 1.1.1.3 =3D sum of fossil =
+fuels + minerals + fisheries + agland + forests. The website's =
+interactive tree and the LLM's retrieval index could share the same =
+structured data source.=0A=
+=0A=
+2. **The Operational Guidelines as system prompts.** Each OG codifies =
+how FAND handles a specific methodological domain. These are natural =
+candidates for retrieval-augmented generation =E2=80=94 when a user asks =
+about PPP conversions, the system pulls OG-004; when they ask about =
+produced assets pedigree, it pulls OG-003. The one-paragraph summaries =
+we write for the website become the "quick context" layer; the full OG =
+documents become the deep retrieval layer.=0A=
+=0A=
+3. **The Glossary as entity definitions.** The 30-term Glossary of Novel =
+Constructs defines FAND's conceptual vocabulary in a way that no =
+general-purpose LLM would know. These entries =E2=80=94 Abductive =
+Triage, Commonwealth-as-w=C4=93le, Synaptic Cleft, Hohfeldian =
+classification, IS-Branch Principle =E2=80=94 are exactly what Sean's =
+system needs to understand and use OconEco's language correctly rather =
+than defaulting to mainstream economics terminology.=0A=
+=0A=
+4. **Country page notes as the LLM's "exceptions to expectations" =
+layer.** This is where LightSpot's generative capability becomes most =
+valuable. The website will eventually host country deep dives. Sean's =
+LLM can generate the "why is this country unusual?" commentary for each =
+=E2=80=94 but only if it has been grounded in the balance sheet =
+identity, the methodology, and the data. The website content packets =
+give it that grounding.=0A=
+=0A=
+5. **The Replication Package as executable knowledge.** The 12-stage =
+Python pipeline (run_all.py) is not just code =E2=80=94 it's a =
+machine-readable specification of how every number in FAND is produced. =
+Sean's system could potentially trace any published number back through =
+the pipeline to its source data. The website's Replication Package =
+download is the human-readable version; the LLM gets the same material =
+as structured context.=0A=
+=0A=
+**Practical sequencing:** As we prepare each website content packet, we =
+flag which components are also LLM-ingest candidates and in what format =
+(structured JSON for hierarchies, markdown for prose, Python docstrings =
+for pipeline logic). This means the website build and the LLM =
+knowledge-base build happen in parallel from the same preparation work =
+=E2=80=94 not as two separate efforts.=0A=
+=0A=
+---=0A=
+=0A=
+## Open Questions (For Our Next Iteration)=0A=
+=0A=
+1. Do you have a sense of the developer's stack preferences? That =
+determines whether we aim for WordPress, a JAMstack site (Next.js/Astro =
+on Vercel), or something else.=0A=
+=0A=
+2. Budget envelope =E2=80=94 does it include custom interactive =
+visualizations (D3/Observable), or are we working with embedded videos =
+and static images for Phase 1?=0A=
+=0A=
+3. Timeline =E2=80=94 is there a hard date? The Haishan outreach and =
+IARIW submission create natural pressure points.=0A=
+=0A=
+4. The tone question: I lean toward "think-tank with academic depth on =
+drill-down" rather than pure academic journal. Your view?=0A=
+=0A=
+5. Should the gated section be a single shared password (simpler) or =
+individual accounts (more trackable)?=0A=
+=0A=
+---=0A=
+=0A=
+## Where to Find Everything=0A=
+=0A=
+All source material lives in two OneDrive folders:=0A=
+=0A=
+```=0A=
+OconEco/claude/BC_Hybrid/Presentations/  =E2=80=94 Videos, decks, scripts=0A=
+OconEco/claude/BC_Hybrid/MEP_Redux/      =E2=80=94 Core conceptual docs=0A=
+OconEco/claude/B_Advocacy/               =E2=80=94 External-facing papers=0A=
+OconEco/claude/C_Technical/Guidelines/   =E2=80=94 OG documents=0A=
+OconEco/claude/C_Technical/Operational_Guidelines/  =E2=80=94 OG-008, =
+OG-009=0A=
+OconEco/claude/Replication_Package/      =E2=80=94 Full reproducible =
+pipeline=0A=
+```=0A=
+=0A=
+The companion file `OconEco_Website_Scoping_for_Sean.md` (in this same =
+folder) has the full inventory with file-by-file detail if the developer =
+needs to locate specific assets.=0A=
+=0A=
+---=0A=
+=0A=
+*Next step: Sean reviews, pushes back, we iterate once, then this =
+becomes the developer brief.*=0A=
+
+------=_NextPart_000_0018_01DCE066.FE27F5F0--
+

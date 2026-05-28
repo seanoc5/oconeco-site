@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OconEco Website — Developer Brief v2</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1a1a1a; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 32px 24px; background: #fff; }
+
+  h1 { font-size: 28px; font-weight: 800; margin-bottom: 4px; }
+  h2 { font-size: 20px; font-weight: 700; margin: 36px 0 12px; border-bottom: 2px solid #e5e7eb; padding-bottom: 6px; }
+  h3 { font-size: 16px; font-weight: 700; margin: 20px 0 8px; }
+  p { margin-bottom: 12px; font-size: 15px; }
+
+  .meta { font-size: 13px; color: #666; margin-bottom: 24px; }
+
+  .callout {
+    background: #fffbeb; border-left: 4px solid #d97706; padding: 14px 16px;
+    border-radius: 0 6px 6px 0; margin: 16px 0; font-size: 14px;
+  }
+  .callout strong { color: #92400e; }
+
+  .callout-blue {
+    background: #eff6ff; border-left: 4px solid #2563eb; padding: 14px 16px;
+    border-radius: 0 6px 6px 0; margin: 16px 0; font-size: 14px;
+  }
+
+  .callout-green {
+    background: #f0fdf4; border-left: 4px solid #059669; padding: 14px 16px;
+    border-radius: 0 6px 6px 0; margin: 16px 0; font-size: 14px;
+  }
+
+  /* Balance sheet diagram */
+  .bs-diagram {
+    border: 2px solid #222; border-radius: 8px; overflow: hidden; margin: 16px 0;
+  }
+  .bs-header {
+    background: #1e293b; color: white; text-align: center; padding: 10px;
+    font-size: 15px; font-weight: 700;
+  }
+  .bs-body { display: flex; }
+  .bs-col { flex: 1; padding: 16px; }
+  .bs-col:first-child { border-right: 1px solid #e5e7eb; }
+  .bs-col-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; text-align: center; }
+  .bs-col-title.green { color: #059669; }
+  .bs-col-title.red { color: #dc2626; }
+
+  .bs-group { margin-bottom: 12px; padding: 10px; border-radius: 6px; border: 1.5px solid #e5e7eb; }
+  .bs-group-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .bs-item { font-size: 13px; padding: 3px 0; display: flex; align-items: flex-start; gap: 6px; }
+  .bs-item .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+  .bs-item .label { font-weight: 700; }
+  .bs-item .desc { color: #666; }
+  .bs-nw { text-align: center; padding: 10px; border-top: 2px solid #1e293b; font-size: 14px; font-weight: 700; background: #1e293b; color: white; }
+
+  /* Zoom levels */
+  .zoom-strip { display: flex; gap: 0; margin: 16px 0; }
+  .zoom-level {
+    flex: 1; padding: 14px 10px; text-align: center;
+    border: 1.5px solid #ddd; position: relative;
+  }
+  .zoom-level:first-child { border-radius: 8px 0 0 8px; }
+  .zoom-level:last-child { border-radius: 0 8px 8px 0; }
+  .zoom-level + .zoom-level { border-left: none; }
+  .zoom-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #059669; }
+  .zoom-title { font-size: 14px; font-weight: 700; margin: 2px 0; }
+  .zoom-detail { font-size: 11px; color: #666; }
+  .zoom-arrow { position: absolute; right: -7px; top: 50%; transform: translateY(-50%); font-size: 16px; color: #059669; font-weight: 700; z-index: 2; }
+
+  /* Four axes */
+  .axis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+  .axis-card {
+    padding: 14px; border-radius: 8px; border: 1.5px solid #e5e7eb;
+  }
+  .axis-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+  .axis-card p { font-size: 13px; color: #555; margin-bottom: 0; }
+  .axis-badge {
+    display: inline-block; font-size: 10px; font-weight: 700; color: white;
+    padding: 2px 6px; border-radius: 3px; margin-bottom: 4px;
+  }
+
+  /* Tree */
+  .tree { font-size: 13px; padding: 12px 16px; background: #f8fafc; border-radius: 8px; margin: 12px 0; border: 1px solid #e5e7eb; }
+  .tree-node { padding: 2px 0; }
+  .tree-children { padding-left: 22px; border-left: 1.5px solid #d1d5db; margin-left: 4px; }
+  .tree-code { font-family: 'SF Mono', Consolas, monospace; font-size: 11px; color: #999; margin-right: 4px; }
+  .tree-leaf { color: #666; font-size: 12px; }
+
+  /* Source chips */
+  .chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+  .chip { padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .chip-intl { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+  .chip-us { background: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
+
+  /* NUSAP */
+  .nusap-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  .nusap-table th { background: #7c3aed; color: white; padding: 8px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nusap-table td { padding: 8px; border-bottom: 1px solid #e5e7eb; }
+  .nusap-table td:first-child { font-weight: 700; font-size: 16px; text-align: center; width: 40px; }
+
+  /* Site map */
+  .sitemap { display: flex; gap: 8px; margin: 16px 0; flex-wrap: wrap; }
+  .sitemap-card {
+    flex: 1; min-width: 110px; padding: 12px; border-radius: 8px;
+    border: 1.5px solid #e5e7eb; text-align: center;
+  }
+  .sitemap-title { font-size: 14px; font-weight: 700; }
+  .sitemap-sub { font-size: 11px; color: #666; margin-top: 2px; }
+  .sitemap-badge { display: inline-block; font-size: 9px; font-weight: 700; background: #7c3aed; color: white; padding: 1px 5px; border-radius: 3px; margin-bottom: 3px; }
+
+  /* Cross-border scale */
+  .cb-scale { display: flex; gap: 0; margin: 12px 0; }
+  .cb-card { flex: 1; padding: 12px; border: 1px solid #ddd; }
+  .cb-card:first-child { border-radius: 8px 0 0 8px; }
+  .cb-card:last-child { border-radius: 0 8px 8px 0; }
+  .cb-card + .cb-card { border-left: none; }
+  .cb-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; color: #0891b2; }
+  .cb-title { font-size: 13px; font-weight: 700; margin: 2px 0; }
+  .cb-detail { font-size: 11px; color: #666; line-height: 1.4; }
+  .cb-note { font-size: 10px; color: #dc2626; font-weight: 600; font-style: italic; margin-top: 4px; }
+
+  /* Page content spec */
+  .page-spec { margin: 12px 0; padding: 14px; background: #f8fafc; border-radius: 8px; border: 1px solid #e5e7eb; }
+  .page-spec h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .page-spec p { font-size: 13px; color: #555; margin-bottom: 6px; }
+  .page-spec ul { padding-left: 18px; font-size: 13px; color: #555; }
+  .page-spec li { margin-bottom: 3px; }
+
+  .footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #999; }
+</style>
+</head>
+<body>
+
+<h1>OconEco Website — Developer Brief</h1>
+<div class="meta">From: John O'Connor (via Claude) &nbsp;|&nbsp; Date: 11 May 2026 &nbsp;|&nbsp; Version: 2 &nbsp;|&nbsp; For: Web developer (via Sean)</div>
+
+<div class="callout">
+  <strong>What this document is:</strong> Everything you need to understand what we're building, without needing to understand the research itself. We'll deliver all content as ready-to-drop-in packets — your job is layout, interaction, and deployment, not editorial judgment.
+</div>
+
+<!-- ===== SECTION 1: WHAT IS THIS ===== -->
+<h2>1. What OconEco Does (30-Second Version)</h2>
+
+<p>GDP tells you what a country <em>earns in a year</em>. We measure what it <em>owns</em> — its full balance sheet. That includes factories and roads, but also oil reserves, forests, the value of an educated population, and the institutional trust that makes a society work.</p>
+
+<p>We do this for <strong>200+ countries</strong> (back to 1950), <strong>50 US states</strong>, and <strong>3,258 US counties</strong>. Nobody else does this at this scale or with this level of detail.</p>
+
+<p>The website makes these results visible to institutional peers (World Bank alumni, academic reviewers, development agencies) and eventually to anyone interested in how places build or lose wealth over time.</p>
+
+<!-- ===== SECTION 2: THE BALANCE SHEET ===== -->
+<h2>2. The Core Concept — A Balance Sheet for Places</h2>
+
+<p>Think of a company's balance sheet: assets on one side, liabilities on the other, net worth at the bottom. We do the same thing for countries, states, and counties. This is the central object the entire website presents.</p>
+
+<div class="bs-diagram">
+  <div class="bs-header">Balance Sheet of a Territory (Country, State, or County)</div>
+  <div class="bs-body">
+    <div class="bs-col">
+      <div class="bs-col-title green">1.1 &nbsp;Assets</div>
+
+      <div class="bs-group" style="border-color: #bfdbfe;">
+        <div class="bs-group-label" style="color: #2563eb;">Claim-Rights — things you can buy, sell, borrow against</div>
+        <div class="bs-item"><div class="dot" style="background:#2563eb;"></div><span class="label">PA</span> <span class="desc">— Produced Assets (factories, roads, buildings)</span></div>
+        <div class="bs-item"><div class="dot" style="background:#2563eb;"></div><span class="label">NC</span> <span class="desc">— Natural Capital (oil, minerals, timber, fish, farmland)</span></div>
+        <div class="bs-item"><div class="dot" style="background:#0891b2;"></div><span class="label">CBA</span> <span class="desc">— Cross-Border Assets (claims on Commonwealth elsewhere)</span></div>
+      </div>
+
+      <div class="bs-group" style="border-color: #fde68a;">
+        <div class="bs-group-label" style="color: #d97706;">Substantive Rights — valuable but not collateralizable</div>
+        <div class="bs-item"><div class="dot" style="background:#d97706;"></div><span class="label">HR</span> <span class="desc">— Human Resources (education and health endowments)</span></div>
+        <div class="bs-item"><div class="dot" style="background:#d97706;"></div><span class="label">SR</span> <span class="desc">— Other Substantive Rights (ecosystem services, institutional trust)</span></div>
+      </div>
+    </div>
+
+    <div class="bs-col">
+      <div class="bs-col-title red">1.2 &nbsp;Liabilities &nbsp;<em style="font-size:11px; font-weight:normal; color:#999;">(to whom?)</em></div>
+
+      <div class="bs-group" style="border-color: #fecaca;">
+        <div class="bs-group-label" style="color: #dc2626;">Cross-Border Duties — recognized rights of others to a place's wealth</div>
+        <div class="bs-item"><div class="dot" style="background:#dc2626;"></div><span class="label">CBL</span> <span class="desc">— Foreign liabilities, inter-state obligations, commuter outflows</span></div>
+      </div>
+
+      <div class="bs-group" style="border-color: #e9d5ff;">
+        <div class="bs-group-label" style="color: #9333ea;">Deferred Maintenance — the trust-infrastructure deficit</div>
+        <div class="bs-item"><div class="dot" style="background:#9333ea;"></div><span class="label">DM</span> <span class="desc">— The gap closed by investing more in how people collaborate and compete (strengthening communities, institutions, rule of law).</span></div>
+      </div>
+
+      <div class="bs-nw">1.2.4 &nbsp;Net Worth &nbsp;= &nbsp;Assets – CBL – DM<br><span style="font-size:12px; font-weight:400; opacity:0.85;">Liability to the owners of the place. &nbsp;<em>Whose net worth is it?</em></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="callout-blue">
+  <strong>Two key insights you need to understand:</strong> (1) Most of the world's wealth is in the <em>substantive rights</em> column — education, health, institutional trust. These are things you can't sell on a market or borrow against at a bank, but they're what actually makes a place prosperous. Nobody else measures them. We do. That's why this project exists. (2) Net Worth is a <em>liability</em> — what the entity owes its owners. For a corporation, owners are shareholders. For a place, the question is: <em>whose net worth is it?</em> The governed. That question — who owns the wealth of a place and how well is it being managed — is what the entire site must make visible.
+</div>
+
+<!-- ===== SECTION 3: THE SPATIAL DRILL-DOWN ===== -->
+<h2>3. The Primary Navigation — Spatial Drill-Down</h2>
+
+<p>The same balance sheet structure applies at every geographic level. The user starts at the world view and zooms in. This is the main navigation pathway of the entire site.</p>
+
+<div class="zoom-strip">
+  <div class="zoom-level" style="background: #f0fdf4;">
+    <div class="zoom-tag">Level 1</div>
+    <div class="zoom-title">World</div>
+    <div class="zoom-detail">237 countries<br>1950–2025</div>
+    <div class="zoom-arrow">›</div>
+  </div>
+  <div class="zoom-level" style="background: #dcfce7;">
+    <div class="zoom-tag">Level 2</div>
+    <div class="zoom-title">Country</div>
+    <div class="zoom-detail">Full balance sheet<br>75-year time series</div>
+    <div class="zoom-arrow">›</div>
+  </div>
+  <div class="zoom-level" style="background: #bbf7d0;">
+    <div class="zoom-tag">Level 3</div>
+    <div class="zoom-title">US State</div>
+    <div class="zoom-detail">51 units<br>wealth + income</div>
+    <div class="zoom-arrow">›</div>
+  </div>
+  <div class="zoom-level" style="background: #86efac;">
+    <div class="zoom-tag">Level 4</div>
+    <div class="zoom-title">US County</div>
+    <div class="zoom-detail">3,258 counties<br>wealth components</div>
+  </div>
+</div>
+
+<h3>What changes as you zoom in: the cross-border story</h3>
+
+<p>The balance sheet equation is the same at every level, but "cross-border" means something completely different depending on the scale — and the enforceability of claims varies even within the same nominal legal system. A contract enforceable in Manhattan may face materially different enforcement in rural Mississippi. This is one of the most interesting things the site needs to convey.</p>
+
+<div class="cb-scale">
+  <div class="cb-card" style="background: #f0fdfa;">
+    <div class="cb-tag">Country Level</div>
+    <div class="cb-title">International</div>
+    <div class="cb-detail">Foreign assets held abroad vs. foreign debt owed. Well-measured (IMF data). This is about globalization.</div>
+    <div class="cb-note">USA net position: −$15 trillion</div>
+  </div>
+  <div class="cb-card" style="background: #ccfbf1;">
+    <div class="cb-tag">State Level</div>
+    <div class="cb-title">International + Interstate</div>
+    <div class="cb-detail">Same sovereign — "cross-border" now means where people <em>live</em> vs. where they <em>work</em> across state lines. Interstate flows are 13–399× larger than international for commuter-belt states.</div>
+  </div>
+  <div class="cb-card" style="background: #99f6e4;">
+    <div class="cb-tag">County Level</div>
+    <div class="cb-title">Commuter Flows Dominate</div>
+    <div class="cb-detail">A bedroom suburb vs. its downtown neighbor. Income earned in Manhattan, spent in Bergen County, NJ. This is the economic reality most Americans actually live.</div>
+    <div class="cb-note">This is the defining relationship at county scale</div>
+  </div>
+</div>
+
+<div class="callout-green">
+  <strong>UX implication:</strong> You're building one balance-sheet page template that renders at any scale. But the narrative text and cross-border visualization must adapt — at country level it shows international flows; at county level it shows commuter dynamics. We'll provide the text for each context. You wire the template to swap it.
+</div>
+
+<!-- ===== SECTION 4: FOUR NAVIGATION AXES ===== -->
+<h2>4. Four Navigation Axes</h2>
+
+<p>The site has four independent ways to drill into the data. You need to build for all four, though they have different prominence.</p>
+
+<div class="axis-grid">
+  <div class="axis-card">
+    <div class="axis-badge" style="background: #059669;">PRIMARY</div>
+    <h4>Where (Spatial)</h4>
+    <p>World → Country → State → County. This is the homepage-to-detail journey. Map or list, click to zoom. The main navigation of the site.</p>
+  </div>
+  <div class="axis-card">
+    <div class="axis-badge" style="background: #2563eb;">PRIMARY</div>
+    <h4>What (Thematic)</h4>
+    <p>Balance sheet → Claim-rights / Substantive rights → branches → individual commodities. A collapsible tree with 415 nodes. Users click "Natural Capital" and see it break into oil, minerals, fisheries, farms, forests.</p>
+  </div>
+  <div class="axis-card">
+    <div class="axis-badge" style="background: #d97706;">SUPPORTING</div>
+    <h4>Source (Referral)</h4>
+    <p>Every number links to where it came from — the statistical agency, table, and year. Users can leave the site to verify or find alternatives, then come back. Inline source links, not a bibliography page.</p>
+  </div>
+  <div class="axis-card">
+    <div class="axis-badge" style="background: #7c3aed;">SUPPORTING</div>
+    <h4>Methodology</h4>
+    <p>10 Operational Guidelines (expandable accordion) plus a data-quality framework (NUSAP) showing how much to trust each number. Accessible on drill-down, not front-page material.</p>
+  </div>
+</div>
+
+<!-- ===== SECTION 5: THE WHAT HIERARCHY ===== -->
+<h2>5. The What Hierarchy — Thematic Drill-Down</h2>
+
+<p>When a user looks at a country's balance sheet and clicks on "Natural Capital," they should see it break down into its constituent parts. This is a 415-node classification tree. You don't show all 415 nodes at once — it unfolds on demand, like a file explorer.</p>
+
+<div class="tree">
+  <div class="tree-node"><span class="tree-code">1</span> <strong>Balance Sheet</strong></div>
+  <div class="tree-children">
+    <div class="tree-node"><span class="tree-code">1.1</span> <strong>Assets</strong></div>
+    <div class="tree-children">
+      <div class="tree-node"><span class="tree-code">1.1.1</span> <strong>Claim-Rights</strong> — assets you can collateralize</div>
+      <div class="tree-children">
+        <div class="tree-node"><span class="tree-code">1.1.1.1</span> Financial Assets (Net)</div>
+        <div class="tree-node"><span class="tree-code">1.1.1.2</span> <strong>PA</strong> — Produced Assets (depreciable: equipment, structures, IPP)</div>
+        <div class="tree-node"><span class="tree-code">1.1.1.3</span> <strong>NC</strong> — Natural Capital (indefinite- &amp; long-lived)</div>
+        <div class="tree-children">
+          <div class="tree-leaf"><span class="tree-code">.1.1.1</span> Fossil Fuels (oil, gas, coal)</div>
+          <div class="tree-leaf"><span class="tree-code">.1.1.2</span> Minerals (31 commodities)</div>
+          <div class="tree-leaf"><span class="tree-code">.1.2</span> Fisheries</div>
+          <div class="tree-leaf"><span class="tree-code">.2.1.2</span> Agricultural Land (farmland + grazingland)</div>
+          <div class="tree-leaf"><span class="tree-code">.2.2.2</span> Forest Timber (industrial roundwood + fuelwood)</div>
+          <div class="tree-leaf"><span class="tree-code">.2.2.3</span> Forest Land</div>
+        </div>
+        <div class="tree-node"><span class="tree-code">1.1.1.4</span> <strong>Cross-Border Claim-Rights</strong> (Gross Foreign Assets)</div>
+        <div class="tree-children">
+          <div class="tree-leaf"><span class="tree-code">.1</span> Via Domestic Financial System (CBS+ODCS)</div>
+          <div class="tree-leaf"><span class="tree-code">.3</span> Nonbank-Banks</div>
+          <div class="tree-leaf"><span class="tree-code">.4</span> Foreign Direct Investment</div>
+          <div class="tree-leaf"><span class="tree-code">.5</span> All-Other</div>
+          <div class="tree-leaf" style="color:#0891b2; font-style:italic;">Enforceability varies across jurisdictions</div>
+        </div>
+      </div>
+      <div class="tree-node"><span class="tree-code">1.1.2</span> <strong>Substantive Rights</strong> — non-collateralizable</div>
+      <div class="tree-children">
+        <div class="tree-node"><span class="tree-code">1.1.2.1</span> <strong>HR</strong> — Human Resources (education + health)</div>
+        <div class="tree-node"><span class="tree-code">1.1.2.2</span> <strong>SR</strong> — Other Substantive Rights</div>
+        <div class="tree-children">
+          <div class="tree-leaf"><span class="tree-code">.1</span> 'Free' services of nature (mangroves, hydropower, carbon, water, solar, wind)</div>
+          <div class="tree-leaf"><span class="tree-code">.2</span> 'Free' trust infrastructure (institutions, rule of law, social cohesion)</div>
+        </div>
+      </div>
+    </div>
+    <div class="tree-node"><span class="tree-code">1.2</span> <strong>Liabilities</strong> <em style="color:#999; font-size:12px;">(to whom?)</em></div>
+    <div class="tree-children">
+      <div class="tree-node"><span class="tree-code">1.2.1</span> Intragenerational (income inequality)</div>
+      <div class="tree-node"><span class="tree-code">1.2.2</span> Intergenerational</div>
+      <div class="tree-children">
+        <div class="tree-leaf"><span class="tree-code">.1</span> <strong>DM</strong> — Deferred Maintenance of Trust Infrastructure</div>
+        <div class="tree-leaf"><span class="tree-code">.2</span> Asset Restoration Obligations</div>
+        <div class="tree-leaf"><span class="tree-code">.3</span> Other Natural Sinks</div>
+      </div>
+      <div class="tree-node"><span class="tree-code">1.2.3</span> <strong>Cross-Border Duties</strong> (Gross Foreign Liabilities)</div>
+      <div class="tree-children">
+        <div class="tree-leaf"><span class="tree-code">.1</span> Via Domestic Financial System</div>
+        <div class="tree-leaf"><span class="tree-code">.2</span> Sovereign Debt (Non-Traditional Holders)</div>
+        <div class="tree-leaf"><span class="tree-code">.3</span> Nonbank-Banks</div>
+        <div class="tree-leaf"><span class="tree-code">.4</span> Inward FDI</div>
+        <div class="tree-leaf"><span class="tree-code">.5</span> All-Other Duties</div>
+        <div class="tree-leaf" style="color:#dc2626; font-style:italic;">Recognized rights of others to a place's wealth</div>
+      </div>
+      <div class="tree-node" style="margin-top:8px; padding-top:8px; border-top:2px solid #1e293b;"><span class="tree-code">1.2.4</span> <strong>Net Worth</strong> — <em>liability to the owners of the place</em></div>
+    </div>
+  </div>
+</div>
+
+<p>This tree drives two things on the site: (a) the Framework page shows it as an interactive explorer, and (b) every balance-sheet page uses it to power the detail drill-down.</p>
+
+<!-- ===== SECTION 6: SOURCE REFERRAL ===== -->
+<h2>6. Source Referral — Every Number Has a Provenance</h2>
+
+<p>We cherry-pick a few key indicators from each source agency so users can quickly verify our positions or find alternatives. The site should make it easy to "leave FAND" to check a source and come back. Think of it as footnotes that actually work.</p>
+
+<h3>International sources (country-level data)</h3>
+<div class="chip-row">
+  <span class="chip chip-intl">WDI (World Bank)</span>
+  <span class="chip chip-intl">IMF (IIP/IFS)</span>
+  <span class="chip chip-intl">FAO / FAOSTAT</span>
+  <span class="chip chip-intl">USGS Minerals</span>
+  <span class="chip chip-intl">EIA / Energy Institute</span>
+  <span class="chip chip-intl">OECD Fixed Assets</span>
+  <span class="chip chip-intl">UN Population Division</span>
+  <span class="chip chip-intl">BIS (Bank Settlements)</span>
+</div>
+
+<h3>US sources (state and county data)</h3>
+<div class="chip-row">
+  <span class="chip chip-us">BEA (GDP, Income, FDI)</span>
+  <span class="chip chip-us">BLS (Wages by Industry)</span>
+  <span class="chip chip-us">Census Bureau (Demographics, Education)</span>
+  <span class="chip chip-us">EIA (Energy Production)</span>
+  <span class="chip chip-us">USGS (Mineral Deposits)</span>
+  <span class="chip chip-us">NOAA (Fisheries, Coastal Economy)</span>
+  <span class="chip chip-us">USDA NASS (Cropland, Rental Rates)</span>
+  <span class="chip chip-us">IHME / CHR (Life Expectancy)</span>
+</div>
+
+<div class="callout">
+  <strong>UX pattern:</strong> Every data value on a country/state/county page should have a small source icon or footnote. Click it → see the agency, table name, year, and a direct URL to the original data. Not a separate bibliography page — inline, contextual, and immediate.
+</div>
+
+<!-- ===== SECTION 7: METHODOLOGY ===== -->
+<h2>7. Methodology — OGs and NUSAP</h2>
+
+<p>Two features live under the Methodology umbrella. Neither is a headliner, but the site architecture must accommodate them from the start. Retrofitting quality metadata into a design that wasn't built for it is painful.</p>
+
+<h3>Operational Guidelines (OGs)</h3>
+<p>10 guidelines (OG-001 through OG-010) that codify how we handle specific methodological domains. On the site these appear as an accordion on the Standards/Methodology page: one-line summary visible, full text on expand. Institutional reviewers will read these — they signal that this is peer-grade work.</p>
+
+<h3>NUSAP — Data Quality Framework</h3>
+<p>NUSAP is an established framework (Funtowicz & Ravetz, 1990) for communicating data quality. Most data portals show you a number without telling you how much to trust it. We show quality metadata alongside every value. This is a differentiator: "We show you how much to trust each number."</p>
+
+<table class="nusap-table">
+  <tr><th>—</th><th>Stands For</th><th>What the User Sees</th></tr>
+  <tr><td>N</td><td>Numeral</td><td>The value itself ($4,200 per capita)</td></tr>
+  <tr><td>U</td><td>Unit</td><td>Current USD, tonnes, km², etc.</td></tr>
+  <tr><td>S</td><td>Spread</td><td>Uncertainty range or confidence band</td></tr>
+  <tr><td>A</td><td>Assessment</td><td>Qualitative reliability rating (HIGH / MEDIUM / LOW)</td></tr>
+  <tr><td>P</td><td>Pedigree</td><td>Full provenance chain — which source, which tier, any statistical adjustments</td></tr>
+</table>
+
+<div class="callout-blue">
+  <strong>How NUSAP appears on the site — progressive disclosure:</strong> The numeral (N) and unit (U) are always visible. Hover or click → see the spread (S) and assessment (A). Click "source detail" → full pedigree (P) with the referral link to the primary agency. The pedigree badges already exist in our data pipeline — we'll provide them as structured metadata you render.
+</div>
+
+<!-- ===== SECTION 8: SITE MAP ===== -->
+<h2>8. Site Map — The Pages</h2>
+
+<div class="sitemap">
+  <div class="sitemap-card">
+    <div class="sitemap-title">Landing</div>
+    <div class="sitemap-sub">The 30-second hook</div>
+  </div>
+  <div class="sitemap-card">
+    <div class="sitemap-title">Evidence</div>
+    <div class="sitemap-sub">Results & data views</div>
+  </div>
+  <div class="sitemap-card">
+    <div class="sitemap-title">Framework</div>
+    <div class="sitemap-sub">Architecture & glossary</div>
+  </div>
+  <div class="sitemap-card">
+    <div class="sitemap-title">Methodology</div>
+    <div class="sitemap-sub">OGs + NUSAP + sources</div>
+  </div>
+  <div class="sitemap-card">
+    <div class="sitemap-title">About</div>
+    <div class="sitemap-sub">Lineage & team</div>
+  </div>
+  <div class="sitemap-card">
+    <div class="sitemap-badge">PASSWORD</div>
+    <div class="sitemap-title">Deep Dive</div>
+    <div class="sitemap-sub">Full data downloads</div>
+  </div>
+</div>
+
+<div class="page-spec">
+  <h4>Landing Page</h4>
+  <p>"GDP tells you what a country earns. We measure what it owns." Embedded 30-second video (exists as .mp4). Three pathway cards to Evidence, Framework, Methodology. One headline stat.</p>
+</div>
+
+<div class="page-spec">
+  <h4>Evidence Page</h4>
+  <p>This is where visitors see that real numbers exist. Sub-pages:</p>
+  <ul>
+    <li><strong>Global view</strong> — Video + interactive crosstab (7,101 admin units across 237 countries)</li>
+    <li><strong>US deep dive</strong> — State wealth map → click a state → county drill-down with balance sheets</li>
+    <li><strong>Country samplers</strong> — India, China, USA balance-sheet snapshots</li>
+    <li><strong>Comparative analysis</strong> — Side-by-side with World Bank conventional numbers</li>
+  </ul>
+</div>
+
+<div class="page-spec">
+  <h4>Framework Page</h4>
+  <ul>
+    <li>The balance sheet equation with a worked example (500-word explainer — already written)</li>
+    <li>Interactive What hierarchy tree (collapsible, as shown in Section 5)</li>
+    <li>Interactive glossary (30 terms, accordion or searchable list)</li>
+    <li>The five spatial scales (diagram as shown in Section 3)</li>
+  </ul>
+</div>
+
+<div class="page-spec">
+  <h4>Methodology Page</h4>
+  <ul>
+    <li>Operational Guidelines accordion (10 items, one-line + expandable)</li>
+    <li>NUSAP explainer and legend</li>
+    <li>Source agency directory with links</li>
+    <li>Link to replication package (Python pipeline + checksums)</li>
+  </ul>
+</div>
+
+<div class="page-spec">
+  <h4>About Page</h4>
+  <p>Career timeline: IMF 1964 → SNA 1968 → Bolivia → World Bank DataBank → MEP 1995 (pioneered Changing Wealth of Nations) → OconEco present. The "AI-augmented research" note. Contact form.</p>
+</div>
+
+<div class="page-spec">
+  <h4>Gated Section (Password-Protected)</h4>
+  <p>For named institutional reviewers. Track access if possible.</p>
+  <ul>
+    <li>Full working papers and comparative analysis documents</li>
+    <li>Downloadable workbooks (every balance-sheet component by country)</li>
+    <li>Complete replication package with documentation</li>
+    <li>Full Operational Guideline documents</li>
+  </ul>
+</div>
+
+<!-- ===== SECTION 9: TECHNICAL REQUIREMENTS ===== -->
+<h2>9. Technical Requirements</h2>
+
+<p><strong>Video hosting:</strong> Two .mp4 files (10 min and 5 min) need clean embedding. YouTube unlisted or Vimeo with embed is fine.</p>
+
+<p><strong>Gated access:</strong> Must support password-protected pages with access tracking (did a reviewer look at the workbooks?). Simple shared password is fine for Phase 1; individual accounts are Phase 2.</p>
+
+<p><strong>Content management:</strong> John needs to update text and upload documents without developer involvement. Non-negotiable.</p>
+
+<p><strong>Domain:</strong> oconeco.com (to be registered).</p>
+
+<p><strong>Interactive stretch goals (Phase 2, not blockers):</strong> The 5×5 Global Leaves crosstab as a clickable D3 visualization. The What hierarchy as an interactive collapsible tree. A US county choropleth map showing wealth components. These are desirable but not launch requirements.</p>
+
+<!-- ===== SECTION 10: DIVISION OF LABOR ===== -->
+<h2>10. How We Work Together</h2>
+
+<p><strong>What we deliver to you:</strong> For each page, a complete content packet — final text (HTML-ready markdown), final images (high-res PNG), video embed links, structured data files (glossary as JSON, hierarchy as JSON, OG summaries as markdown). Your job is layout and implementation, not editorial judgment. You should never need to open a research workbook or interpret what a number means.</p>
+
+<p><strong>What you build:</strong> Pages from our content packets. Choose fonts, spacing, responsive breakpoints. Implement the auth layer. Optimize images. Deploy. Wire up the source-referral footnote pattern and the NUSAP progressive disclosure.</p>
+
+<p><strong>What Sean does:</strong> Reviews each packet for tone, handles your relationship (timeline, budget, feedback loops). Sean does not make editorial judgments about content — we handle that.</p>
+
+<p><strong>Timeline:</strong> We estimate 6–8 sessions to produce all content packets (2–3 weeks if interspersed with other work, 1 week if focused). Landing page packet can be delivered immediately.</p>
+
+<div class="footer">
+  OconEco Website Developer Brief v2 — 11 May 2026<br>
+  Companion document: Website_Brief_for_Sean.md (internal strategy, not for developer)
+</div>
+
+</body>
+</html>

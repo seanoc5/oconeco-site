@@ -1,0 +1,1641 @@
+Delivered-To: seanoc5@gmail.com
+Received: by 2002:a05:6504:1355:b0:2f9:68b3:4177 with SMTP id m21csp1308370ltp;
+        Sun, 10 May 2026 06:35:59 -0700 (PDT)
+X-Received: by 2002:a53:d054:0:10b0:651:c345:2b9e with SMTP id 956f58d0204a3-65c79a08d85mr16526647d50.53.1778420158761;
+        Sun, 10 May 2026 06:35:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778420158; cv=none;
+        d=google.com; s=arc-20240605;
+        b=GVepWiLFEk77JkhwsoEJHcQ98vIGmlocUAMUWytklgCUfXwcI9WeyCo+fxtwlL91CS
+         CRqNAUrz6yo+fpnF35OV7E1sHP+Nh6NktPRiQlkRUxc91Mvq1Mkt/Zteieh0+NXvOdna
+         8aMNW67Ka7EkTCrqnm8X/oXVnJWUTYz5uhKW0BSRviIj7iJ7N2ByUTCnkFErXkxsQj7I
+         vSz8JHT6hJQkZt3FaaFwvty0XIqmXX3jS/0owzVAvdtR1r4Y8qqHZAT8gp+tFT5V5S36
+         U234SkwgMCYcxL4oZglJjP7OMndZuw2ov6yAsoV/Zuv9zCrFcjvVrJVv2hu9mgzQGlHd
+         w5HQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :to:from:dkim-signature;
+        bh=UV0KorWMRE8T55gyGkTPlsqY1XFiTOdCNv8B0U5+Iwg=;
+        fh=S1lB9usicUHNLpWr/42raFkgqlK6JXN4OANUZwq3Qik=;
+        b=h/A/1bEhhWjk3HTDl1c1AhBf/dsxZP3GtL9Maysfm56bHDgSC/Ab/LAP0M4o7NJS21
+         sgRVh82+Uxy4D/1f0z9mt6WE0sUMU/e7679Rw2UMiJEswJ1XVu2zhkWp8K6boOqQD2JP
+         JYJRjOQN0s0zvI1H8KZU7zhW+IC5LYBV1hGyHDCLZFUm/M/hEUUnp6OX5pQE3UG8DqBR
+         uXatDWeE9Aqv1t7uhg/oBrrblCmR9TTGMBV3vGxZdafbLfcoU//cbJbM3mtLcOSlbMBI
+         ztzFEC8zshwtFZYfulUEZg+PyFJySQa8BGab/yLCjL/ruYCSNtDfirSGM64eosN1RmQT
+         s9cw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20251104 header.b=JoeNlyLO;
+       spf=pass (google.com: domain of johnoconeco@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=johnoconeco@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <johnoconeco@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 956f58d0204a3-65d957a2770sor4779848d50.7.2026.05.10.06.35.58
+        for <seanoc5@gmail.com>
+        (Google Transport Security);
+        Sun, 10 May 2026 06:35:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of johnoconeco@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20251104 header.b=JoeNlyLO;
+       spf=pass (google.com: domain of johnoconeco@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=johnoconeco@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778420158; x=1779024958; dara=google.com;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=UV0KorWMRE8T55gyGkTPlsqY1XFiTOdCNv8B0U5+Iwg=;
+        b=JoeNlyLO9SLUDyOdE1D/ixG3lS161HWsbZGzPH48uFr9RlX1wjwAK6hdaTUY4ihFJj
+         ADsci4VbxhSvctTRzRQ7j+jSXSAhtX5ZDf/JDq2XHwz4wZMM6orki+rAR4cfaJklHavP
+         AdrFOQBwHrZZP2BEh0jHsRlxCvHkQojkCuVnGPueiXV/VQBAP06nLn6wRlkpRg7JFj0C
+         8Xhtgw5gNCdd5E8lD1ngnHvTXS6vbGo3s3WocMtjXt4GO0DStnOSL1rTGhwSEftyll6W
+         qmyubE1cQ2/Vz4ldNnr2s3E34m6ZsBzOncWBIMts0735n2wBJYuLj0R5tBxmHObpPvj+
+         VP+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778420158; x=1779024958;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UV0KorWMRE8T55gyGkTPlsqY1XFiTOdCNv8B0U5+Iwg=;
+        b=h0BOvsM888+P6QgfGt9w55BI5EJS6Qwb9smEZZQ+G6DzSO8FGbiSlKiz4XuYxbFjNv
+         8bvTh0crGQGYZ0Chyj174AD1d7v4nmw8DO8Qeh8oxrrzxgIQKauIX78b8lLemWs8iPtN
+         qvUEAmOB/5JHpJRvQRgwSI6/PXsV0FkMN/HzzYxFPEC6j0nJ1B0oMD14v3jPv6UpBjMx
+         4fvVTbogqyC3y8mp4TFbcboQdT6/0WZU95MWfRKeQPxketsboF1isoChCQWdIs88zPMS
+         jeYVVJfQIJ628ti2kdjfx6yNpJbKlq0l5NNF0Xl27W8t+91Wzlh+0bnLAV7wum7qvY5q
+         GjvQ==
+X-Gm-Message-State: AOJu0YyPv6myOQmV1uCouRT7Af4m6RZI3vV5916bPZBN883si/QYWYWU
+	lVW2+F7Q964WlUvOXxNyMwdPj1DG9UmmW2sU2mbnC0HP4J22kDFr0aVZ3LUTyw==
+X-Gm-Gg: Acq92OFBDMB7Wbch2zJl6kMlHUFgjVKLnUxYYsp6T0HIPmCh91IYR30G1kuiwv13DsN
+	bto1C/7o20N5hibHsBNfQwVaIN89BSvgg6YvQcMtYqAcsT82QRAwlaiADPfvLQTwRPLdJRW7TVW
+	kmvoV8xKFHEwqUYGF+NVm75v7lqrS0/F32Nx1U90x0kCpd4vsTrawiLhVKcgePKM+rksCbb5FSI
+	/u2yKU6sDJ3amFDDqy4+0U+cZwvKYHjn4uivvFkeW8nS06u9/0ERpmwCRj/Q3TAbcd1Ci0etjsn
+	QwPRsTA39+cKcXXCv1KH6IFxVTPhdJxKFZyFXaNU/My85+6Ub3dkX50I92JnGSVziu5Ap7M+iAb
+	FBlslbcZep8chKdnR6yg/ji94Ubz57XjMOWtccIydEHCRzwAu/zW+xLOyKeJqQSX8OgqJ7X8i1C
+	4Sm4csewA+cU9z48q2gdNP5rTxEDtfMLOLrLNjM7SKKrGRRqfVB8XSZ4ZrwIUNQ9H6mJtau5zOC
+	Abro9s6s0AdU2tblJFoneRLozU=
+X-Received: by 2002:a53:d612:0:b0:65c:1302:ee48 with SMTP id 956f58d0204a3-65c79a0a125mr16564103d50.54.1778420158014;
+        Sun, 10 May 2026 06:35:58 -0700 (PDT)
+Return-Path: <johnoconeco@gmail.com>
+Received: from JOCSamsung ([46.110.130.114])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-65d96a484fbsm3723106d50.7.2026.05.10.06.35.57
+        for <seanoc5@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 10 May 2026 06:35:57 -0700 (PDT)
+From: "John C. O'Connor" <johnoconeco@gmail.com>
+X-Google-Original-From: "John C. O'Connor" <Johnoconeco@gmail.com>
+To: "'Sean O'Connor'" <seanoc5@gmail.com>
+Subject: two Excel workbooks to help you and Keleb understand free FAND stuff for website
+Date: Sun, 10 May 2026 09:35:57 -0400
+Message-ID: <00f501dce081$eed287d0$cc779770$@gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+	boundary="----=_NextPart_000_00F6_01DCE060.67C22050"
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: Adzgf42F0POnjkvyQA+I50cOHMAUXw==
+Content-Language: en-us
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_00F6_01DCE060.67C22050
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_001_00F7_01DCE060.67C22050"
+
+
+------=_NextPart_001_00F7_01DCE060.67C22050
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+Sean,
+
+ 
+
+I had Claude produces these html just to give Use something concrete to
+discuss with Keleb as examples of substantive content for the website.
+Subscribers would then need a front end that wculd get the same for any
+country by links to what is in 'my' Claude as
+
+ 
+
+Your routine going forward for any country is just two commands:
+
+python scripts/build_country_page.py --iso3 XXX
+
+python scripts/build_decadal_extract.py --iso3 XXX
+
+ 
+
+The PPTX or video versions would be another candidate for repackaging. I
+wasn't clear from the correspondence whether you and he have agreed on a
+time next week to chat? I would like to make sure I have given you more of
+my thoughts about what should be on the website before that but I would like
+you to be able to start with him as soon as possible, so just let me know
+when you will chat And I will send you whatever thoughts I have before that.
+
+ 
+
+Cheers,
+
+ 
+
+Dad
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+------=_NextPart_001_00F7_01DCE060.67C22050
+Content-Type: text/html;
+	charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40"><head><meta =
+http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Dus-ascii"><meta name=3DGenerator content=3D"Microsoft Word 15 =
+(filtered medium)"><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Aptos;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;
+	mso-ligatures:standardcontextual;}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"Aptos",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DEN-US =
+link=3D"#467886" vlink=3D"#96607D" style=3D'word-wrap:break-word'><div =
+class=3DWordSection1><p class=3DMsoNormal><span =
+style=3D'font-size:11.0pt'>Sean,<o:p></o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:11.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:11.0pt'>I had Claude produces =
+these html just to give Use something concrete to discuss with Keleb as =
+examples of substantive content for the website. Subscribers would then =
+need a front end that wculd get the same for any country by links to =
+what is in &#8216;my&#8217; Claude as<o:p></o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:11.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:11.0pt'>Your routine going =
+forward for any country is just two commands:<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:11.0pt'>python =
+scripts/build_country_page.py --iso3 XXX<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:11.0pt'>python =
+scripts/build_decadal_extract.py --iso3 XXX<o:p></o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:11.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:11.0pt'>The PPTX or video =
+versions would be another candidate for repackaging. I wasn&#8217;t =
+clear from the correspondence whether you and he have agreed on a time =
+next week to chat? I would like to make sure I have given you more of my =
+thoughts about what should be on the website before that but I would =
+like you to be able to start with him as soon as possible, so just let =
+me know when you will chat And I will send you whatever thoughts I have =
+before that.<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:11.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:11.0pt'>Cheers,<o:p></o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:11.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:11.0pt'>Dad<o:p></o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:11.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:11.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:11.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:11.0pt'><o:p>&nbsp;</o:p></span></p></div></body></htm=
+l>
+------=_NextPart_001_00F7_01DCE060.67C22050--
+
+------=_NextPart_000_00F6_01DCE060.67C22050
+Content-Type: text/html;
+	name="USA_Decadal.html"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment;
+	filename="USA_Decadal.html"
+
+<!DOCTYPE html>
+<html lang=3D"en">
+<head>
+<meta charset=3D"UTF-8">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, =
+initial-scale=3D1.0">
+<title>United States =E2=80=94 Commonwealth Balance Sheet =
+(Decadal)</title>
+<style>
+body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; =
+margin: 2rem; background: #fafafa; color: #1a1a1a; }
+h1 { font-size: 1.4rem; margin-bottom: 0.3rem; }
+.subtitle { color: #555; font-size: 0.85rem; margin-bottom: 1.5rem; }
+table { border-collapse: collapse; width: 100%; font-size: 0.8rem; =
+background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+th { background: #2c3e50; color: white; padding: 8px 10px; text-align: =
+right; font-weight: 600; position: sticky; top: 0; }
+th:nth-child(1), th:nth-child(2), th:nth-child(3), th:nth-child(4) { =
+text-align: left; }
+td { padding: 4px 10px; border-bottom: 1px solid #eee; text-align: =
+right; white-space: nowrap; }
+td:nth-child(1) { font-family: 'Consolas', monospace; font-size: =
+0.75rem; color: #666; text-align: left; }
+td:nth-child(2) { text-align: left; max-width: 300px; }
+td:nth-child(3), td:nth-child(4) { text-align: left; font-size: 0.7rem; =
+color: #888; }
+td:nth-child(5) { width: 5px; }
+tr.header-l0 td { background: #2c3e50; color: white; font-weight: 700; =
+font-size: 0.85rem; }
+tr.header-l1 td { background: #ecf0f1; font-weight: 600; }
+tr.indent td:nth-child(2) { padding-left: 24px; }
+tr.memo td { color: #999; font-style: italic; }
+tr.spacer { height: 8px; }
+tr.spacer td { border: none; }
+tr:hover:not(.spacer):not(.header-l0) td { background: #f7f9fa; }
+.footer { margin-top: 1rem; font-size: 0.7rem; color: #888; }
+</style>
+</head>
+<body>
+<h1>United States =E2=80=94 Commonwealth Balance Sheet</h1>
+<div class=3D"subtitle">Decadal Extract (1955=E2=80=932025) =C2=B7 =
+Source: OconEco FAND =C2=B7 Generated 2026-05-10</div>
+<table>
+<thead>
+<tr>
+  <th>Code</th><th>Description</th><th>Unit</th><th>Source</th><th></th>
+  <th>1955</th>
+  <th>1965</th>
+  <th>1975</th>
+  <th>1985</th>
+  <th>1995</th>
+  <th>2005</th>
+  <th>2015</th>
+  <th>2025</th>
+</tr>
+</thead>
+<tbody>
+<tr class=3D"data"><td>What =
+Code</td><td>Description</td><td>Unit</td><td>Source</td><td></td><td>1,9=
+55</td><td>1,965</td><td>1,975</td><td>1,985</td><td>1,995</td><td>2,005<=
+/td><td>2,015</td><td>2,025</td></tr>
+<tr class=3D"header-l0"><td></td><td>UNITED STATES -- COMMONWEALTH =
+BALANCE =
+SHEET</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td></td><td>Per Capita Accounts (current =
+USD)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><=
+td></td><td></td><td></td><td></td></tr>
+<tr class=3D"header-l1"><td>1.1.1</td><td>Claim-Rights_pc (=3D PA + NC + =
+CBA)</td><td>USD =
+pc</td><td>Computed</td><td></td><td>13,742</td><td>17,357</td><td>31,599=
+</td><td>65,264</td><td>100,973</td><td>186,154</td><td>251,293</td><td>3=
+21,644</td></tr>
+<tr class=3D"data"><td>1.1.1.2</td><td>  PA_pc (Produced =
+Assets)</td><td>USD pc</td><td>OECD =
+9B+PIM</td><td></td><td>6,697</td><td>10,473</td><td>24,080</td><td>52,78=
+6</td><td>78,291</td><td>132,865</td><td>168,355</td><td>244,619</td></tr=
+>
+<tr class=3D"data"><td>1.1.1.3</td><td>  NC_pc (Natural =
+Capital)</td><td>USD pc</td><td>FAND NC =
+builders</td><td></td><td>5,858</td><td>5,556</td><td>6,206</td><td>7,073=
+</td><td>7,416</td><td>8,121</td><td>11,489</td><td>14,258</td></tr>
+<tr class=3D"data"><td>1.1.1.4</td><td>  CBA_pc (Cross-Border =
+Claim-Rights)</td><td>USD pc</td><td>IMF =
+IIP+EWN</td><td></td><td>1,187</td><td>1,328</td><td>1,313</td><td>5,405<=
+/td><td>15,266</td><td>45,168</td><td>71,450</td><td>62,768</td></tr>
+<tr class=3D"header-l1"><td>1.1.2</td><td>Substantive Rights_pc (=3D HR =
++ SR)</td><td>USD =
+pc</td><td>Computed</td><td></td><td>33,189</td><td>51,172</td><td>118,94=
+1</td><td>271,992</td><td>443,431</td><td>662,417</td><td>766,804</td><td=
+>1,161,474</td></tr>
+<tr class=3D"data"><td>1.1.2.1</td><td>  HR_pc (Human =
+Resources)</td><td>USD pc</td><td>Spec =
+D-cap</td><td></td><td>25,358</td><td>39,465</td><td>89,902</td><td>175,7=
+29</td><td>211,398</td><td>235,259</td><td>283,985</td><td>410,547</td></=
+tr>
+<tr class=3D"data"><td>1.1.2.2</td><td>  SR_pc (Other Substantive =
+Rights)</td><td>USD =
+pc</td><td>WT_SR_Inst</td><td></td><td>7,831</td><td>11,706</td><td>29,03=
+9</td><td>96,263</td><td>232,033</td><td>427,158</td><td>482,819</td><td>=
+750,927</td></tr>
+<tr class=3D"header-l1"><td>1.2.2</td><td>DM_pc (Deferred =
+Maintenance)</td><td>USD =
+pc</td><td>WT_DM_FAND</td><td></td><td>1,302</td><td>3,281</td><td>1,987<=
+/td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class=3D"header-l1"><td>1.2.3</td><td>CBL_pc (Cross-Border =
+Duties)</td><td>USD pc</td><td>IMF =
+IIP+EWN</td><td></td><td>538</td><td>602</td><td>1,059</td><td>5,328</td>=
+<td>16,301</td><td>51,451</td><td>94,725</td><td>87,187</td></tr>
+<tr class=3D"header-l1"><td>1.2.4</td><td>NW_pc (Net Worth per =
+capita)</td><td>USD =
+pc</td><td>Computed</td><td></td><td>39,803</td><td>59,257</td><td>145,44=
+9</td><td>330,997</td><td>528,257</td><td>796,539</td><td>922,851</td><td=
+>1,384,850</td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"data"><td></td><td>CW_pc (Commonwealth, memo =
+reference)</td><td>USD pc</td><td>GNI x =
+WPP</td><td></td><td>39,154</td><td>58,531</td><td>145,195</td><td>330,92=
+1</td><td>529,292</td><td>802,822</td><td>946,126</td><td>1,409,268</td><=
+/tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l0"><td></td><td>Aggregate Accounts (million current =
+USD)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><=
+td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td></td><td>Population =
+(millions)</td><td>millions</td><td>WPP =
+2024</td><td></td><td>166</td><td>196</td><td>219</td><td>242</td><td>268=
+</td><td>296</td><td>326</td><td>347</td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l1"><td>1.1.1</td><td>Claim-Rights (=3D PA + NC + =
+CBA)</td><td>M =
+USD</td><td>Computed</td><td></td><td>2,283,939</td><td>3,395,932</td><td=
+>6,924,288</td><td>15,773,681</td><td>27,081,474</td><td>55,048,777</td><=
+td>81,953,372</td><td>111,699,274</td></tr>
+<tr class=3D"data"><td>1.1.1.2</td><td>  Produced Assets (PA)</td><td>M =
+USD</td><td>OECD =
+9B+PIM</td><td></td><td>1,113,041</td><td>2,049,081</td><td>5,276,583</td=
+><td>12,757,904</td><td>20,998,209</td><td>39,290,344</td><td>54,904,897<=
+/td><td>84,950,161</td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l0"><td>1.1.1.3</td><td>NATURAL CAPITAL</td><td>M =
+USD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><t=
+d></td><td></td><td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.1</td><td>  Depletable</td><td>M =
+USD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><t=
+d></td><td></td><td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.1.1</td><td>    Subsoil Assets</td><td>M =
+USD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><t=
+d></td><td></td><td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.1.1.1</td><td>      Fossil =
+Fuels</td><td>M =
+USD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><t=
+d></td><td></td><td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.1.1.1.1</td><td>        Oil =
+V_cap</td><td>M =
+USD</td><td>NC_FF_FAND</td><td></td><td>9,989</td><td>12,184</td><td>75,7=
+65</td><td>192,559</td><td>87,601</td><td>221,751</td><td>285,371</td><td=
+>303,849</td></tr>
+<tr class=3D"data"><td>1.1.1.3.1.1.1.2</td><td>        Natural Gas =
+V_cap</td><td>M =
+USD</td><td>NC_FF_FAND</td><td></td><td>173</td><td>218</td><td>13,140</t=
+d><td>71,125</td><td>46,021</td><td>253,114</td><td>87,113</td><td>78,439=
+</td></tr>
+<tr class=3D"data"><td>1.1.1.3.1.1.1.3</td><td>        Coal =
+V_cap</td><td>M =
+USD</td><td>NC_FF_FAND</td><td></td><td>8,809</td><td>9,162</td><td>48,01=
+2</td><td>67,660</td><td>72,069</td><td>108,645</td><td>100,544</td><td>1=
+32,236</td></tr>
+<tr class=3D"data"><td>1.1.1.3.1.1.2</td><td>    Metals & =
+Minerals</td><td>M =
+USD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><t=
+d></td><td></td><td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.1.1.2.3</td><td>        Gold =
+V_cap</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000142</td><td>0.000129</td><t=
+d>0.000364</td><td>0.0017</td><td>0.0071</td><td>0.0061</td><td>0.0119</t=
+d><td>0.0230</td></tr>
+<tr class=3D"data"><td>1.1.1.3.1.1.2.29</td><td>        Lithium =
+V_cap</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"data"><td>1.1.1.3.2</td><td>  Land & Natural =
+Growth</td><td>M =
+USD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><t=
+d></td><td></td><td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.2.1</td><td>    Agricultural =
+Land</td><td>M =
+USD</td><td>NC_AgLand_FAND</td><td></td><td>667,928</td><td>656,423</td><=
+td>647,816</td><td>649,685</td><td>632,728</td><td>812,642</td><td>1,326,=
+528</td><td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.2.1.2.1</td><td>      Cropland</td><td>M =
+USD</td><td>NC_AgLand_FAND</td><td></td><td>285,034</td><td>272,347</td><=
+td>286,871</td><td>289,281</td><td>414,922</td><td>483,303</td><td>830,19=
+5</td><td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.2.1.2.2</td><td>      =
+Pastureland</td><td>M =
+USD</td><td>NC_AgLand_FAND</td><td></td><td>390,943</td><td>391,986</td><=
+td>368,751</td><td>368,233</td><td>225,430</td><td>137,498</td><td>229,20=
+0</td><td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.2.2</td><td>    Forests</td><td>M =
+USD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><t=
+d></td><td></td><td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.2.2.2</td><td>      Forest Timber V_cap =
+=3D V_IR + V_FW</td><td>M =
+USD</td><td>nc_forests</td><td></td><td></td><td>51,282</td><td>129,046</=
+td><td>218,285</td><td>583,724</td><td>490,606</td><td>1,432,104</td><td>=
+</td></tr>
+<tr class=3D"data"><td>1.1.1.3.2.2.2.1</td><td>        Industrial =
+Roundwood V_cap (sustainable mgmt)</td><td>M =
+USD</td><td>nc_forests</td><td></td><td></td><td>48,255</td><td>121,437</=
+td><td>188,745</td><td>550,156</td><td>470,528</td><td>1,334,960</td><td>=
+</td></tr>
+<tr class=3D"data"><td>1.1.1.3.2.2.2.2</td><td>        Fuelwood V_cap =
+(perpetuity at r=3D0.04)</td><td>M =
+USD</td><td>nc_forests</td><td></td><td></td><td>3,027</td><td>7,609</td>=
+<td>29,541</td><td>33,568</td><td>20,079</td><td>97,144</td><td></td></tr=
+>
+<tr class=3D"data"><td>1.1.1.3.2.2.3</td><td>      Forest Cover =
+Severance (10% of capitalized grazing-anchored rent)</td><td>M =
+USD</td><td>nc_forest_cover</td><td></td><td>278,989</td><td>348,159</td>=
+<td>430,083</td><td>513,970</td><td>525,076</td><td>464,583</td><td>523,5=
+37</td><td>523,703</td></tr>
+<tr class=3D"data"><td>1.1.1.3.1.2</td><td>    Fisheries</td><td>M =
+USD</td><td>NC_Fish_FAND</td><td></td><td>0.0020</td><td>0.0037</td><td>0=
+.0074</td><td>0.0097</td><td>0.0380</td><td>0.0324</td><td>0.0429</td><td=
+></td></tr>
+<tr class=3D"data"><td>1.1.1.3.T</td><td>  NC TOTAL (V_cap stocks, =
+nc_aggregation=3Dtrue)</td><td>M =
+USD</td><td>Computed</td><td></td><td>973,537</td><td>1,086,981</td><td>1=
+,359,894</td><td>1,709,559</td><td>1,988,890</td><td>2,401,432</td><td>3,=
+746,728</td><td>4,951,297</td></tr>
+<tr class=3D"data"><td>1.1.1.4</td><td>  Cross-Border Claim-Rights =
+(Gross Foreign Assets)</td><td>M USD</td><td>IMF =
+IIP+EWN</td><td></td><td>197,362</td><td>259,871</td><td>287,811</td><td>=
+1,306,218</td><td>4,094,375</td><td>13,357,001</td><td>23,301,747</td><td=
+>21,797,816</td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l1"><td>1.1.2</td><td>Substantive Rights (=3D HR + =
+SR)</td><td>M =
+USD</td><td>Computed</td><td></td><td>5,516,033</td><td>10,011,903</td><t=
+d>26,063,490</td><td>65,737,770</td><td>118,930,871</td><td>195,887,827</=
+td><td>250,075,112</td><td>403,351,826</td></tr>
+<tr class=3D"data"><td>1.1.2.1</td><td>  Human Resources (HR)</td><td>M =
+USD</td><td>Spec =
+D-cap</td><td></td><td>4,214,553</td><td>7,721,552</td><td>19,700,190</td=
+><td>42,471,994</td><td>56,698,186</td><td>69,569,984</td><td>92,615,068<=
+/td><td>142,573,071</td></tr>
+<tr class=3D"data"><td>1.1.2.2</td><td>  Other Substantive Rights =
+(SR)</td><td>M =
+USD</td><td>WT_SR_Inst</td><td></td><td>1,301,480</td><td>2,290,351</td><=
+td>6,363,300</td><td>23,265,776</td><td>62,232,685</td><td>126,317,843</t=
+d><td>157,460,044</td><td>260,778,755</td></tr>
+<tr class=3D"data"><td>1.1.2.2.1</td><td>      Estuarine / =
+Mangroves</td><td>M =
+USD</td><td>nc_mangroves</td><td></td><td>3,254</td><td>3,904</td><td>6,5=
+01</td><td>11,873</td><td>15,495</td><td>18,997</td><td>23,060</td><td>33=
+,476</td></tr>
+<tr class=3D"data"><td>1.1.2.2.4.4</td><td>      Hydropower</td><td>M =
+USD</td><td>NC_Hydro_FAND</td><td></td><td>7,131</td><td>11,837</td><td>1=
+8,218</td><td>17,086</td><td>18,516</td><td>15,692</td><td>14,516</td><td=
+></td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l0"><td>1.2</td><td>LIABILITIES</td><td>M =
+USD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><t=
+d></td><td></td><td></td></tr>
+<tr class=3D"header-l1"><td>1.2.2</td><td>  Deferred Maintenance =
+(DM)</td><td>M =
+USD</td><td>WT_DM_FAND</td><td></td><td>216,354</td><td>641,939</td><td>4=
+35,386</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class=3D"header-l1"><td>1.2.3</td><td>  Cross-Border Duties (Gross =
+Foreign Liabilities)</td><td>M USD</td><td>IMF =
+IIP+EWN</td><td></td><td>89,418</td><td>117,739</td><td>232,068</td><td>1=
+,287,772</td><td>4,371,942</td><td>15,214,866</td><td>30,892,217</td><td>=
+30,277,801</td></tr>
+<tr class=3D"header-l1"><td>1.2.4</td><td>  Net Worth (NW =3D CW + CBA =
+=E2=88=92 CBL)</td><td>M =
+USD</td><td>Computed</td><td></td><td>6,615,341</td><td>11,593,886</td><t=
+d>31,872,243</td><td>79,998,859</td><td>141,681,596</td><td>235,549,976</=
+td><td>300,966,277</td><td>480,924,744</td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l0"><td></td><td>MEMO =
+ITEMS</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+<tr class=3D"header-l1"><td>M.NW</td><td>  NW =
+Decomposition</td><td></td><td></td><td></td><td></td><td></td><td></td><=
+td></td><td></td><td></td><td></td><td></td></tr>
+<tr class=3D"header-l1"><td>M.NW.CW</td><td>    CW =
+(Commonwealth)</td><td>M =
+USD</td><td>Computed</td><td></td><td>6,507,397</td><td>11,451,754</td><t=
+d>31,816,501</td><td>79,980,412</td><td>141,959,163</td><td>237,407,841</=
+td><td>308,556,747</td><td>489,404,729</td></tr>
+<tr class=3D"header-l1"><td>M.NW.CBA</td><td>    + CBA (Cross-Border =
+Claim-Rights)</td><td>M USD</td><td>IMF =
+IIP+EWN</td><td></td><td>197,362</td><td>259,871</td><td>287,811</td><td>=
+1,306,218</td><td>4,094,375</td><td>13,357,001</td><td>23,301,747</td><td=
+>21,797,816</td></tr>
+<tr class=3D"header-l1"><td>M.NW.CBL</td><td>    =E2=88=92 CBL =
+(Cross-Border Duties)</td><td>M USD</td><td>IMF =
+IIP+EWN</td><td></td><td>89,418</td><td>117,739</td><td>232,068</td><td>1=
+,287,772</td><td>4,371,942</td><td>15,214,866</td><td>30,892,217</td><td>=
+30,277,801</td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l1"><td>M.CW</td><td>  CW Derivation =
+Inputs</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td=
+><td></td><td></td><td></td><td></td></tr>
+<tr class=3D"header-l1"><td>M.CW.1</td><td>    GNI per capita (Atlas =
+USD)</td><td>USD =
+pc</td><td>WDI+WEO</td><td></td><td>2,348</td><td>3,850</td><td>8,510</td=
+><td>17,460</td><td>29,040</td><td>46,190</td><td>56,400</td><td>86,694</=
+td></tr>
+<tr class=3D"header-l1"><td>M.CW.2</td><td>    Working-Age Population =
+Share</td><td>fraction</td><td>WPP</td><td></td><td>0.5398</td><td>0.4986=
+</td><td>0.5289</td><td>0.5732</td><td>0.5765</td><td>0.5886</td><td>0.58=
+64</td><td>0.5661</td></tr>
+<tr class=3D"header-l1"><td>M.CW.3</td><td>    Average Labor Force =
+Age</td><td>years</td><td>WPP</td><td></td><td>39</td><td>40</td><td>38</=
+td><td>38</td><td>39</td><td>40</td><td>41</td><td>41</td></tr>
+<tr class=3D"header-l1"><td>M.CW.4</td><td>    n (future earning years =
+=3D 65 - =
+AvgAge)</td><td>years</td><td>derived</td><td></td><td>26</td><td>25</td>=
+<td>27</td><td>27</td><td>26</td><td>25</td><td>24</td><td>24</td></tr>
+<tr class=3D"header-l1"><td>M.CW.5</td><td>    PMT (GNI_pc x =
+Working_Pct)</td><td>USD =
+pc</td><td>derived</td><td></td><td>1,268</td><td>1,919</td><td>4,501</td=
+><td>10,008</td><td>16,743</td><td>27,190</td><td>33,075</td><td>49,078</=
+td></tr>
+<tr class=3D"header-l1"><td>M.CW.6</td><td>    Annuity Factor ((1.015^n =
+- 1) / =
+0.015)</td><td></td><td>derived</td><td></td><td>31</td><td>30</td><td>32=
+</td><td>33</td><td>32</td><td>30</td><td>29</td><td>29</td></tr>
+<tr class=3D"header-l1"><td>M.CW.7</td><td>    CW_pc derived (PMT x =
+Annuity Factor)</td><td>USD =
+pc</td><td>derived</td><td></td><td>39,154</td><td>58,531</td><td>145,195=
+</td><td>330,921</td><td>529,292</td><td>802,822</td><td>946,126</td><td>=
+1,409,268</td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l1"><td>M.HR</td><td>  HR Derivation Inputs (Spec =
+D-cap)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td=
+><td></td><td></td><td></td><td></td></tr>
+<tr class=3D"header-l1"><td>M.HR.1</td><td>    Mean Years of Schooling =
+(MYS)</td><td>years</td><td>UIS/WiC/BL</td><td></td><td>9</td><td>11</td>=
+<td>12</td><td>13</td><td>13</td><td>13</td><td>13</td><td>14</td></tr>
+<tr class=3D"header-l1"><td>M.HR.2</td><td>    Life Expectancy at Birth =
+(raw)</td><td>years</td><td>WPP</td><td></td><td>70</td><td>70</td><td>73=
+</td><td>75</td><td>76</td><td>78</td><td>79</td><td>80</td></tr>
+<tr class=3D"header-l1"><td>M.HR.3</td><td>    Life Expectancy (capped =
+at 65)</td><td>years</td><td>Spec =
+D-cap</td><td></td><td>65</td><td>65</td><td>65</td><td>65</td><td>65</td=
+><td>65</td><td>65</td><td>65</td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l1"><td>M.VPQ</td><td>  FAND Flow Valuations =
+(V=3DPxQ)</td><td></td><td></td><td></td><td></td><td></td><td></td><td><=
+/td><td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.1.1</td><td>    Oil =
+V=3DPxQ</td><td>M =
+USD</td><td>NC_FF_FAND</td><td></td><td>4,774</td><td>5,672</td><td>35,26=
+9</td><td>90,310</td><td>40,778</td><td>103,225</td><td>180,521</td><td>4=
+01,094</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.1.2</td><td>    Natural Gas =
+V=3DPxQ</td><td>M =
+USD</td><td>NC_FF_FAND</td><td></td><td>1,048</td><td>2,859</td><td>8,275=
+</td><td>42,456</td><td>29,635</td><td>161,253</td><td>72,898</td><td>85,=
+214</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.1.3</td><td>    Coal =
+V=3DPxQ</td><td>M =
+USD</td><td>NC_FF_FAND</td><td></td><td>4,101</td><td>4,265</td><td>22,35=
+0</td><td>31,496</td><td>33,548</td><td>50,575</td><td>46,804</td><td>61,=
+556</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.17</td><td>    Antimony =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td></td><td>    Bauxite V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000013</td><td>0.000019</td><t=
+d>0.000037</td><td>0.000020</td><td>0.000006</td><td>0.000003</td><td>0.0=
+00013</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.19</td><td>    Beryllium =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000003</td><td>0.000014</td><t=
+d>0.000008</td><td>0.000090</td><td>0.000171</td><td>0.000024</td><td>0.0=
+00133</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.20</td><td>    Boron =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000031</td><td>0.000064</td><t=
+d>0.000157</td><td>0.000446</td><td>0.000542</td><td>0.000572</td><td></t=
+d><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.23</td><td>    Chromium =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000003</td><td></td><td></td><=
+td></td><td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.24</td><td>    Cobalt =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000005</td><td>0.000002</td><t=
+d>0.000000</td><td>0.000001</td><td>0.0527</td><td>0.000002</td><td>0.000=
+020</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.3</td><td>    Copper =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000990</td><td>0.0020</td><td>=
+0.0016</td><td>0.0016</td><td>0.0054</td><td>0.0042</td><td>0.0076</td><t=
+d>0.0099</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.59</td><td>    Garnet =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td>0.000000</td><td>0.0000=
+00</td><td>0.000007</td><td>0.000012</td><td>0.000017</td><td>0.000040</t=
+d><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.3</td><td>    Gold =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000066</td><td>0.000060</td><t=
+d>0.000169</td><td>0.000772</td><td>0.0039</td><td>0.0037</td><td>0.0080<=
+/td><td>0.0177</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.27</td><td>    Graphite =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.6</td><td>    Iron Ore =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000786</td><td>0.000968</td><t=
+d>0.0014</td><td>0.0013</td><td>0.0018</td><td>0.0036</td><td>0.0026</td>=
+<td>0.0039</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.7</td><td>    Lead =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000146</td><td>0.000122</td><t=
+d>0.000232</td><td>0.000166</td><td>0.000248</td><td>0.000426</td><td>0.0=
+00644</td><td>0.000549</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.29</td><td>    Lithium =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.31</td><td>    Manganese =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000020</td><td>0.000006</td><t=
+d>0.000004</td><td>0.000001</td><td></td><td></td><td></td><td></td></tr>=
+
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.8</td><td>    Molybdenum =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000072</td><td>0.000128</td><t=
+d>0.000301</td><td>0.000352</td><td>0.0011</td><td>0.0041</td><td>0.00071=
+6</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.32</td><td>    Nickel =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000005</td><td>0.000021</td><t=
+d>0.000059</td><td>0.000023</td><td>0.000189</td><td></td><td>0.000314</t=
+d><td>0.000152</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.60</td><td>    Peat =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000002</td><td>0.000006</td><t=
+d>0.000013</td><td>0.000021</td><td>0.000017</td><td>0.000019</td><td>0.0=
+00013</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.10</td><td>    Phosphate Rock =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000137</td><td>0.000377</td><t=
+d>0.0030</td><td>0.0018</td><td>0.0014</td><td>0.0016</td><td>0.0033</td>=
+<td>0.0031</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.34</td><td>    Platinum Group =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000002</td><td>0.000003</td><t=
+d>0.000000</td><td>0.000592</td><td>0.000093</td><td>0.000113</td><td>0.0=
+00125</td><td>0.000329</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.35</td><td>    Potash =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td>0.000200</td><td>0.0031</td><td>0.000489</td><td>0.000600</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.36</td><td>    Rare Earths =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.13</td><td>    Silver =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000033</td><td>0.000052</td><t=
+d>0.000154</td><td>0.000241</td><td>0.000262</td><td>0.000288</td><td>0.0=
+00551</td><td>0.0014</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.31</td><td>    Tin =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000045</td><td>0.000012</td><t=
+d>0.000045</td><td>0.000050</td><td></td><td></td><td></td><td></td></tr>=
+
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.32</td><td>    Titanium Mineral =
+Concentrates V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000051</td><td></td><td>0.0000=
+91</td><td>0.000174</td><td>0.000087</td><td>0.1263</td><td>0.000086</td>=
+<td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.33</td><td>    Tungsten =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000061</td><td>0.000013</td><t=
+d>0.000029</td><td>0.000009</td><td></td><td></td><td></td><td></td></tr>=
+
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.34</td><td>    Vanadium =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.16</td><td>    Zinc =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000217</td><td>0.000281</td><t=
+d>0.000317</td><td>0.000197</td><td>0.000664</td><td>0.0010</td><td>0.001=
+6</td><td>0.0019</td></tr>
+<tr class=3D"data"><td></td><td>    Zirconium V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td>0.000168</td><td></td></tr>
+<tr class=3D"data"><td></td><td>    Forest Timber V=3DPxQ (roundwood =
+harvest)</td><td>M =
+USD</td><td>nc_forests</td><td></td><td></td><td>0.0064</td><td>0.0162</t=
+d><td>0.0252</td><td>0.0734</td><td>0.0627</td><td>0.0534</td><td>0.0815<=
+/td></tr>
+<tr class=3D"data"><td></td><td>    Fisheries V=3DPxQ (catch =
+value)</td><td>M =
+USD</td><td>NC_Fish_FAND</td><td></td><td>0.000833</td><td>0.0015</td><td=
+>0.0030</td><td>0.0040</td><td>0.0155</td><td>0.0132</td><td>0.0175</td><=
+td></td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l1"><td>M.VPRSev</td><td>  FAND Gross-Stock =
+Valuations (V=3DPxR x Sev, =
+Memo)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.1.1</td><td>    Oil V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>NC_FF_FAND</td><td></td><td>22,076</td><td>40,903</td><td>220=
+,834</td><td>441,297</td><td>226,032</td><td>607,175</td><td>460,527</td>=
+<td>369,178</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.1.2</td><td>    Natural Gas V=3DPxR =
+x Sev</td><td>M =
+USD</td><td>NC_FF_FAND</td><td></td><td>182</td><td>226</td><td>21,274</t=
+d><td>120,048</td><td>73,342</td><td>406,417</td><td>120,830</td><td>99,7=
+64</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.1.3</td><td>    Coal V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>NC_FF_FAND</td><td></td><td>245,045</td><td>233,758</td><td>9=
+68,433</td><td>1,102,458</td><td>972,785</td><td>1,289,713</td><td>1,450,=
+177</td><td>3,356,471</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.17</td><td>    Antimony V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td>0.000270</td><td>0.000576</td><td>0.0042</td></tr>
+<tr class=3D"data"><td></td><td>    Bauxite V=3DPxR x Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000057</td><td>0.000069</td><t=
+d>0.000086</td><td>0.000083</td><td>0.000059</td><td>0.000056</td><td>0.0=
+00059</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.19</td><td>    Beryllium V=3DPxR =
+x Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000461</td><td>0.000345</td><t=
+d>0.000365</td><td>0.0011</td><td>0.0021</td><td>0.000496</td><td>0.0010<=
+/td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.20</td><td>    Boron V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.0010</td><td>0.0012</td><td>0.=
+0019</td><td>0.0046</td><td>0.0040</td><td>0.0045</td><td>0.0054</td><td>=
+</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.23</td><td>    Chromium V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000006</td><td>0.000006</td><t=
+d>0.000025</td><td>0.000033</td><td>0.000052</td><td>0.000065</td><td>0.0=
+00092</td><td>0.000171</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.24</td><td>    Cobalt V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.0010</td><td>0.000658</td><td>=
+0.0018</td><td>0.0045</td><td>0.0057</td><td>0.000269</td><td>0.000214</t=
+d><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.3</td><td>    Copper V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.0115</td><td>0.0166</td><td>0.=
+0141</td><td>0.0144</td><td>0.0253</td><td>0.0262</td><td>0.0325</td><td>=
+0.0468</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.39</td><td>    Fluorspar V=3DPxR =
+x Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td>0.000668</td><td>0.000954</td><td>0.0014</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.59</td><td>    Garnet V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td>0.000074</td><td>0.0001=
+01</td><td>0.000160</td><td>0.000173</td><td>0.000252</td><td>0.000304</t=
+d><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.3</td><td>    Gold V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.0016</td><td>0.0016</td><td>0.=
+0070</td><td>0.0133</td><td>0.0129</td><td>0.0104</td><td>0.0184</td><td>=
+0.0332</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.27</td><td>    Graphite V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000000</td><td>0.000000</td><t=
+d>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.0=
+00000</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.6</td><td>    Iron Ore V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.0065</td><td>0.0085</td><td>0.=
+0123</td><td>0.0172</td><td>0.0167</td><td>0.0346</td><td>0.0268</td><td>=
+0.0436</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.7</td><td>    Lead V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.0010</td><td>0.000953</td><td>=
+0.0010</td><td>0.000780</td><td>0.0010</td><td>0.0011</td><td>0.0013</td>=
+<td>0.000903</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.29</td><td>    Lithium V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.31</td><td>    Manganese V=3DPxR =
+x Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000016</td><td>0.000005</td><t=
+d>0.000004</td><td>0.000001</td><td>0.000001</td><td>0.000001</td><td>0.0=
+00002</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.8</td><td>    Molybdenum V=3DPxR =
+x Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.0017</td><td>0.0023</td><td>0.=
+0037</td><td>0.0039</td><td>0.0086</td><td>0.0314</td><td>0.0059</td><td>=
+</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.32</td><td>    Nickel V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000191</td><td>0.000209</td><t=
+d>0.000489</td><td>0.000482</td><td>0.000757</td><td>0.0013</td><td>0.000=
+562</td><td>0.000516</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.33</td><td>    Niobium V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td>0.000305</td><td>0.000882</td><td>0.000546</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.60</td><td>    Peat V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000175</td><td>0.000206</td><t=
+d>0.000327</td><td>0.000474</td><td>0.000428</td><td>0.000442</td><td>0.0=
+00436</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.10</td><td>    Phosphate Rock =
+V=3DPxR x Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.0037</td><td>0.0045</td><td>0.=
+0189</td><td>0.0084</td><td>0.0062</td><td>0.0067</td><td>0.0148</td><td>=
+0.0152</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.34</td><td>    Platinum Group =
+V=3DPxR x Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000233</td><td>0.000321</td><t=
+d>0.000555</td><td>0.000895</td><td>0.0011</td><td>0.0023</td><td>0.0025<=
+/td><td>0.0024</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.35</td><td>    Potash V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td>0.0021</td><td>0.0016</td><td>0.000361</td><td>0.000300</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.36</td><td>    Rare Earths =
+V=3DPxR x Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.13</td><td>    Silver V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000324</td><td>0.000424</td><t=
+d>0.0013</td><td>0.0015</td><td>0.0010</td><td>0.0011</td><td>0.0017</td>=
+<td>0.0029</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.31</td><td>    Tin V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000024</td><td>0.000039</td><t=
+d>0.000044</td><td>0.000026</td><td>0.000006</td><td>0.000007</td><td>0.0=
+00014</td><td>0.000030</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.32</td><td>    Titanium Mineral =
+Concentrates V=3DPxR x Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.0219</td><td></td><td>0.0171</=
+td><td>0.0236</td><td>0.0275</td><td>0.0021</td><td>0.0011</td><td></td><=
+/tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.33</td><td>    Tungsten V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000094</td><td>0.000029</td><t=
+d>0.000050</td><td>0.000019</td><td>0.000022</td><td>0.000025</td><td>0.0=
+00016</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.34</td><td>    Vanadium V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.16</td><td>    Zinc V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.0013</td><td>0.0014</td><td>0.=
+0030</td><td>0.0029</td><td>0.0033</td><td>0.0034</td><td>0.0033</td><td>=
+0.0027</td></tr>
+<tr class=3D"data"><td></td><td>    Zirconium V=3DPxR x Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td>0.000732</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.2.2.2</td><td>    Forest Timber V=3DPxR =
+x Sev (growing-stock)</td><td>M =
+USD</td><td>nc_forests</td><td></td><td></td><td>48,255</td><td>121,437</=
+td><td>188,745</td><td>550,156</td><td>470,528</td><td>1,334,960</td><td>=
+2,038,684</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.2.2.3</td><td>    Forest Cover V_cap =
+(full capitalized land rent, memo)</td><td>M =
+USD</td><td>nc_forest_cover</td><td></td><td>278,989</td><td>348,159</td>=
+<td>430,083</td><td>513,970</td><td>525,076</td><td>464,583</td><td>523,5=
+37</td><td>523,703</td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l1"><td>M.NOTE</td><td>  =
+Notes</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td></td><td>    Balance-sheet entries for depletable =
+subsoil are V_cap =3D Sev x P x Q x PV(r=3D0.04,T=3Dmin(R/Q,50)) per =
+SPMF-174-2</td><td></td><td></td><td></td><td></td><td></td><td></td><td>=
+</td><td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td></td><td>    V=3DPxR x Sev (gross-stock) rows =
+above are MEMO ITEMS only per =
+SPMF-174-2</td><td></td><td></td><td></td><td></td><td></td><td></td><td>=
+</td><td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td></td><td>    V=3DPxQ (flow) rows above are MEMO =
+ITEMS only per =
+SPMF-092-1</td><td></td><td></td><td></td><td></td><td></td><td></td><td>=
+</td><td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td></td><td>    CWoN cross-validation available in =
+standalone World Tables (stripped =
+S297)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+<div class=3D"footer">
+  OconEco =C2=B7 First Agentic Navigator for Development (FAND) =C2=B7 =
+CW =3D PA + NC + HR + SR =E2=88=92 DM =C2=B7 NW =3D CW + CBA =E2=88=92 =
+CBL<br>
+  All monetary values in current USD (per capita or million USD as =
+labeled). Natural Capital valued via V=3DP=C3=97R=C3=97Sev (10% =
+severance protocol).<br>
+  Data sources: WPP 2024, GNI Atlas, OECD 9B, EIA, FAO, USGS MCS, Energy =
+Institute, IMF IIP, LM-EWN.
+</div>
+</body>
+</html>
+------=_NextPart_000_00F6_01DCE060.67C22050
+Content-Type: text/html;
+	name="BRA_Decadal.html"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment;
+	filename="BRA_Decadal.html"
+
+<!DOCTYPE html>
+<html lang=3D"en">
+<head>
+<meta charset=3D"UTF-8">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, =
+initial-scale=3D1.0">
+<title>Brazil =E2=80=94 Commonwealth Balance Sheet (Decadal)</title>
+<style>
+body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; =
+margin: 2rem; background: #fafafa; color: #1a1a1a; }
+h1 { font-size: 1.4rem; margin-bottom: 0.3rem; }
+.subtitle { color: #555; font-size: 0.85rem; margin-bottom: 1.5rem; }
+table { border-collapse: collapse; width: 100%; font-size: 0.8rem; =
+background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+th { background: #2c3e50; color: white; padding: 8px 10px; text-align: =
+right; font-weight: 600; position: sticky; top: 0; }
+th:nth-child(1), th:nth-child(2), th:nth-child(3), th:nth-child(4) { =
+text-align: left; }
+td { padding: 4px 10px; border-bottom: 1px solid #eee; text-align: =
+right; white-space: nowrap; }
+td:nth-child(1) { font-family: 'Consolas', monospace; font-size: =
+0.75rem; color: #666; text-align: left; }
+td:nth-child(2) { text-align: left; max-width: 300px; }
+td:nth-child(3), td:nth-child(4) { text-align: left; font-size: 0.7rem; =
+color: #888; }
+td:nth-child(5) { width: 5px; }
+tr.header-l0 td { background: #2c3e50; color: white; font-weight: 700; =
+font-size: 0.85rem; }
+tr.header-l1 td { background: #ecf0f1; font-weight: 600; }
+tr.indent td:nth-child(2) { padding-left: 24px; }
+tr.memo td { color: #999; font-style: italic; }
+tr.spacer { height: 8px; }
+tr.spacer td { border: none; }
+tr:hover:not(.spacer):not(.header-l0) td { background: #f7f9fa; }
+.footer { margin-top: 1rem; font-size: 0.7rem; color: #888; }
+</style>
+</head>
+<body>
+<h1>Brazil =E2=80=94 Commonwealth Balance Sheet</h1>
+<div class=3D"subtitle">Decadal Extract (1955=E2=80=932025) =C2=B7 =
+Source: OconEco FAND =C2=B7 Generated 2026-05-10</div>
+<table>
+<thead>
+<tr>
+  <th>Code</th><th>Description</th><th>Unit</th><th>Source</th><th></th>
+  <th>1955</th>
+  <th>1965</th>
+  <th>1975</th>
+  <th>1985</th>
+  <th>1995</th>
+  <th>2005</th>
+  <th>2015</th>
+  <th>2025</th>
+</tr>
+</thead>
+<tbody>
+<tr class=3D"data"><td>What =
+Code</td><td>Description</td><td>Unit</td><td>Source</td><td></td><td>1,9=
+55</td><td>1,965</td><td>1,975</td><td>1,985</td><td>1,995</td><td>2,005<=
+/td><td>2,015</td><td>2,025</td></tr>
+<tr class=3D"header-l0"><td></td><td>BRAZIL -- COMMONWEALTH BALANCE =
+SHEET</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td></td><td>Per Capita Accounts (current =
+USD)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><=
+td></td><td></td><td></td><td></td></tr>
+<tr class=3D"header-l1"><td>1.1.1</td><td>Claim-Rights_pc (=3D PA + NC + =
+CBA)</td><td>USD =
+pc</td><td>Computed</td><td></td><td>70,434</td><td>105,461</td><td>103,1=
+50</td><td>99,271</td><td>25,453</td><td>25,884</td><td>45,017</td><td>58=
+,741</td></tr>
+<tr class=3D"data"><td>1.1.1.2</td><td>  PA_pc (Produced =
+Assets)</td><td>USD pc</td><td>OECD =
+9B+PIM</td><td></td><td>2,880</td><td>3,347</td><td>5,509</td><td>10,000<=
+/td><td>12,982</td><td>15,743</td><td>22,869</td><td>32,323</td></tr>
+<tr class=3D"data"><td>1.1.1.3</td><td>  NC_pc (Natural =
+Capital)</td><td>USD pc</td><td>FAND NC =
+builders</td><td></td><td>66,669</td><td>102,076</td><td>97,596</td><td>8=
+9,146</td><td>11,770</td><td>9,155</td><td>18,141</td><td>21,783</td></tr=
+>
+<tr class=3D"data"><td>1.1.1.4</td><td>  CBA_pc (Cross-Border =
+Claim-Rights)</td><td>USD pc</td><td>IMF =
+IIP+EWN</td><td></td><td>885</td><td>37</td><td>46</td><td>125</td><td>70=
+1</td><td>986</td><td>4,008</td><td>4,635</td></tr>
+<tr class=3D"header-l1"><td>1.1.2</td><td>Substantive Rights_pc (=3D HR =
++ SR)</td><td>USD =
+pc</td><td>Computed</td><td></td><td>1,575</td><td>2,680</td><td>7,674</t=
+d><td>17,466</td><td>40,621</td><td>60,545</td><td>160,855</td><td>186,10=
+2</td></tr>
+<tr class=3D"data"><td>1.1.2.1</td><td>  HR_pc (Human =
+Resources)</td><td>USD pc</td><td>Spec =
+D-cap</td><td></td><td>1,097</td><td>1,865</td><td>3,922</td><td>12,158</=
+td><td>23,780</td><td>45,110</td><td>74,506</td><td>150,825</td></tr>
+<tr class=3D"data"><td>1.1.2.2</td><td>  SR_pc (Other Substantive =
+Rights)</td><td>USD =
+pc</td><td>WT_SR_Inst</td><td></td><td>479</td><td>815</td><td>3,752</td>=
+<td>5,308</td><td>16,841</td><td>15,435</td><td>86,349</td><td>35,277</td=
+></tr>
+<tr class=3D"header-l1"><td>1.2.2</td><td>DM_pc (Deferred =
+Maintenance)</td><td>USD =
+pc</td><td>WT_DM_FAND</td><td></td><td>10,126</td><td>10,551</td><td>4,69=
+4</td><td>9,651</td><td></td><td>6,248</td><td></td><td>46,200</td></tr>
+<tr class=3D"header-l1"><td>1.2.3</td><td>CBL_pc (Cross-Border =
+Duties)</td><td>USD pc</td><td>IMF =
+IIP+EWN</td><td></td><td>3,166</td><td>134</td><td>75</td><td>126</td><td=
+>1,392</td><td>2,606</td><td>5,866</td><td>7,747</td></tr>
+<tr class=3D"header-l1"><td>1.2.4</td><td>NW_pc (Net Worth per =
+capita)</td><td>USD =
+pc</td><td>Computed</td><td></td><td>114</td><td>3,978</td><td>18,730</td=
+><td>26,538</td><td>61,292</td><td>75,553</td><td>195,058</td><td>173,273=
+</td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"data"><td></td><td>CW_pc (Commonwealth, memo =
+reference)</td><td>USD pc</td><td>GNI x =
+WPP</td><td></td><td>2,395</td><td>4,075</td><td>18,760</td><td>26,539</t=
+d><td>61,984</td><td>77,174</td><td>196,916</td><td>176,385</td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l0"><td></td><td>Aggregate Accounts (million current =
+USD)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><=
+td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td></td><td>Population =
+(millions)</td><td>millions</td><td>WPP =
+2024</td><td></td><td>62</td><td>84</td><td>108</td><td>136</td><td>162</=
+td><td>185</td><td>202</td><td>213</td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l1"><td>1.1.1</td><td>Claim-Rights (=3D PA + NC + =
+CBA)</td><td>M =
+USD</td><td>Computed</td><td></td><td>4,374,063</td><td>8,839,447</td><td=
+>11,100,983</td><td>13,452,772</td><td>4,116,711</td><td>4,780,429</td><t=
+d>9,078,894</td><td>12,500,854</td></tr>
+<tr class=3D"data"><td>1.1.1.2</td><td>  Produced Assets (PA)</td><td>M =
+USD</td><td>OECD =
+9B+PIM</td><td></td><td>178,873</td><td>280,542</td><td>592,830</td><td>1=
+,355,142</td><td>2,099,716</td><td>2,907,598</td><td>4,612,033</td><td>6,=
+878,785</td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l0"><td>1.1.1.3</td><td>NATURAL CAPITAL</td><td>M =
+USD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><t=
+d></td><td></td><td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.1</td><td>  Depletable</td><td>M =
+USD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><t=
+d></td><td></td><td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.1.1</td><td>    Subsoil Assets</td><td>M =
+USD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><t=
+d></td><td></td><td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.1.1.1</td><td>      Fossil =
+Fuels</td><td>M =
+USD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><t=
+d></td><td></td><td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.1.1.1.1</td><td>        Oil =
+V_cap</td><td>M =
+USD</td><td>NC_FF_FAND</td><td></td><td>8</td><td>144</td><td>1,699</td><=
+td>11,807</td><td>9,157</td><td>64,884</td><td>60,984</td><td>43,469</td>=
+</tr>
+<tr class=3D"data"><td>1.1.1.3.1.1.1.2</td><td>        Natural Gas =
+V_cap</td><td>M =
+USD</td><td>NC_FF_FAND</td><td></td><td>0.4170</td><td>0.9489</td><td>14<=
+/td><td>510</td><td>545</td><td>5,856</td><td>2,465</td><td>2,041</td></t=
+r>
+<tr class=3D"data"><td>1.1.1.3.1.1.1.3</td><td>        Coal =
+V_cap</td><td>M =
+USD</td><td>NC_FF_FAND</td><td></td><td>46</td><td>62</td><td>527</td><td=
+>651</td><td>400</td><td>662</td><td>992</td><td>1,854</td></tr>
+<tr class=3D"data"><td>1.1.1.3.1.1.2</td><td>    Metals & =
+Minerals</td><td>M =
+USD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><t=
+d></td><td></td><td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.1.1.2.3</td><td>        Gold =
+V_cap</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000008</td><td>0.000014</td><t=
+d>0.000060</td><td>0.000652</td><td>0.0017</td><td>0.0012</td><td>0.0061<=
+/td><td>0.0156</td></tr>
+<tr class=3D"data"><td>1.1.1.3.1.1.2.29</td><td>        Lithium =
+V_cap</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000000</td><td>0.000000</td><t=
+d>0.000000</td><td>0.000000</td><td>0.000001</td><td>0.000001</td><td>0.0=
+00002</td><td></td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"data"><td>1.1.1.3.2</td><td>  Land & Natural =
+Growth</td><td>M =
+USD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><t=
+d></td><td></td><td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.2.1</td><td>    Agricultural =
+Land</td><td>M =
+USD</td><td>NC_AgLand_FAND</td><td></td><td>3,643,976</td><td>7,862,251</=
+td><td>9,513,174</td><td>11,075,662</td><td>918,626</td><td>707,174</td><=
+td>1,823,568</td><td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.2.1.2.1</td><td>      Cropland</td><td>M =
+USD</td><td>NC_AgLand_FAND</td><td></td><td>11,333</td><td>44,267</td><td=
+>55,686</td><td>82,870</td><td>183,211</td><td>182,603</td><td>494,776</t=
+d><td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.2.1.2.2</td><td>      =
+Pastureland</td><td>M =
+USD</td><td>NC_AgLand_FAND</td><td></td><td>93,713</td><td>182,381</td><t=
+d>218,554</td><td>236,413</td><td>117,345</td><td>99,278</td><td>90,747</=
+td><td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.2.2</td><td>    Forests</td><td>M =
+USD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><t=
+d></td><td></td><td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.2.2.2</td><td>      Forest Timber V_cap =
+=3D V_IR + V_FW</td><td>M =
+USD</td><td>nc_forests</td><td></td><td></td><td>24,030</td><td>74,955</t=
+d><td>77,583</td><td>99,851</td><td>115,026</td><td>1,211,975</td><td></t=
+d></tr>
+<tr class=3D"data"><td>1.1.1.3.2.2.2.1</td><td>        Industrial =
+Roundwood V_cap (sustainable mgmt)</td><td>M =
+USD</td><td>nc_forests</td><td></td><td></td><td>14,623</td><td>53,674</t=
+d><td>43,362</td><td>30,042</td><td>63,066</td><td>971,866</td><td></td><=
+/tr>
+<tr class=3D"data"><td>1.1.1.3.2.2.2.2</td><td>        Fuelwood V_cap =
+(perpetuity at r=3D0.04)</td><td>M =
+USD</td><td>nc_forests</td><td></td><td></td><td>9,407</td><td>21,281</td=
+><td>34,221</td><td>69,809</td><td>51,960</td><td>240,108</td><td></td></=
+tr>
+<tr class=3D"data"><td>1.1.1.3.2.2.3</td><td>      Forest Cover =
+Severance (10% of capitalized grazing-anchored rent)</td><td>M =
+USD</td><td>nc_forest_cover</td><td></td><td>495,743</td><td>677,301</td>=
+<td>928,143</td><td>938,471</td><td>931,134</td><td>832,297</td><td>768,9=
+60</td><td>723,636</td></tr>
+<tr class=3D"data"><td>1.1.1.3.1.2</td><td>    Fisheries</td><td>M =
+USD</td><td>NC_Fish_FAND</td><td></td><td>0.000340</td><td>0.0012</td><td=
+>0.0045</td><td>0.0066</td><td>0.0082</td><td>0.0080</td><td>0.0100</td><=
+td></td></tr>
+<tr class=3D"data"><td>1.1.1.3.T</td><td>  NC TOTAL (V_cap stocks, =
+nc_aggregation=3Dtrue)</td><td>M =
+USD</td><td>Computed</td><td></td><td>4,140,234</td><td>8,555,762</td><td=
+>10,503,252</td><td>12,080,715</td><td>1,903,695</td><td>1,690,801</td><t=
+d>3,658,503</td><td>4,635,594</td></tr>
+<tr class=3D"data"><td>1.1.1.4</td><td>  Cross-Border Claim-Rights =
+(Gross Foreign Assets)</td><td>M USD</td><td>IMF =
+IIP+EWN</td><td></td><td>54,956</td><td>3,143</td><td>4,901</td><td>16,91=
+5</td><td>113,300</td><td>182,030</td><td>808,357</td><td>986,475</td></t=
+r>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l1"><td>1.1.2</td><td>Substantive Rights (=3D HR + =
+SR)</td><td>M =
+USD</td><td>Computed</td><td></td><td>97,839</td><td>224,652</td><td>825,=
+896</td><td>2,366,950</td><td>6,569,863</td><td>11,181,920</td><td>32,440=
+,471</td><td>39,604,735</td></tr>
+<tr class=3D"data"><td>1.1.2.1</td><td>  Human Resources (HR)</td><td>M =
+USD</td><td>Spec =
+D-cap</td><td></td><td>68,095</td><td>156,342</td><td>422,098</td><td>1,6=
+47,656</td><td>3,846,087</td><td>8,331,310</td><td>15,026,033</td><td>32,=
+097,372</td></tr>
+<tr class=3D"data"><td>1.1.2.2</td><td>  Other Substantive Rights =
+(SR)</td><td>M =
+USD</td><td>WT_SR_Inst</td><td></td><td>29,744</td><td>68,310</td><td>403=
+,798</td><td>719,294</td><td>2,723,777</td><td>2,850,610</td><td>17,414,4=
+37</td><td>7,507,363</td></tr>
+<tr class=3D"data"><td>1.1.2.2.1</td><td>      Estuarine / =
+Mangroves</td><td>M =
+USD</td><td>nc_mangroves</td><td></td><td>756</td><td>906</td><td>1,508</=
+td><td>2,750</td><td>3,577</td><td>4,186</td><td>4,854</td><td>6,424</td>=
+</tr>
+<tr class=3D"data"><td>1.1.2.2.4.4</td><td>      Hydropower</td><td>M =
+USD</td><td>NC_Hydro_FAND</td><td></td><td>695</td><td>1,251</td><td>3,54=
+3</td><td>8,742</td><td>12,444</td><td>16,539</td><td>17,631</td><td></td=
+></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l0"><td>1.2</td><td>LIABILITIES</td><td>M =
+USD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><t=
+d></td><td></td><td></td></tr>
+<tr class=3D"header-l1"><td>1.2.2</td><td>  Deferred Maintenance =
+(DM)</td><td>M =
+USD</td><td>WT_DM_FAND</td><td></td><td>628,843</td><td>884,351</td><td>5=
+05,166</td><td>1,307,831</td><td></td><td>1,153,937</td><td></td><td>9,83=
+1,957</td></tr>
+<tr class=3D"header-l1"><td>1.2.3</td><td>  Cross-Border Duties (Gross =
+Foreign Liabilities)</td><td>M USD</td><td>IMF =
+IIP+EWN</td><td></td><td>196,597</td><td>11,244</td><td>8,123</td><td>17,=
+055</td><td>225,208</td><td>481,252</td><td>1,183,042</td><td>1,648,611</=
+td></tr>
+<tr class=3D"header-l1"><td>1.2.4</td><td>  Net Worth (NW =3D CW + CBA =
+=E2=88=92 CBL)</td><td>M =
+USD</td><td>Computed</td><td></td><td>7,080</td><td>333,449</td><td>2,015=
+,768</td><td>3,596,330</td><td>9,913,105</td><td>13,953,827</td><td>39,33=
+8,386</td><td>36,874,677</td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l0"><td></td><td>MEMO =
+ITEMS</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+<tr class=3D"header-l1"><td>M.NW</td><td>  NW =
+Decomposition</td><td></td><td></td><td></td><td></td><td></td><td></td><=
+td></td><td></td><td></td><td></td><td></td></tr>
+<tr class=3D"header-l1"><td>M.NW.CW</td><td>    CW =
+(Commonwealth)</td><td>M =
+USD</td><td>Computed</td><td></td><td>148,721</td><td>341,550</td><td>2,0=
+18,989</td><td>3,596,470</td><td>10,025,013</td><td>14,253,049</td><td>39=
+,713,070</td><td>37,536,814</td></tr>
+<tr class=3D"header-l1"><td>M.NW.CBA</td><td>    + CBA (Cross-Border =
+Claim-Rights)</td><td>M USD</td><td>IMF =
+IIP+EWN</td><td></td><td>54,956</td><td>3,143</td><td>4,901</td><td>16,91=
+5</td><td>113,300</td><td>182,030</td><td>808,357</td><td>986,475</td></t=
+r>
+<tr class=3D"header-l1"><td>M.NW.CBL</td><td>    =E2=88=92 CBL =
+(Cross-Border Duties)</td><td>M USD</td><td>IMF =
+IIP+EWN</td><td></td><td>196,597</td><td>11,244</td><td>8,123</td><td>17,=
+055</td><td>225,208</td><td>481,252</td><td>1,183,042</td><td>1,648,611</=
+td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l1"><td>M.CW</td><td>  CW Derivation =
+Inputs</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td=
+><td></td><td></td><td></td><td></td></tr>
+<tr class=3D"header-l1"><td>M.CW.1</td><td>    GNI per capita (Atlas =
+USD)</td><td>USD =
+pc</td><td>WDI+WEO</td><td></td><td>150</td><td>270</td><td>1,180</td><td=
+>1,540</td><td>3,440</td><td>4,030</td><td>10,330</td><td>9,687</td></tr>=
+
+<tr class=3D"header-l1"><td>M.CW.2</td><td>    Working-Age Population =
+Share</td><td>fraction</td><td>WPP</td><td></td><td>0.4239</td><td>0.4120=
+</td><td>0.4303</td><td>0.4667</td><td>0.5033</td><td>0.5561</td><td>0.59=
+59</td><td>0.6080</td></tr>
+<tr class=3D"header-l1"><td>M.CW.3</td><td>    Average Labor Force =
+Age</td><td>years</td><td>WPP</td><td></td><td>35</td><td>36</td><td>35</=
+td><td>35</td><td>36</td><td>37</td><td>39</td><td>40</td></tr>
+<tr class=3D"header-l1"><td>M.CW.4</td><td>    n (future earning years =
+=3D 65 - =
+AvgAge)</td><td>years</td><td>derived</td><td></td><td>30</td><td>29</td>=
+<td>30</td><td>30</td><td>29</td><td>28</td><td>26</td><td>25</td></tr>
+<tr class=3D"header-l1"><td>M.CW.5</td><td>    PMT (GNI_pc x =
+Working_Pct)</td><td>USD =
+pc</td><td>derived</td><td></td><td>64</td><td>111</td><td>508</td><td>71=
+9</td><td>1,731</td><td>2,241</td><td>6,156</td><td>5,890</td></tr>
+<tr class=3D"header-l1"><td>M.CW.6</td><td>    Annuity Factor ((1.015^n =
+- 1) / =
+0.015)</td><td></td><td>derived</td><td></td><td>38</td><td>37</td><td>37=
+</td><td>37</td><td>36</td><td>34</td><td>32</td><td>30</td></tr>
+<tr class=3D"header-l1"><td>M.CW.7</td><td>    CW_pc derived (PMT x =
+Annuity Factor)</td><td>USD =
+pc</td><td>derived</td><td></td><td>2,395</td><td>4,075</td><td>18,760</t=
+d><td>26,539</td><td>61,984</td><td>77,174</td><td>196,916</td><td>176,38=
+5</td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l1"><td>M.HR</td><td>  HR Derivation Inputs (Spec =
+D-cap)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td=
+><td></td><td></td><td></td><td></td></tr>
+<tr class=3D"header-l1"><td>M.HR.1</td><td>    Mean Years of Schooling =
+(MYS)</td><td>years</td><td>UIS/WiC/BL</td><td></td><td>2</td><td>2</td><=
+td>2</td><td>3</td><td>5</td><td>7</td><td>9</td><td>10</td></tr>
+<tr class=3D"header-l1"><td>M.HR.2</td><td>    Life Expectancy at Birth =
+(raw)</td><td>years</td><td>WPP</td><td></td><td>51</td><td>55</td><td>60=
+</td><td>64</td><td>68</td><td>72</td><td>75</td><td>76</td></tr>
+<tr class=3D"header-l1"><td>M.HR.3</td><td>    Life Expectancy (capped =
+at 65)</td><td>years</td><td>Spec =
+D-cap</td><td></td><td>51</td><td>55</td><td>60</td><td>64</td><td>65</td=
+><td>65</td><td>65</td><td>65</td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l1"><td>M.VPQ</td><td>  FAND Flow Valuations =
+(V=3DPxQ)</td><td></td><td></td><td></td><td></td><td></td><td></td><td><=
+/td><td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.1.1</td><td>    Oil =
+V=3DPxQ</td><td>M =
+USD</td><td>NC_FF_FAND</td><td></td><td>4</td><td>67</td><td>791</td><td>=
+5,496</td><td>4,263</td><td>32,635</td><td>46,579</td><td>103,593</td></t=
+r>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.1.2</td><td>    Natural Gas =
+V=3DPxQ</td><td>M =
+USD</td><td>NC_FF_FAND</td><td></td><td>0.2600</td><td>5</td><td>7</td><t=
+d>237</td><td>254</td><td>3,082</td><td>2,194</td><td>1,821</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.1.3</td><td>    Coal =
+V=3DPxQ</td><td>M =
+USD</td><td>NC_FF_FAND</td><td></td><td>21</td><td>29</td><td>245</td><td=
+>303</td><td>186</td><td>308</td><td>462</td><td>863</td></tr>
+<tr class=3D"data"><td></td><td>    Bauxite V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000000</td><td>0.000002</td><t=
+d>0.000020</td><td>0.000154</td><td>0.000273</td><td>0.000552</td><td>0.0=
+010</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.19</td><td>    Beryllium =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000019</td><td>0.000005</td><t=
+d>0.000003</td><td>0.000020</td><td>0.000015</td><td>0.000000</td><td></t=
+d><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.23</td><td>    Chromium =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000001</td><td>0.000002</td><t=
+d>0.000015</td><td>0.000025</td><td>0.000057</td><td></td><td>0.0011</td>=
+<td>0.0079</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.24</td><td>    Cobalt =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td>0.000042</td><td>0.000074</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.3</td><td>    Copper =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td>0.000002</td><=
+td>0.000058</td><td>0.000144</td><td>0.000490</td><td>0.0020</td><td>0.00=
+36</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.39</td><td>    Fluorspar =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td>0.000047</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.3</td><td>    Gold =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000004</td><td>0.000006</td><t=
+d>0.000028</td><td>0.000303</td><td>0.000771</td><td>0.000548</td><td>0.0=
+031</td><td>0.0089</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.27</td><td>    Graphite =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000000</td><td>0.000001</td><t=
+d>0.000001</td><td>0.000004</td><td>0.000006</td><td>0.000000</td><td>0.0=
+00000</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.6</td><td>    Iron Ore =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000000</td><td>0.000000</td><t=
+d>0.000002</td><td>0.000003</td><td>0.000005</td><td>0.000018</td><td>0.0=
+00024</td><td>0.0425</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.7</td><td>    Lead =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000001</td><td>0.000008</td><t=
+d>0.000009</td><td>0.000007</td><td>0.000004</td><td>0.000016</td><td>0.0=
+00017</td><td>0.000031</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.29</td><td>    Lithium =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000000</td><td>0.000000</td><t=
+d>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.0=
+00001</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.31</td><td>    Manganese =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000008</td><td>0.000051</td><t=
+d>0.000263</td><td>0.000435</td><td>0.000560</td><td>0.0011</td><td>0.001=
+1</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.8</td><td>    Molybdenum =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000000</td><td>0.000000</td><t=
+d>0.000000</td><td>0.000001</td><td></td><td>0.000041</td><td>0.000003</t=
+d><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.32</td><td>    Nickel =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000001</td><td>0.000002</td><t=
+d>0.000015</td><td>0.000081</td><td>0.000280</td><td>0.000767</td><td>0.0=
+013</td><td>0.0011</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.33</td><td>    Niobium =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td>0.000508</td><td>0.0021</td><td>0.0027</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.10</td><td>    Phosphate Rock =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000004</td><td>0.000014</td><t=
+d>0.000263</td><td>0.000150</td><td>0.000127</td><td>0.000248</td><td>0.0=
+00674</td><td>0.000763</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.35</td><td>    Potash =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td>0.000037</td><td>0.000113</td><td>0.000197</td><td>0.000360</td></tr>=
+
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.36</td><td>    Rare Earths =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.13</td><td>    Silver =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000000</td><td>0.000001</td><t=
+d>0.000001</td><td>0.000011</td><td>0.000002</td><td>0.000002</td><td>0.0=
+00022</td><td>0.000124</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.31</td><td>    Tin =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000004</td><td>0.000007</td><t=
+d>0.000028</td><td>0.000306</td><td>0.000155</td><td>0.000092</td><td>0.0=
+00273</td><td>0.000954</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.32</td><td>    Titanium Mineral =
+Concentrates V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td>0.000029</td><td>0.000052</td><td>0.000956</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.33</td><td>    Tungsten =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000005</td><td>0.000001</td><t=
+d>0.000019</td><td>0.000010</td><td>0.000001</td><td>0.000017</td><td>0.0=
+00016</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.34</td><td>    Vanadium =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td>0.000027</td><td>0.000059</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.16</td><td>    Zinc =
+V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td>0.000028</td><=
+td>0.000097</td><td>0.000194</td><td>0.000236</td><td>0.000303</td><td>0.=
+000525</td></tr>
+<tr class=3D"data"><td></td><td>    Zirconium V=3DPxQ</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td>0.000020</td><td></td><td>0.000037</td></tr>
+<tr class=3D"data"><td></td><td>    Forest Timber V=3DPxQ (roundwood =
+harvest)</td><td>M =
+USD</td><td>nc_forests</td><td></td><td></td><td>0.0019</td><td>0.0072</t=
+d><td>0.0058</td><td>0.0040</td><td>0.0084</td><td>0.0397</td><td>0.0152<=
+/td></tr>
+<tr class=3D"data"><td></td><td>    Fisheries V=3DPxQ (catch =
+value)</td><td>M =
+USD</td><td>NC_Fish_FAND</td><td></td><td>0.000139</td><td>0.000473</td><=
+td>0.0018</td><td>0.0027</td><td>0.0034</td><td>0.0033</td><td>0.0041</td=
+><td></td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l1"><td>M.VPRSev</td><td>  FAND Gross-Stock =
+Valuations (V=3DPxR x Sev, =
+Memo)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.1.1</td><td>    Oil V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>NC_FF_FAND</td><td></td><td>491</td><td>5,868</td><td>36,853<=
+/td><td>85,273</td><td>48,833</td><td>131,973</td><td>88,087</td><td>48,5=
+30</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.1.2</td><td>    Natural Gas V=3DPxR =
+x Sev</td><td>M =
+USD</td><td>NC_FF_FAND</td><td></td><td>0.6800</td><td>1</td><td>573</td>=
+<td>3,267</td><td>2,012</td><td>11,216</td><td>3,338</td><td>2,762</td></=
+tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.1.3</td><td>    Coal V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>NC_FF_FAND</td><td></td><td>5,725</td><td>5,528</td><td>23,17=
+4</td><td>26,730</td><td>24,149</td><td>32,961</td><td>38,099</td><td>89,=
+404</td></tr>
+<tr class=3D"data"><td></td><td>    Bauxite V=3DPxR x Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.0019</td><td>0.0029</td><td>0.=
+0052</td><td>0.0074</td><td>0.0058</td><td>0.0057</td><td>0.0055</td><td>=
+</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.19</td><td>    Beryllium V=3DPxR =
+x Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000050</td><td>0.000023</td><t=
+d>0.000020</td><td>0.000049</td><td>0.000067</td><td>0.000017</td><td>0.0=
+00033</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.23</td><td>    Chromium V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000128</td><td>0.000192</td><t=
+d>0.000854</td><td>0.0011</td><td>0.0017</td><td>0.0019</td><td>0.0025</t=
+d><td>0.0018</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.24</td><td>    Cobalt V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000050</td><td>0.000032</td><t=
+d>0.000085</td><td>0.000219</td><td>0.000535</td><td>0.000290</td><td>0.0=
+00171</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.3</td><td>    Copper V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000571</td><td>0.000910</td><t=
+d>0.000867</td><td>0.000974</td><td>0.0019</td><td>0.0022</td><td>0.0020<=
+/td><td>0.000009</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.39</td><td>    Fluorspar V=3DPxR =
+x Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td>0.000066</td><td>0.000087</td><td>0.000117</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.3</td><td>    Gold V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000599</td><td>0.000595</td><t=
+d>0.0027</td><td>0.0051</td><td>0.0054</td><td>0.0056</td><td>0.0121</td>=
+<td>0.0277</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.27</td><td>    Graphite V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000246</td><td>0.000205</td><t=
+d>0.000419</td><td>0.0015</td><td>0.0022</td><td>0.0024</td><td>0.0052</t=
+d><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.6</td><td>    Iron Ore V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.0210</td><td>0.0306</td><td>0.=
+0496</td><td>0.0761</td><td>0.0796</td><td>0.1823</td><td>0.1566</td><td>=
+0.2424</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.7</td><td>    Lead V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000031</td><td>0.000029</td><t=
+d>0.000027</td><td>0.000018</td><td>0.000024</td><td>0.000027</td><td>0.0=
+00031</td><td>0.000014</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.29</td><td>    Lithium V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000226</td><td>0.000105</td><t=
+d>0.000183</td><td>0.000351</td><td>0.000460</td><td>0.000087</td><td>0.0=
+00389</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.31</td><td>    Manganese V=3DPxR =
+x Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.0030</td><td>0.0028</td><td>0.=
+0075</td><td>0.0134</td><td>0.0198</td><td>0.0228</td><td>0.0352</td><td>=
+</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.8</td><td>    Molybdenum V=3DPxR =
+x Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000002</td><td>0.000003</td><t=
+d>0.000005</td><td>0.000005</td><td></td><td>0.000035</td><td>0.000004</t=
+d><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.32</td><td>    Nickel V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.0027</td><td>0.0032</td><td>0.=
+0084</td><td>0.0090</td><td>0.0149</td><td>0.0261</td><td>0.0199</td><td>=
+0.0243</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.33</td><td>    Niobium V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td>0.0218</td><td>0.0610</td><td>0.0364</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.10</td><td>    Phosphate Rock =
+V=3DPxR x Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.0020</td><td>0.0026</td><td>0.=
+0123</td><td>0.0065</td><td>0.0058</td><td>0.0076</td><td>0.0199</td><td>=
+0.0244</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.35</td><td>    Potash V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td>0.000143</td><td>0.000202</td><td>0.000201</td><td>0.000180</td></tr>=
+
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.36</td><td>    Rare Earths =
+V=3DPxR x Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.13</td><td>    Silver V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000007</td><td>0.000009</td><t=
+d>0.000030</td><td>0.000037</td><td>0.000024</td><td>0.000032</td><td>0.0=
+00058</td><td>0.000055</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.31</td><td>    Tin V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000324</td><td>0.000633</td><t=
+d>0.0011</td><td>0.0017</td><td>0.000731</td><td>0.000758</td><td>0.0015<=
+/td><td>0.0024</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.32</td><td>    Titanium Mineral =
+Concentrates V=3DPxR x Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000968</td><td></td><td>0.0007=
+57</td><td>0.0011</td><td>0.0012</td><td>0.0010</td><td>0.000249</td><td>=
+</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.33</td><td>    Tungsten V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000035</td><td>0.000013</td><t=
+d>0.000030</td><td>0.000012</td><td>0.000011</td><td>0.000023</td><td>0.0=
+00014</td><td></td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.34</td><td>    Vanadium V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td>0.000125</td><td>0.000104</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.1.1.2.16</td><td>    Zinc V=3DPxR x =
+Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td>0.000205</td><td>0.000257</td><t=
+d>0.000594</td><td>0.000551</td><td>0.000564</td><td>0.000578</td><td>0.0=
+00465</td><td>0.000222</td></tr>
+<tr class=3D"data"><td></td><td>    Zirconium V=3DPxR x Sev</td><td>M =
+USD</td><td>nc_minerals</td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td>0.000428</td><td></td><td>0.0013</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.2.2.2</td><td>    Forest Timber V=3DPxR =
+x Sev (growing-stock)</td><td>M =
+USD</td><td>nc_forests</td><td></td><td></td><td>14,623</td><td>53,674</t=
+d><td>43,362</td><td>30,042</td><td>63,066</td><td>971,866</td><td>371,87=
+4</td></tr>
+<tr class=3D"data"><td>M.1.1.1.3.2.2.3</td><td>    Forest Cover V_cap =
+(full capitalized land rent, memo)</td><td>M =
+USD</td><td>nc_forest_cover</td><td></td><td>495,743</td><td>677,301</td>=
+<td>928,143</td><td>938,471</td><td>931,134</td><td>832,297</td><td>768,9=
+60</td><td>723,636</td></tr>
+<tr class=3D"spacer"><td colspan=3D"13"></td></tr>
+<tr class=3D"header-l1"><td>M.NOTE</td><td>  =
+Notes</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td></td><td>    Balance-sheet entries for depletable =
+subsoil are V_cap =3D Sev x P x Q x PV(r=3D0.04,T=3Dmin(R/Q,50)) per =
+SPMF-174-2</td><td></td><td></td><td></td><td></td><td></td><td></td><td>=
+</td><td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td></td><td>    V=3DPxR x Sev (gross-stock) rows =
+above are MEMO ITEMS only per =
+SPMF-174-2</td><td></td><td></td><td></td><td></td><td></td><td></td><td>=
+</td><td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td></td><td>    V=3DPxQ (flow) rows above are MEMO =
+ITEMS only per =
+SPMF-092-1</td><td></td><td></td><td></td><td></td><td></td><td></td><td>=
+</td><td></td><td></td><td></td><td></td></tr>
+<tr class=3D"data"><td></td><td>    CWoN cross-validation available in =
+standalone World Tables (stripped =
+S297)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>=
+<td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+<div class=3D"footer">
+  OconEco =C2=B7 First Agentic Navigator for Development (FAND) =C2=B7 =
+CW =3D PA + NC + HR + SR =E2=88=92 DM =C2=B7 NW =3D CW + CBA =E2=88=92 =
+CBL<br>
+  All monetary values in current USD (per capita or million USD as =
+labeled). Natural Capital valued via V=3DP=C3=97R=C3=97Sev (10% =
+severance protocol).<br>
+  Data sources: WPP 2024, GNI Atlas, OECD 9B, EIA, FAO, USGS MCS, Energy =
+Institute, IMF IIP, LM-EWN.
+</div>
+</body>
+</html>
+------=_NextPart_000_00F6_01DCE060.67C22050--
+
