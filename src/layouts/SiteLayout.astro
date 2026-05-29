@@ -8,6 +8,9 @@ interface Props {
 const { title, description, mainClass = "", isArticle = false } = Astro.props;
 const pageTitle = title === "Oconeco" ? "OconEco" : `${title} — OconEco`;
 
+const cfBeaconToken = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
+const enableAnalytics = import.meta.env.PROD && cfBeaconToken;
+
 const SITE_URL = "https://oconeco.com";
 const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
@@ -117,6 +120,13 @@ function isCurrent(href: string): boolean {
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
     {articleJsonLd && (
       <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
+    )}
+    {enableAnalytics && (
+      <script
+        defer
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon={`{"token": "${cfBeaconToken}"}`}
+      />
     )}
   </head>
   <body>

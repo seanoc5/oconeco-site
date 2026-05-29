@@ -32,3 +32,7 @@ Examples of what would eventually live here:
 - Information architecture principles ("the homepage should lead with X, not Y")
 - Non-negotiables ("never use jargon X without defining it first")
 - Brand/visual constants
+
+## Operational runbooks
+
+- [`docs/dns-hygiene.md`](docs/dns-hygiene.md) — SPF / DMARC / DKIM / MX records for `oconeco.com`, with verification commands. Run by Sean at the Cloudflare DNS dashboard.
