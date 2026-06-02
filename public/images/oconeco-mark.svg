@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-labelledby="title desc">
+  <title id="title">OconEco icon</title>
+  <desc id="desc">Overlapping circle icon in green, blue, teal, and gold.</desc>
+  <rect width="100%" height="100%" fill="transparent"/>
+
+  <g class="oconeco-mark" transform="translate(22 20) scale(1.06)">
+    <circle cx="84" cy="112" r="72" fill="none" stroke="#299b16" stroke-width="3.5" opacity=".86"/>
+    <circle cx="168" cy="70" r="72" fill="none" stroke="#8BC76D" stroke-width="3.5" opacity=".86"/>
+    <circle cx="168" cy="154" r="72" fill="none" stroke="#4CAF28" stroke-width="3.5" opacity=".95"/>
+    <!-- lens overlaps -->
+    <path d="M104 43 C130 48 151 66 158 92 C136 95 115 84 100 64 C98 57 100 50 104 43Z" fill="#4CAF28" opacity=".95"/>
+    <path d="M158 92 C188 88 213 96 235 112 C210 130 180 136 150 126 C151 114 154 102 158 92Z" fill="#005BAA" opacity=".97"/>
+    <path d="M118 126 C145 133 162 148 168 172 C158 201 142 224 118 238 C104 205 103 166 118 126Z" fill="#45B8C4" opacity=".88"/>
+    <path d="M145 92 C154 99 159 111 158 126 C145 124 134 118 126 109 C130 101 136 95 145 92Z" fill="#FDB813"/>
+  </g>
+</svg>
