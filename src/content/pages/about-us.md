@@ -9,7 +9,7 @@ OconEco was founded by John O'Connor. John began designing and
 managing decision-support systems in 1964 at the IMF, just before computerization. In 1986, he transferred to the World Bank as Chief of Comparative Analysis and Data, He now taps his extensive network of experts as needed on aspects of wealth creation.
 His core team includes experts in 'big data' and business accounting. 
 
-John's current focus is Multi-Local Analytics ([M-LA](/multi-local-analytics-mla/)); a smart grid for decentralized, market-oriented allocation of real as well as
+John's current focus is Multi-Local Analytics ([M-LA](/framework/)); a smart grid for decentralized, market-oriented allocation of real as well as
 financial resources. As proof-of-concept, he led the design of wealth metrics
 for [sciGaia'](https://www.scigaia.com/about/)s [TrueView metrics](https://www.scigaia.com/platform/#trueview-indicators) and was primary author of [Montana's
 Renewable Portfolio](https://www.scigaia.com/wp-content/uploads/2021/10/Montana-Renewable-Portfolio-Economic-Benefits-2015.pdf) (2015).
