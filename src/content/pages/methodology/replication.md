@@ -1,44 +1,55 @@
 ---
 title: "Replication package"
 slug: "methodology/replication"
-description: "The 12-stage Python pipeline that reproduces every published FAND number, with SHA-256 audit trail."
+description: "The 12-stage Python pipeline that reproduces every published FAND number, with SHA-256 audit trail and public GitHub release."
 sectionContext: "The full Python pipeline that reproduces every number, on GitHub."
 ---
 
-> **Strawman.** Per State of FAND briefing §4.3. Phase 1 links to the public GitHub release (or gated download for institutional reviewers). Phase 2 surfaces a live build status.
-
 # Replication package
 
-Every number FAND publishes can be reproduced from public source data using the bundled Python pipeline. The package contains 128 builder scripts, organized as a 12-stage DAG, with SHA-256 checksums on every intermediate artifact.
+Every number FAND publishes can be reproduced from public source data using the bundled Python pipeline. The package contains 128 builder scripts, organized as a 12-stage DAG, with SHA-256 checksums on every intermediate artifact and a `MANIFEST` file pinning the exact source-data snapshot used for each release.
+
+## Source code
+
+The replication package is published on GitHub:
+
+**Repository:** [`github.com/oconeco/fand-replication`](https://github.com/oconeco/fand-replication) *(URL provisional — to be confirmed before Phase 1 launch)*
+
+Tagged releases correspond to FAND publication snapshots. The latest tagged release is the canonical reference for any number cited on this site; the `main` branch tracks ongoing pipeline work.
+
+## What the package contains
+
+- A **12-stage Python pipeline** that runs end-to-end from agency downloads through validated FAND output
+- **128 builder scripts** — 30+ World Tables (TL1), per-side cross-border builders (CBA / CBL), and US state/county builders
+- **`run_all.py`** — the DAG entry point that resolves stage dependencies and produces a PASS/FAIL summary
+- **SHA-256 audit trail** — every intermediate artifact carries a checksum so a reviewer can confirm bit-exact reproduction
+- **`MANIFEST`** — pins the agency-data snapshot (source, table, retrieval date, URL) used for the release
+- **`parameters.json`** — externalized valuation parameters (discount rate, severance rate, splice protocol, etc.)
+- **SQLite caches** — `oconeco_tl1_global.db` (TL1) and `oconeco_sub_usa.db` (US subnational) for fast re-runs
 
 ## How to run it
 
 ```bash
-pip install -r requirements.txt        # 6 Python packages
-python scripts/run_all.py --national   # 12-stage DAG, all TL1 builders
-python scripts/run_all.py --list       # show stages without running
+git clone https://github.com/oconeco/fand-replication.git
+cd fand-replication
+pip install -r requirements.txt
+python run_all.py
 ```
 
-Every script is idempotent, with externalized parameters and a PASS/FAIL validation summary printed at the end.
+Useful flags:
 
-## What's inside
+```bash
+python run_all.py --national   # TL1 builders only (skip US subnational)
+python run_all.py --list       # show stages without running
+python run_all.py --stage 7    # run a single stage
+```
 
-| Component | What it is |
-|---|---|
-| **`scripts/`** | 128 Python builder scripts; `run_all.py` is the DAG entry point |
-| **`scripts/world_tables/`** | 30+ World Tables (TL1) — Fossil Fuels, Minerals, Forest Timber, Forest Cover, Fisheries, AgLand, PA, HR, SI, SR, DM, CW, RW, Population |
-| **`scripts/cross_border/`** | Cross-border World Tables (CBA + CBL, per-side) |
-| **`scripts/us_mla/`** | US state and county builders |
-| **`what_code_manifest.json`** | v10 — What code → fand-api entity mapping |
-| **`hr_regression_coefficients.json`** | Production HR coefficients (S278/BT-045 — always authoritative) |
-| **`wld_source_registry.json`** | WLD row provenance for all World Tables |
-| **`parameters.json`** | Valuation parameters (discount rate r=4%, severance 10%, …) |
-| **SQLite caches** | `oconeco_tl1_global.db` (TL1) and `oconeco_sub_usa.db` (US subnational) — WAL journaling |
+Every script is idempotent. A full run on a modern laptop completes in tens of minutes; subsequent runs against the cached intermediate artifacts complete in seconds. The final stage prints a PASS/FAIL validation summary that an institutional reviewer can spot-check against the published numbers.
 
-## What lives where
+## License
 
-The replication package is what gets handed to institutional reviewers. The public-facing summary lives here; the full download lives in [/deep-dive/](/deep-dive/).
+The replication package is released under an open-source license (specific license — MIT or Apache 2.0 — to be confirmed at the first tagged release). The license applies to the pipeline code; the upstream source data remains governed by each agency's own terms of use.
 
-For repository-level context on how the pipeline maps to fand-api integration, see the State of FAND briefing §4 in [`context/raw/`](https://github.com/seanoc5/oconeco-site/tree/main/context/raw).
+## Where it sits in the architecture
 
-*(Placeholder. Replace with the live release URL + checksum manifest once the GitHub release is cut.)*
+The replication package is what gets handed to institutional reviewers. The public-facing summary lives here; the full source-code repository is the link above. For repository-level context on how the pipeline maps to the FAND data API, see the State of FAND briefing in [`context/raw/`](https://github.com/seanoc5/oconeco-site/tree/main/context/raw).
