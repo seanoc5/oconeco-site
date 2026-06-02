@@ -1,52 +1,45 @@
 ---
 title: "Site map"
-rawTitle: "Site map :: Oconeco"
 slug: "site-map"
-sourceUrl: "https://oconeco.webnode.page/site-map/"
+description: "Top-level pages of the OconEco site, grouped by section."
 ---
 
 [Home](/)
 
-[Toolkit](https://oconeco.webnode.page/big-data-tools/)  
+**Evidence — the data**
 
- [M-LA](/multi-local-analytics-mla/)
+- [Evidence overview](/evidence/)
+- [Global](/evidence/global/)
+- [Country comparison](/evidence/comparison/)
+- [Countries](/evidence/countries/)
+- [US states](/evidence/us-states/)
+- [US counties](/evidence/us-counties/)
 
- [FIND](/stakeholder-engagement-find/)
+**Framework — what we measure**
 
- [ISPP](/ispp/)
+- [Framework overview](/framework/)
+- [Balance sheet equation](/framework/balance-sheet/)
+- [Five spatial scales](/framework/scales/)
+- ["What" hierarchy](/framework/what-tree/)
+- [Glossary](/framework/glossary/)
 
- [TRoI](/sroi/)
+**Methodology — how it's built**
 
-[Adding value](/about-you/) 
+- [Methodology overview](/methodology/)
+- [Operational Guidelines](/methodology/og/)
+- [NUSAP — data quality](/methodology/nusap/)
+- [Source agency directory](/methodology/sources/)
+- [Replication package](/methodology/replication/)
 
- [Procedures](/procedures/)
+**Deep Dive — gated institutional materials**
 
- [Processes](/processes/)
+- [Deep Dive overview](/deep-dive/)
 
- [Evidence](/evidentiary-processes/)
+**About**
 
- [Scales](/scales/)
+- [About us](/about-us/)
+- [About this site](/about/)
 
-[Service levels](/our-services/)
+**Contact**
 
- [A. 2xP3 logic](/a-2xp3-logic/)
-
- [B. SWOT logic](/b-swot-logic/)
-
- [C. Disruptive logic](/c-disruptive-logic/)
-
-[Reference materials](/reference-materials/)  
-
- [Work in progress & sampler](/works-in-progress-samplers/)
-
-  [Work in progress](/in-progress/)
-
-  [Sampler](/appetizers/)
-
- [Publications](/working-papers/)
-
-[Mind-benders from others](/mind-benders-from-others/)  
-
-[About us](/about-us/)  
-
-[Contact](/contact/)
+- [Contact](/contact/)
