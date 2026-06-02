@@ -1,5 +1,7 @@
 # Cloudflare Pages redirects — evaluated top-to-bottom, first match wins.
-# Catchall MUST be last; the 6 specific REPURPOSE rules above it win first.
+# NO splat catchall: wildcard rules in _redirects override static assets in
+# Cloudflare Pages (including the root `/`), which 301-loops the whole site.
+# Unknown paths fall through to Astro's built dist/404.html instead.
 
 # 6 specific REPURPOSE redirects
 /working-papers/         /deep-dive/working-papers/   301
@@ -8,6 +10,3 @@
 /human-resources-hr/     /framework/balance-sheet/    301
 /social-infrastructure-si/ /framework/balance-sheet/  301
 /sroi/                   /framework/                  301
-
-# Catchall — any unknown path → home
-/*  /  301
