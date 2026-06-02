@@ -2,6 +2,7 @@
 title: "Replication package"
 slug: "methodology/replication"
 description: "The 12-stage Python pipeline that reproduces every published FAND number, with SHA-256 audit trail."
+sectionContext: "The full Python pipeline that reproduces every number, on GitHub."
 ---
 
 > **Strawman.** Per State of FAND briefing §4.3. Phase 1 links to the public GitHub release (or gated download for institutional reviewers). Phase 2 surfaces a live build status.

@@ -2,6 +2,7 @@
 title: "Glossary of Novel Constructs"
 slug: "framework/glossary"
 description: "30 terms that define FAND's conceptual vocabulary — Abductive Triage, Commonwealth-as-wēle, Hohfeldian classification, IS-Branch Principle, and more."
+sectionContext: "30 terms OconEco coined or repurposed, defined."
 ---
 
 > **Strawman.** Phase 1 renders the 30 terms as a searchable accordion driven by structured data. Source format: issue [#2](https://github.com/seanoc5/oconeco-site/issues/2). What appears below is a placeholder sample of 5 entries to show the layout — the full 30 lands once the structured glossary file is in.

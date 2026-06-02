@@ -2,6 +2,7 @@
 title: "The What hierarchy — 415-node classification tree"
 slug: "framework/what-tree"
 description: "Every value FAND produces is keyed to one of 415 What codes — the thematic axis of navigation."
+sectionContext: "The 415-node thematic hierarchy that organizes everything FAND measures."
 ---
 
 > **Strawman.** Phase 1 renders the top three levels as a static collapsible list (from slide 7 of the vision deck); Phase 2 turns the full 415-node tree into an interactive D3 explorer. Source data shape: issue [#3](https://github.com/seanoc5/oconeco-site/issues/3).

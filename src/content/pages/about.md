@@ -2,6 +2,7 @@
 title: "About"
 slug: "about"
 description: "OconEco was founded by John O'Connor — 60 years of designing national-scale measurement systems, from IMF 1964 to FAND today."
+sectionContext: "John O'Connor's lineage, OconEco's research note, and how to work with us."
 ---
 
 > **Strawman.** Replaces the legacy `/about-us/` once IA is approved. Per Website Brief §"About" — career timeline + AI-augmented workflow note + contact.

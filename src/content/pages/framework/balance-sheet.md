@@ -2,6 +2,7 @@
 title: "The balance sheet equation"
 slug: "framework/balance-sheet"
 description: "CW = PA + NC + HR + SI — the identity that anchors the entire FAND project."
+sectionContext: "CW = PA + NC + HR + SI, with a worked example."
 ---
 
 > **Strawman.** Real version embeds the Thin Description of FAND (500 words, already written) plus a worked example with one country's actual numbers.

@@ -2,6 +2,7 @@
 title: "US counties — commuter flows dominate"
 slug: "evidence/us-counties"
 description: "3,258 US counties — the scale at which commuter flows dominate the cross-border story."
+sectionContext: "County-level GTP drill (3,258 counties; commuter-flow tells the story)."
 ---
 
 > **Strawman.** Phase 1 ships a county-list with balance-sheet drill-down; Phase 2 builds the county choropleth as a real interactive map.

@@ -2,6 +2,7 @@
 title: "Source agency directory"
 slug: "methodology/sources"
 description: "Every number on the site links to its source agency, table, year, and URL. This is the directory of the agencies we cherry-pick from."
+sectionContext: "The agencies and tables FAND consumes."
 ---
 
 > **Strawman.** Per developer brief §6 and vision deck slide 8. The directory below is the chip-cloud rendering from the brief.
