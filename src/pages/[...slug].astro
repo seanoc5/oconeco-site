@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import SiteLayout from "../layouts/SiteLayout.astro";
+import SectionContext from "../components/SectionContext.astro";
 
 export async function getStaticPaths() {
   const entries = await getCollection("pages");
@@ -22,5 +23,8 @@ const { Content } = await render(entry);
   isArticle={true}
 >
   <h1>{entry.data.title}</h1>
+  {entry.data.sectionContext && (
+    <SectionContext>{entry.data.sectionContext}</SectionContext>
+  )}
   <Content />
 </SiteLayout>

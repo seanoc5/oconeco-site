@@ -2,6 +2,7 @@
 title: "Five spatial scales"
 slug: "framework/scales"
 description: "TL1 (country) → TL2 (US state) → TL3 (US county) → Tract → Block Group. Same architecture, different cross-border story."
+sectionContext: "From the World down to the Census Block Group, in five spatial levels."
 ---
 
 > **Strawman.** Real version uses the five-scale diagram from `FAND_Long_Haul.md` rendered as an SVG with alt text.

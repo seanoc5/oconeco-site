@@ -2,6 +2,7 @@
 title: "Framework"
 slug: "framework"
 description: "Conceptual architecture — the balance sheet identity, the four navigation axes, the 415-node What hierarchy, the 30-term glossary."
+sectionContext: "The accounting identity OconEco uses, the scales it operates at, and the vocabulary it introduces."
 ---
 
 > **Strawman section index.** Real content per the developer brief §5 and the existing Thin Description of FAND will replace this.

@@ -10,6 +10,7 @@ const pages = defineCollection({
     sourceUrl: z.string().url().optional(),
     description: z.string().optional(),
     tagline: z.string().optional(),
+    sectionContext: z.string().optional(),
   }),
 });
 

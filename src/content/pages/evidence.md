@@ -2,6 +2,7 @@
 title: "Evidence"
 slug: "evidence"
 description: "Empirical results — the FAND balance sheet rendered at world, country, US state, and US county scale."
+sectionContext: "FAND results, navigated by where (geography) and what (balance-sheet component)."
 ---
 
 > **Strawman section index.** Real content per the developer brief §8 will replace this prose; the five sub-page split (global / comparison / countries / us-states / us-counties) is the IA decision under review.

@@ -2,6 +2,7 @@
 title: "NUSAP — data quality you can see"
 slug: "methodology/nusap"
 description: "The five-letter framework (Numeral, Unit, Spread, Assessment, Pedigree) displayed progressively on every value."
+sectionContext: "The five-tag data-quality framework FAND attaches to every value."
 ---
 
 > **Strawman.** Per developer brief §7 and vision deck slide 9. The progressive-disclosure UX pattern is what makes NUSAP work — and what differentiates the site from data portals that publish numbers without uncertainty.

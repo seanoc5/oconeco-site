@@ -2,6 +2,7 @@
 title: "Operational Guidelines (OG-001..OG-010)"
 slug: "methodology/og"
 description: "10 guidelines codifying how FAND handles specific methodological domains. One-line summaries visible by default; full text on expand."
+sectionContext: "Ten Operational Guidelines that codify methodological domains."
 ---
 
 > **Strawman.** Phase 1 ships the one-line summaries with expandable bodies. The full OG documents (`.docx` + `.md`) live in the gated [/deep-dive/](/deep-dive/) section. Final text will replace these placeholders once the OG content packet is delivered.

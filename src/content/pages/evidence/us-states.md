@@ -2,6 +2,7 @@
 title: "US states — wealth and income"
 slug: "evidence/us-states"
 description: "State-level CW choropleth; click a state for its balance sheet. 51 units, top-down vs bottom-up comparison."
+sectionContext: "State-level Comprehensive Wealth from the US subnational two-version architecture."
 ---
 
 > **Strawman.** Phase 1 ships a static choropleth (PNG export from the state-level workbook); Phase 2 makes it interactive.

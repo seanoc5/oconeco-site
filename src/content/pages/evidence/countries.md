@@ -2,6 +2,7 @@
 title: "Country samplers"
 slug: "evidence/countries"
 description: "India, China, USA — balance-sheet snapshots. Three at launch; the build pipeline supports any country."
+sectionContext: "India, China, and the USA, treated as worked examples of the FAND template."
 ---
 
 > **Strawman.** The launch trio (India / China / USA) is John's selection per the strategic brief. The `build_country_page.py` pipeline can produce any ISO3 country on demand — see issue [#4](https://github.com/seanoc5/oconeco-site/issues/4) for the data-shape decision.

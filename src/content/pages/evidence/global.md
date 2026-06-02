@@ -2,6 +2,7 @@
 title: "Global Leaves crosstab"
 slug: "evidence/global"
 description: "7,101 administrative units across 237 countries — the 38× measurement asymmetry finding."
+sectionContext: "7,101 administrative units across 237 countries, in one crosstab."
 ---
 
 > **Strawman.** Real version embeds the 10-minute narrated `.mp4` (already exists) and either a static or interactive version of the 5×5 crosstab.

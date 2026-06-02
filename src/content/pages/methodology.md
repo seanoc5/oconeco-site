@@ -2,6 +2,7 @@
 title: "Methodology"
 slug: "methodology"
 description: "Operational Guidelines, NUSAP data-quality framework, source agency directory, and the reproducible replication package."
+sectionContext: "How OconEco produces each published number, with the audit trail to back it."
 ---
 
 > **Strawman section index.** Per the developer brief §7 and vision deck slide 9.

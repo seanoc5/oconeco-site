@@ -2,6 +2,7 @@
 title: "FAND vs CWoN — comparative analysis"
 slug: "evidence/comparison"
 description: "Appendix E — why FAND differs from the Changing Wealth of Nations methodology, and why the differences matter."
+sectionContext: "How FAND's national balance sheets diverge from World Bank Changing Wealth of Nations."
 ---
 
 > **Strawman.** Real version embeds the Appendix E narrated video (rendered from John's v6JOC edit + HeyGen_AppxE_v2 scripts) plus the key comparative charts.

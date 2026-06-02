@@ -2,6 +2,7 @@
 title: "Deep Dive — gated section"
 slug: "deep-dive"
 description: "Password-protected materials for named institutional reviewers — working papers, downloadable workbooks, full Operational Guideline documents, complete replication package."
+sectionContext: "Institutional-reviewer materials: workbooks, working papers, full Operational Guidelines."
 ---
 
 > **Strawman placeholder.** The actual gated section requires the gating mechanism decision from issue [#6](https://github.com/seanoc5/oconeco-site/issues/6) — Phase 1 shared password vs Phase 2 individual accounts. This page exists so the IA preview has a slot to point at.
