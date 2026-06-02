@@ -14,15 +14,19 @@ at the bottom of this doc.
 1. **GET without valid cookie** → returns a `401` with the inline login page.
 2. **POST `password=…`** to any `/deep-dive/*` URL:
    - If the password matches `DEEP_DIVE_PASSWORD`, the response is a `303` to
-     the originally requested path with a `Set-Cookie: wsr_session=valid`
+     the originally requested path with a `Set-Cookie: wsr_session=<token>`
      header (`HttpOnly`, `Secure`, `SameSite=Lax`, `Path=/deep-dive/`,
-     `Max-Age` = 7 days).
+     `Max-Age` = 7 days). `<token>` is a SHA-256 of the current password — not
+     a literal sentinel — so the cookie value is unknowable to anyone who
+     hasn't logged in, even if they can read this function's source.
    - If the password is wrong, the login page is re-rendered with an error.
-3. **Any request with `wsr_session=valid`** → the function calls `next()` and
-   the static asset is served from the Pages build.
+3. **Request with a matching `wsr_session` cookie** → the function calls
+   `next()` and the static asset is served from the Pages build.
 
-The password compare is constant-time so a misconfigured password can't leak
-via timing.
+Both the password compare and the cookie compare are constant-time. Because
+the session token is derived from the current password, **rotating the
+password instantly invalidates every outstanding session** as well (see
+"Rotating the password" below).
 
 ## Setting the password
 
@@ -55,11 +59,11 @@ silently letting an empty-string compare succeed.
 2. Trigger a re-deploy (or push any commit).
 3. Email the new password to active reviewers.
 
-Old sessions naturally expire **7 days** after their last successful login.
-There is no server-side session revocation — if you need to cut access
-immediately (e.g. a reviewer's laptop is lost), rotate the password and also
-treat any live sessions as compromised; you can shorten `SESSION_MAX_AGE_SECONDS`
-in the function and re-deploy if you want a tighter window.
+Because the session cookie is derived from the current password, rotating
+immediately invalidates every outstanding session — old cookies stop matching
+on the next request, and reviewers will see the login page again. If you just
+want sessions to age out without a rotation, the default `Max-Age` is 7 days
+(adjust `SESSION_MAX_AGE_SECONDS` in the function and re-deploy to change it).
 
 ## Sharing with reviewers
 
@@ -83,12 +87,17 @@ curl -sI https://oconeco.com/deep-dive/
 # Wrong password → 401 + login HTML with error
 curl -s -X POST -d 'password=wrong' https://oconeco.com/deep-dive/ | head
 
-# Correct password → 303 + Set-Cookie
-curl -s -i -X POST -d 'password=<actual>' https://oconeco.com/deep-dive/ | head
+# Correct password → 303 + Set-Cookie (capture the cookie to a jar)
+curl -s -i -c /tmp/wsr.cookies -X POST \
+  -d 'password=<actual>' https://oconeco.com/deep-dive/ | head
 
-# Carrying the cookie → 200 (or whatever the static page returns)
-curl -sI -H 'Cookie: wsr_session=valid' https://oconeco.com/deep-dive/
+# Carrying the captured cookie → 200
+curl -sI -b /tmp/wsr.cookies https://oconeco.com/deep-dive/
 ```
+
+The cookie value is a SHA-256 of the password, so you can't synthesise it by
+hand without knowing the password — use a cookie jar (`-c` / `-b`) or copy
+the value out of devtools after a real login.
 
 For local iteration, `npx wrangler pages dev ./dist` after `npm run build`
 serves the static output with the Functions runtime so you can hit
@@ -103,8 +112,8 @@ When fand-app's `MemberController` is online behind Cloudflare Tunnel:
 - Swap the password compare in `handleLoginPost` for a token-validation call
   against fand-app (`fetch("https://fand.../auth/validate", …)`).
 - Issue per-reviewer session cookies (keep the `wsr_session` name so existing
-  links don't break; the value becomes a server-validated token instead of
-  the literal `"valid"`).
+  links don't break; the cookie value becomes a per-reviewer signed token
+  issued by fand-app instead of the password-derived hash).
 - The URL surface stays identical; only the auth layer changes.
 
 Per-reviewer tracking, magic-link / email-based auth, and multi-tier gating

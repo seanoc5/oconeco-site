@@ -15,42 +15,65 @@ interface Env {
 }
 
 const SESSION_COOKIE = "wsr_session";
-const SESSION_VALUE = "valid";
 const SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 7; // 7 days
 
 export const onRequest: PagesFunction<Env> = async (context) => {
   const { request, env, next } = context;
 
-  if (hasValidSession(request)) {
+  if (!env.DEEP_DIVE_PASSWORD) {
+    return new Response("Deep Dive gate is not configured.", { status: 503 });
+  }
+
+  const expectedSession = await deriveSessionToken(env.DEEP_DIVE_PASSWORD);
+
+  if (hasValidSession(request, expectedSession)) {
     return next();
   }
 
   if (request.method === "POST") {
-    return handleLoginPost(request, env);
+    return handleLoginPost(request, env, expectedSession);
   }
 
   return renderLoginPage(new URL(request.url).pathname, null, 401);
 };
 
-function hasValidSession(request: Request): boolean {
+/**
+ * The session cookie value is a SHA-256 of the current password rather than a
+ * literal sentinel. Reading this source file (which is public) is not enough
+ * to bypass the gate; you also need to know the password to compute the
+ * expected cookie. Rotating the password also immediately invalidates every
+ * outstanding session, since the derived token changes.
+ */
+async function deriveSessionToken(password: string): Promise<string> {
+  const data = new TextEncoder().encode("wsr-session-v1:" + password);
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  return bytesToHex(new Uint8Array(digest));
+}
+
+function bytesToHex(bytes: Uint8Array): string {
+  let out = "";
+  for (let i = 0; i < bytes.length; i++) {
+    out += bytes[i].toString(16).padStart(2, "0");
+  }
+  return out;
+}
+
+function hasValidSession(request: Request, expected: string): boolean {
   const cookieHeader = request.headers.get("Cookie") ?? "";
   for (const part of cookieHeader.split(";")) {
     const [name, ...rest] = part.trim().split("=");
-    if (name === SESSION_COOKIE && rest.join("=") === SESSION_VALUE) {
+    if (name === SESSION_COOKIE && constantTimeEquals(rest.join("="), expected)) {
       return true;
     }
   }
   return false;
 }
 
-async function handleLoginPost(request: Request, env: Env): Promise<Response> {
-  const expected = env.DEEP_DIVE_PASSWORD;
-  if (!expected) {
-    // Misconfiguration: fail closed with a clear server error rather than
-    // letting an empty-string password compare succeed.
-    return new Response("Deep Dive gate is not configured.", { status: 503 });
-  }
-
+async function handleLoginPost(
+  request: Request,
+  env: Env,
+  expectedSession: string,
+): Promise<Response> {
   const url = new URL(request.url);
   let submitted = "";
   try {
@@ -60,12 +83,12 @@ async function handleLoginPost(request: Request, env: Env): Promise<Response> {
     return renderLoginPage(url.pathname, "Could not read form submission.", 400);
   }
 
-  if (!constantTimeEquals(submitted, expected)) {
+  if (!constantTimeEquals(submitted, env.DEEP_DIVE_PASSWORD)) {
     return renderLoginPage(url.pathname, "Incorrect password.", 401);
   }
 
   const cookie = [
-    `${SESSION_COOKIE}=${SESSION_VALUE}`,
+    `${SESSION_COOKIE}=${expectedSession}`,
     "Path=/deep-dive/",
     `Max-Age=${SESSION_MAX_AGE_SECONDS}`,
     "HttpOnly",
