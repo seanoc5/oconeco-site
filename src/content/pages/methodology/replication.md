@@ -48,7 +48,7 @@ Every script is idempotent. A full run on a modern laptop completes in tens of m
 
 ## License
 
-The replication package is released under an open-source license (specific license — MIT or Apache 2.0 — to be confirmed at the first tagged release). The license applies to the pipeline code; the upstream source data remains governed by each agency's own terms of use.
+The replication package is released under the **MIT License**. The license applies to the pipeline code; the upstream source data remains governed by each agency's own terms of use.
 
 ## Where it sits in the architecture
 
