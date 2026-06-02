@@ -41,23 +41,19 @@ const pathways = [
     </div>
   </section>
 
-  {/*
-    Hook video stub — the 5-minute FAND TL1 Overview video.
-    Video file currently lives in OneDrive, not the repo. Replace the
-    placeholder block with the real <iframe src="..."> once John
-    supplies the final upload location (see issue #25 "Open after John sync").
-  */}
   <section class="hero-video-stub" aria-labelledby="hero-video-heading">
     <h2 id="hero-video-heading" class="visually-hidden">Overview video</h2>
-    <div class="hero-video-frame" role="img" aria-label="Video placeholder">
-      <div class="hero-video-overlay">
-        <p class="hero-video-overlay-title">Video coming soon</p>
-        <p>5-minute FAND TL1 Overview &mdash; upload location pending.</p>
-      </div>
+    <div class="hero-video-frame">
+      <video class="hero-video" controls preload="metadata" playsinline>
+        <source src="/video/FAND_TL1_Overview.mp4" type="video/mp4" />
+        <p>
+          Your browser can't play HTML5 video.
+          <a href="/video/FAND_TL1_Overview.mp4">Download the MP4</a> (17 MB).
+        </p>
+      </video>
     </div>
     <p class="hero-video-caption">
-      A five-minute walkthrough of the FAND framework at the country
-      (TL1) scale will live here once the file is published.
+      A five-minute walkthrough of the FAND framework at the country (TL1) scale.
     </p>
   </section>
 

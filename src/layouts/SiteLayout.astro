@@ -147,7 +147,9 @@ const ogDescription = description ?? ORG_DESCRIPTION;
   <body>
     <header class="site-header">
       <div class="site-header-inner">
-        <a class="brand" href="/">Ocon<span class="brand-mark">Eco</span></a>
+        <a class="brand" href="/" aria-label="OconEco — home">
+          <img class="brand-logo" src="/OconEco.logo.png" alt="OconEco" width="1357" height="402" />
+        </a>
         <nav class="site-nav" aria-label="Primary">
           <ul>
             {nav.map((item) => (
@@ -170,7 +172,10 @@ const ogDescription = description ?? ORG_DESCRIPTION;
     </main>
     <footer class="site-footer">
       <div class="site-footer-inner">
-        <p>&copy; {new Date().getFullYear()} OconEco. All rights reserved.</p>
+        <p>
+          <img class="footer-logo" src="/OconEco.logo.png" alt="" width="1357" height="402" />
+          &copy; {new Date().getFullYear()} OconEco. All rights reserved.
+        </p>
         <p>
           <a href="/site-map/">Site map</a>
           &nbsp;·&nbsp;

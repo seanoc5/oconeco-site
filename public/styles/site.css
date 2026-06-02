@@ -63,6 +63,18 @@ a:hover { color: var(--color-accent-deep); text-decoration-thickness: 2px; }
 }
 .brand:hover { color: var(--color-accent-deep); text-decoration: none; }
 .brand-mark { color: var(--color-accent); }
+.brand-logo {
+  display: block;
+  height: 40px;
+  width: auto;
+  max-width: 100%;
+}
+.footer-logo {
+  height: 22px;
+  width: auto;
+  vertical-align: middle;
+  margin-right: var(--space-2);
+}
 
 .site-nav ul {
   list-style: none;
@@ -207,6 +219,12 @@ a:hover { color: var(--color-accent-deep); text-decoration-thickness: 2px; }
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+.hero-video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #000;
 }
 .hero-video-overlay {
   text-align: center;
