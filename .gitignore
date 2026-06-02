@@ -20,8 +20,9 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# jetbrains setting folder
+# jetbrains setting folder + per-module IML files
 .idea/
+*.iml
 
 # swarm-runner / agent harness scratch
 .swarm/
