@@ -1,0 +1,7 @@
+Now flip from 'how many people' to 'how many measurement containers.' Same grid, profoundly different picture.
+
+TOP-RIGHT CORNER (Sparse + Rich): 2,350 units averaging just 127,000 people each. These are the well-measured places — Scandinavian municipalities, Swiss cantons, rural US counties, Australian statistical areas. Rich countries subdivide their sparse territories very finely.
+
+BOTTOM-LEFT CORNER (Dense + Poor): 62 units averaging 3.9 million people each. These are states or provinces of India, Bangladesh, Pakistan — enormous populations compressed into a handful of coarse administrative blocks.
+
+THE 38x RATIO: The Sparse+Rich cell has 38 times more measurement units than Dense+Poor, despite covering comparable shares of world population (3.8% vs 3.0%). This is not about population — it's about data infrastructure. The places that most need granular governance data are measured most coarsely.

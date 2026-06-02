@@ -1,0 +1,7 @@
+This is where the two frameworks diverge most sharply, both in conception and in results.
+
+CWoN estimates Human Capital bottom-up as a stand-alone component — the present value of future lifetime earnings, using Jorgenson-Fraumeni methodology. FAND estimates Human Resources top-down — it is one piece of a residual-bearing identity. CW equals PA plus NC plus HR plus SI, where SI is the unexplained residual.
+
+FAND's HR is fitted via OLS regression of log residual wealth on Mean Years of Schooling, Life Expectancy capped at 65, and a time trend. The cap at 65 is structurally grounded: post-retirement longevity is endogenous to wealth — rich countries invest in geriatric medicine — and does not represent additional productive human capital.
+
+CWoN's HC typically dominates their total wealth estimate — often 60 to 70 percent. FAND's HR is a more modest share because it coexists with SI, the institutional-quality residual. The non-monotonic deflator finding from earlier means CWoN's "real" HC time paths are unreliable for trend analysis. FAND's HR, derived from a stable regression specification, produces smooth, interpretable trends.

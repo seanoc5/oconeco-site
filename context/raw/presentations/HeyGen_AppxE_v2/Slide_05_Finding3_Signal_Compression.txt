@@ -1,0 +1,7 @@
+The gold-to-oil price ratio — barrels of crude per ounce of gold — varies between 8 and 51 over 1950 to 2025 in market data. That is a 5.2 times swing, reflecting real geopolitical and market dynamics: OPEC embargoes, the gold standard collapse, financialization of commodities.
+
+CWoN's constant-dollar treatment compresses this to a 3.4-point range in the 1995–2020 period — an 89% signal compression. The bottom panel shows the compression factor: Market divided by CWoN. Values below 1.0 mean CWoN overstates relative gold value versus market.
+
+Why this matters: if you are a decision-maker comparing a country's mineral wealth to its fossil-fuel wealth, CWoN's deflated numbers tell you relative commodity prices barely moved. Market data tell you they swung fivefold. Those are materially different inputs for resource-governance decisions.
+
+FAND preserves the market signal. CWoN destroys it. For a Decision Support System — which is what FAND aims to be — the market signal is the one that matters.

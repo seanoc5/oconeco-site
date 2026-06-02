@@ -1,0 +1,7 @@
+When you use different deflators for different components, you are implicitly claiming something about relative prices. The ratio of produced-assets deflator to human-capital deflator tells you how CWoN thinks the "price" of physical capital has moved relative to human capital.
+
+This chart shows that ratio for eight countries. FAND's ratio is 1.0 by construction — the flat blue line — because it uses the same deflator for everything. CWoN's ratio, the red shaded area, ranges from 0.15 times to 7.6 times across countries and years.
+
+China's ratio hits 7.6 — meaning CWoN implicitly claims produced assets became seven and a half times more expensive relative to human capital. For Brazil, it ranges from 0.72 to 1.56. In a well-behaved price system, this ratio should be relatively stable.
+
+The key insight: in a well-behaved price system, this ratio would be relatively stable. The wild swings mean CWoN's constant-dollar treatment is embedding large, time-varying relative-price claims into what it presents as "real" wealth comparisons. FAND's single deflator makes no such claims — it admits that relative-price movements are real economic phenomena, not measurement noise to be deflated away.

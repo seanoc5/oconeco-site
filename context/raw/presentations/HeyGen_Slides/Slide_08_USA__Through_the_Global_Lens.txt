@@ -1,0 +1,5 @@
+United States (USA): 3112 leaves, 331.4B population, Spearman rho = 0.031.
+
+Income barely varies on the global scale (ρ ≈ 0). The measurement asymmetry is vivid: 2,057 counties describe 44M sparse Americans; 157 counties cover 144M dense ones. All are wealthy by world standards.
+
+Left panel: population in millions and share of country total. Right panel: number of administrative units (leaves). Empty cells (dashes) mean no united states leaf falls in that global quintile combination.

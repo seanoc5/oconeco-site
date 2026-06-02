@@ -1,0 +1,4 @@
+Welcome. This is Global Leaves — a proof-of-concept that asks a deceptively simple question: where does humanity actually live, and how well do we measure it?
+We took 7,101 administrative units — the finest grain available for each of 237 countries — and cross-tabulated two ratios: population density and per-capita economic output.
+The metaphor has countries as trees. Intermediate administrative subdivisions are branches, and the finest units we observe are the leaves. It is the leaves that engage with the environment, absorb sunlight and perform photosynthesis. In this metaphor, that is the economic and natural interactions we count in SNA and such. And for that, it is the leaf that counts, not the branch or the trunk.
+What we found challenges the conventional wisdom about how density and wealth relate — and reveals something troubling about the data infrastructure itself.

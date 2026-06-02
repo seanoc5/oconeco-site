@@ -1,0 +1,9 @@
+Three takeaways from this analysis.
+
+First, prices matter more than you think. When CWoN uses component-specific deflators, it is implicitly claiming that relative prices between physical and human capital swing by factors of 7 or more. FAND's single deflator makes no such claims. This is not a minor methodological footnote — it determines whether your "real" wealth time series goes up or down in any given year.
+
+Second, the residual is the signal. CWoN normalizes Human Capital to close its identity, which means HC absorbs all measurement error and model uncertainty. FAND's architecture preserves SI — Savings and Institutional Quality — as a measurable residual. SI is what institutions contribute to wealth. It is the most policy-relevant metric in the framework, because it captures what governance can change in the medium term. A framework that eliminates the residual eliminates the most actionable information.
+
+Third, market prices are decision inputs. The 89% signal compression on the gold-to-oil ratio means CWoN presents a misleadingly stable picture of commodity wealth to the decision-makers who need that information most — resource-dependent countries deciding how to manage their natural endowments.
+
+All data underlying this analysis are available in the companion workbook. Thank you.

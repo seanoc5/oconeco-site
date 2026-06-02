@@ -1,0 +1,7 @@
+Both frameworks agree that meaningful comparisons across time and place require decomposing value into price and quantity. V equals Q times P. The disagreement is about what to do next.
+
+CWoN follows the mainstream approach: treat money as a veil, strip it away with deflators, and focus on "real" quantities. Each wealth component gets its own price index — produced assets, human capital, natural capital all deflated separately with component-specific chained deflators.
+
+FAND takes a different position. Index number problems — the Leibniz-Newton debate on quantifying spirits, Simpson's paradox, Zeno's paradoxes — are genuinely intractable. So FAND uses a single universal deflator: the ratio of Atlas GNI in current dollars to Atlas GNI in constant 2020 dollars. All components are deflated by the same factor. This preserves relative prices across components by construction.
+
+The consequence is that CWoN's deflators embed implicit claims about relative prices that FAND refuses to make. The next three slides show what those implicit claims look like in the data.

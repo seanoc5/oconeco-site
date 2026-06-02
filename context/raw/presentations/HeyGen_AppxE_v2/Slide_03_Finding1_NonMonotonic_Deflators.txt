@@ -1,0 +1,9 @@
+CWoN's Human Capital implicit deflator is non-monotonic. For Japan, the deflator reverses direction 14 times in 25 observations between 1995 and 2020. This means CWoN's "real" human capital for Japan goes up in some years and down in others for reasons that have nothing to do with actual changes in education or health — they are artifacts of the deflator's behavior.
+
+Look at the eight country panels. The solid blue line is FAND's single US GDP deflator — smooth, monotonic, as a price index should be. The dashed red line is CWoN's implied HC deflator, backed out from the ratio of their nominal to constant-dollar HC series.
+
+Nigeria's HC deflator swings from 0.5 to 3.5 — a sevenfold range. India's reverses sharply around 2010. Even for the United States, the two diverge noticeably after 2015.
+
+Note: this chart shows 8 of the 10 comparison countries. France and Indonesia panels are pending — the finding pattern is consistent across all countries examined.
+
+A non-monotonic deflator means that CWoN's "real" HC time series does not reliably indicate whether human capital is growing or shrinking. The signal is contaminated by deflator noise.

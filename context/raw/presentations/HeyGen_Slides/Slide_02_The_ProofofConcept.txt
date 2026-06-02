@@ -1,0 +1,9 @@
+Three key numbers frame what we're working with.
+
+7,101 administrative 'leaves' — the finest-grain unit available per country. For Germany that's 401 Kreise (TL3); for Nigeria it's 37 states (TL2); for a few small nations it's the country itself (TL1).
+
+7.9 billion people — 97.6% of world population. The missing 2.4% are mostly units with no area or economy data that couldn't be assigned to both quintile dimensions.
+
+237 countries spanning all three OECD Territorial Levels.
+
+We cross-tabulate two ratios that any governance system needs to understand: how crowded is a place (density) and how economically productive per person (per-capita output). These are the building blocks of the Who-What, Where, When database framework I've been developing. Elegant variations in data sources and methods matter. However, it is hard to argue they explain the ‘counter-intuitive’ results we obtained at this basic level. Any more than  30 years of progress on better measures for K and L made Solow’s residual trivial.

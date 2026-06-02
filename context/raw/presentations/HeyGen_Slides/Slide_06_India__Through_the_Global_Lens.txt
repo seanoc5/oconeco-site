@@ -1,0 +1,5 @@
+India (IND): 555 leaves, 1184.6B population, Spearman rho = 0.020.
+
+Density is uncorrelated with income (ρ ≈ 0). Dense and sparse places are equally poor by global standards. India alone fills the Dense+Poor quadrant that the global analysis flagged as under-measured.
+
+Left panel: population in millions and share of country total. Right panel: number of administrative units (leaves). Empty cells (dashes) mean no india leaf falls in that global quintile combination.

@@ -1,0 +1,2 @@
+China (CHN): 359 leaves, 1414B population, Spearman rho = 0.339.
+China shows a significant positive correlation (ρ = 0.34): denser prefectures tend to be richer. This is the opposite of the global pattern — consistent with a manufacturing-led urbanization model that has pulled coastal areas ahead.

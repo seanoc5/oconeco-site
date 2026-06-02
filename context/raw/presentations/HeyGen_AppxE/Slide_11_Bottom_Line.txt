@@ -1,0 +1,9 @@
+FAND's Comprehensive Wealth is computed top-down: capitalize Atlas GNI using a PMT annuity formula with demographic inputs. It is a single income anchor — one number per country-year, from which the entire balance sheet is derived by subtraction.
+
+CWoN's total wealth is computed bottom-up: sum PA plus NC plus HC. There is no residual. CWoN normalizes Human Capital to close any gap between the sum and their total — which means HC absorbs all measurement error and model uncertainty.
+
+This is the fundamental architectural difference. FAND's residual-bearing identity — CW equals PA plus NC plus HR plus SI — preserves SI as the unexplained remainder. SI is what institutions contribute to wealth. CWoN's approach, by eliminating the residual, eliminates the very signal that makes wealth measurement useful for governance.
+
+The implicit deflator findings from Part 1 compound this: CWoN's constant-dollar treatment introduces relative-price distortions that ripple through all components. FAND's single deflator avoids these distortions, at the cost of admitting that "real" cross-component comparisons require more humility about what prices can tell us.
+
+Thank you. The data underlying this analysis are available in the companion workbook.

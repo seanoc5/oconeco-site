@@ -1,0 +1,7 @@
+If governance should be proportional to population — and most democratic theory says it should — then the data infrastructure needs to be proportional too. Right now it is the opposite: 2,350 units track 300 million Sparse+Rich people, while 62 units track 241 million Dense+Poor people.
+This is why a 'Global Leaf' gazetteer matters. Before you can build quintile-based governance tools — targeting resources, measuring outcomes, hearing from communities — you need commensurable units of observation. Population-weighted quintiles are a first step toward that commensurability.
+Three immediate follow-ups.
+1) Close the 629 area gaps with better source data (transliteration crosswalks, GDL matching).
+2) Drill down further — 58 TL2 regions with over 10 million people each need TL3 decomposition.
+3) Test whether the negative density-wealth correlation holds at finer grain, or whether it's an artifact of the current mixed-level structure.
+The Hollerith Pivot insight — we are at a moment analogous to the 1890 census, when machine tabulation first made it possible to cross-tabulate population characteristics at scale. AI tools now let us do the same thing globally and subnationally, but only if we first fix the measurement containers.

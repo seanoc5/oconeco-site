@@ -1,0 +1,11 @@
+The full FAND balance sheet for 2020, constant 2020 dollars per capita. The identity CW equals PA plus NC plus HR plus SI holds to machine precision in nominal terms.
+
+The pattern is clear. Advanced economies have SI — Savings and Institutional Quality — of 28 to 50 percent of Comprehensive Wealth. This reflects strong institutions, rule of law, social cohesion, and governance quality.
+
+China has crossed into positive SI territory at 23.7%, consistent with its graduation trajectory from lower-middle to upper-middle income.
+
+India and Indonesia show negative SI — minus 14.6% and minus 16.5% respectively. This means their institutional quality is a drag on wealth, not a contributor. The Deferred Maintenance column shows non-zero values for these countries: $972 and $1,067 per capita. DM is the liability side of the SI decomposition — it appears when SI falls below 20% of CW.
+
+Nigeria sits just barely positive at 4.7%, consistent with resource-dependent governance challenges.
+
+CWoN has no equivalent of SI. Because CWoN sums components bottom-up with no residual, it cannot identify institutional drag. FAND's residual-bearing identity is what makes SI visible and measurable.

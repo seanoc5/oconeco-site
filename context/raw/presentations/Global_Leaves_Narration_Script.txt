@@ -1,0 +1,153 @@
+GLOBAL LEAVES — NARRATION SCRIPT
+Prepared from speaker notes in Global_Leaves_CrossTab_v4.pptx
+Total: ~1,543 words | ~10 minutes at 150 wpm
+============================================================
+
+SLIDE 1: Global Leaves (Title)
+Duration: ~0:56 | 140 words
+----------------------------------------
+
+[NARRATION]
+Welcome. This is Global Leaves — a proof-of-concept that asks a deceptively simple question: where does humanity actually live, and how well do we measure it?
+
+We took 7,101 administrative units — the finest grain available for each of 237 countries — and cross-tabulated two ratios: population density and per-capita economic output.
+
+The metaphor has countries as trees. Intermediate administrative subdivisions are branches, and the finest units we observe are the leaves. It is the leaves that engage with the environment, absorb sunlight and perform photosynthesis. In this metaphor, that is the economic and natural interactions we count in SNA and such. And for that, it is the leaf that counts, not the branch or the trunk.
+
+What we found challenges the conventional wisdom about how density and wealth relate — and reveals something troubling about the data infrastructure itself.
+
+
+SLIDE 2: The Proof-of-Concept
+Duration: ~1:03 | 159 words
+----------------------------------------
+
+[NARRATION]
+Three key numbers frame what we're working with.
+
+7,101 administrative 'leaves' — the finest-grain unit available per country. For Germany that's 401 Kreise (TL3); for Nigeria it's 37 states (TL2); for a few small nations it's the country itself (TL1).
+
+7.9 billion people — 97.6% of world population. The missing 2.4% are mostly units with no area or economy data that couldn't be assigned to both quintile dimensions.
+
+237 countries spanning all three OECD Territorial Levels.
+
+We cross-tabulate two ratios that any governance system needs to understand: how crowded is a place (density) and how economically productive per person (per-capita output). These are the building blocks of the Who-What, Where, When database framework I've been developing. Elegant variations in data sources and methods matter. However, it is hard to argue they explain the ‘counter-intuitive’ results we obtained at this basic level. Any more than  30 years of progress on better measures for K and L made Solow’s residual trivial.
+
+
+SLIDE 3: Not Your Usual Comparison
+Duration: ~1:32 | 231 words
+----------------------------------------
+
+[NARRATION]
+This slide is the methodological heart of the presentation. It explains why our results are NOT the same thing as a conventional cross-country or cross-region comparison.
+
+The foot of this slide proves the quintiles are about equal in population. density quintiles range from 19% to 20% of world population. Per-capita economy quintiles range from 19% to 21— slightly wider because many leaves near the Q1/Q2 boundary share very similar per-capita values and can't be split exactly.
+
+[PRESENTER NOTES — not for audio]
+  • CONVENTIONAL APPROACH: Pick one administrative level — say TL2 — and compare all 2,500 regions as if they were equivalent. But a German Kreis has 80,000 people while a Nigerian State has 10 million. Treating them as equal units means Germany gets 401 'votes' in any analysis while Nigeria gets 37. Rich countries with fine-grained statistical systems dominate the sample.
+  • OUR APPROACH: We use the finest grain available per country, then assign quintiles by population weight. Each quintile contains approximately 20% of world population — not 20% of units. A unit with 10 million people carries 125 times the weight of one with 80,000.
+  • KEY POINT: This means the lumpiness in unit counts we see on the next slides is a FINDING about the world's data infrastructure, not an artifact of our method. The population balance is locked in; what varies is how many administrative containers each country uses to hold its share of humanity.
+
+
+SLIDE 4: Where Humanity Clusters: Population Share
+Duration: ~1:03 | 159 words
+----------------------------------------
+
+[NARRATION]
+If density and wealth were independent, every cell would show 4.0%. The departures tell a story.
+
+[PRESENTER NOTES — not for audio]
+  • THE ANTI-DIAGONAL: The eye is drawn to the top-left (Sparse + Poor, 5.2%) and bottom-center (Dense + Lower-Middle, 6.0%). Dense places tend to be lower-middle income, not rich. Spearman correlation is negative: rho = −0.23.
+  • THE TWO LOW CELLS: Dense + Lower-Middle (Q5×Q1) shows only 1.6% — sparse places in middle-income countries like transitional zones of Brazil, Turkey, Mexico. The lowest cell at 0.9% is Dense + Upper-Middle (Q5×Q4): mainly fast-growing Chinese cities that sit in a narrow income band between Q3 and Q5. Density either traps (South Asian poverty) or amplifies (OECD metro wealth). The upper-middle density combination barely exists.
+  • WHAT THIS MEANS: At the subnational level, crowding and prosperity are mildly opposed. The world's densest fifth is disproportionately lower-middle income, not rich. This contradicts the casual intuition that dense = prosperous (Manhattan, London) — those places exist but are statistically unusual.
+
+
+SLIDE 5: The Measurement Asymmetry: Unit Count
+Duration: ~1:16 | 190 words
+----------------------------------------
+
+[NARRATION]
+Now flip from 'how many people' to 'how many measurement containers.' Same grid, profoundly different picture.
+
+TOP-RIGHT CORNER (Sparse + Rich): 2,350 units averaging just 127,000 people each. These are the well-measured places — Scandinavian municipalities, Swiss cantons, rural US counties, Australian statistical areas. Rich countries subdivide their sparse territories very finely.
+
+BOTTOM-LEFT CORNER (Dense + Poor): 62 units averaging 3.9 million people each. These are states or provinces of India, Bangladesh, Pakistan — enormous populations compressed into a handful of coarse administrative blocks.
+
+THE 38x RATIO: The Sparse+Rich cell has 38 times more measurement units than Dense+Poor, despite covering comparable shares of world population (3.8% vs 3.0%). This is not about population — it's about data infrastructure. The places that most need granular governance data are measured most coarsely.
+
+[PRESENTER NOTES — not for audio]
+  • ANTICIPATE THE QUESTION: 'Isn't this just because those countries have bigger provinces?' Yes — and that IS the point. Administrative structure is itself a product of governance capacity. The measurement asymmetry is the inequality, not just a reflection of it.
+  • NOTE: The average population per unit (shown in each cell) is the inverse of granularity. Smaller averages mean finer measurement.
+
+
+SLIDE 6: India: Through the Global Lens
+Duration: ~0:28 | 71 words
+----------------------------------------
+
+[NARRATION]
+India (IND): 555 leaves, 1184.6B population, Spearman rho = 0.020.
+
+Density is uncorrelated with income (ρ ≈ 0). Dense and sparse places are equally poor by global standards. India alone fills the Dense+Poor quadrant that the global analysis flagged as under-measured.
+
+Left panel: population in millions and share of country total. Right panel: number of administrative units (leaves). Empty cells (dashes) mean no india leaf falls in that global quintile combination.
+
+
+SLIDE 7: China: Through the Global Lens
+Duration: ~0:30 | 76 words
+----------------------------------------
+
+[NARRATION]
+China (CHN): 359 leaves, 1414B population, Spearman rho = 0.339.
+
+China shows a significant positive correlation (ρ = 0.34): denser prefectures tend to be richer. This is the opposite of the global pattern — consistent with a manufacturing-led urbanization model that has pulled coastal areas ahead.
+
+Left panel: population in millions and share of country total. Right panel: number of administrative units (leaves). Empty cells (dashes) mean no china leaf falls in that global quintile combination.
+
+
+SLIDE 8: USA: Through the Global Lens
+Duration: ~0:30 | 75 words
+----------------------------------------
+
+[NARRATION]
+United States (USA): 3112 leaves, 331.4B population, Spearman rho = 0.031.
+
+Income barely varies on the global scale (ρ ≈ 0). The measurement asymmetry is vivid: 2,057 counties describe 44M sparse Americans; 157 counties cover 144M dense ones. All are wealthy by world standards.
+
+Left panel: population in millions and share of country total. Right panel: number of administrative units (leaves). Empty cells (dashes) mean no united states leaf falls in that global quintile combination.
+
+
+SLIDE 9: Three Stories in the Data
+Duration: ~1:30 | 226 words
+----------------------------------------
+
+[NARRATION]
+This slide distills the three main findings. Each is a conversation-starter.
+
+STORY 1 — THE ANTI-DIAGONAL: Emphasize that this is a subnational finding. At the national level, dense countries like Singapore and Hong Kong are wealthy, which drives the popular intuition. But within countries, the pattern reverses: the densest subnational units tend to be lower-middle income. This matters because governance happens subnationally.
+
+STORY 2 — THE MEASUREMENT ASYMMETRY: This is the slide's strongest provocation. If someone asks 'so what?' — the answer is that every index, every ranking, every SDG indicator built from subnational data inherits this asymmetry. Averages of 2,350 fine-grained units are not comparable to averages of 62 coarse ones. The statistical infrastructure encodes the very inequality it purports to measure.
+
+STORY 3 — THE NEARLY EMPTY CELL: This is the most surprising finding. Dense + Upper-Middle barely exists. It suggests a bimodal relationship: high density either keeps you poor (overcrowded agricultural regions of South Asia) or makes you rich (knowledge-economy metros). The middle ground is nearly uninhabited — places that are both dense and middle-income tend to tip one way or the other.
+
+[PRESENTER NOTES — not for audio]
+  • IF PRESSED ON METHODOLOGY: Acknowledge this is a proof-of-concept. Gap-filled data (where we impute parent-node density or per-capita values to children) weakens some cells. But the pedigree tracking in the workbook lets us assess exactly where the weak data sits.
+
+
+SLIDE 10: The Governance Implication
+Duration: ~1:26 | 216 words
+----------------------------------------
+
+[NARRATION]
+This is the 'so what' slide. Frame it around the smart power system concept.
+
+1) Close the 629 area gaps with better source data (transliteration crosswalks, GDL matching).
+
+2) Drill down further — 58 TL2 regions with over 10 million people each need TL3 decomposition.
+
+3) Test whether the negative density-wealth correlation holds at finer grain, or whether it's an artifact of the current mixed-level structure.
+
+[PRESENTER NOTES — not for audio]
+  • THE CORE ARGUMENT: If governance should be proportional to population — and most democratic theory says it should — then the data infrastructure needs to be proportional too. Right now it is the opposite: 2,350 units track 300 million Sparse+Rich people, while 62 units track 241 million Dense+Poor people.
+  • CONNECT TO THE BIGGER VISION: This is why a 'Global Leaf' gazetteer matters. Before you can build quintile-based governance tools — targeting resources, measuring outcomes, hearing from communities — you need commensurable units of observation. Population-weighted quintiles are a first step toward that commensurability.
+  • WHAT COMES NEXT: Three immediate follow-ups.
+  • CLOSING THOUGHT: The Hollerith Pivot insight — we are at a moment analogous to the 1890 census, when machine tabulation first made it possible to cross-tabulate population characteristics at scale. AI tools now let us do the same thing globally and subnationally, but only if we first fix the measurement containers.
+

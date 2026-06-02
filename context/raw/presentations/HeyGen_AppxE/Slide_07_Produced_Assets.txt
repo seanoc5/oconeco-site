@@ -1,0 +1,9 @@
+FAND's Produced Assets use OECD Source A — Table 9B, the national accounts net capital stock — for 38 OECD countries, extended via Perpetual Inventory Method to 211 countries. CWoN uses Penn World Table-based PA with its own constant-dollar treatment.
+
+The two series agree reasonably well for advanced economies. Look at the United States, Japan, Germany panels — the black FAND line and the colored CWoN lines track each other, give or take deflator-driven divergences.
+
+The interesting cases are the developing countries. For China, CWoN's PA estimate shows a dramatically different trajectory from FAND's — the deflator choice matters enormously when you are comparing an economy whose price structure has transformed over four decades of industrialization.
+
+For India and Indonesia, the gap between FAND and CWoN widens over time, reflecting the compounding effect of different deflator choices over long time horizons.
+
+The key methodological point: FAND's PA is anchored in OECD national-accounts data — the gold standard of capital stock measurement — while CWoN's is derived from PWT, which applies its own purchasing-power adjustments.

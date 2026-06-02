@@ -1,0 +1,5 @@
+With the price-treatment context established, we now compare FAND and CWoN component by component across ten countries spanning the development spectrum.
+
+The ten countries are: United States, Japan, Germany, United Kingdom, France, China, India, Indonesia, Brazil, and Nigeria. Together they cover roughly 60% of world population and 75% of world GDP. They span OECD high-income, upper-middle, lower-middle, and low-income categories.
+
+For each component — Produced Assets, Natural Capital, Human Resources, and Comprehensive Wealth — we show the per-capita time series on a log scale, comparing FAND and CWoN estimates side by side.

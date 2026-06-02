@@ -1,0 +1,7 @@
+This presentation walks through Appendix E of the OconEco advocacy package. It compares two frameworks for measuring national wealth: FAND, the First Agentic Navigator for Development, and CWoN, the World Bank's Changing Wealth of Nations.
+
+Both frameworks agree that understanding wealth requires decomposing value into price and quantity. V equals Q times P. But they make fundamentally different choices about how to handle prices — and those choices cascade through every component of the balance sheet.
+
+FAND prefers to admit that index number problems are intractable. Only nominal values travel hierarchically. CWoN, like most mainstream indicator sets, presumes money is a veil you strip away to see what is "real." It deflates everything into constant dollars using component-specific chained deflators.
+
+This presentation shows why that matters — with data from ten countries spanning the development spectrum.

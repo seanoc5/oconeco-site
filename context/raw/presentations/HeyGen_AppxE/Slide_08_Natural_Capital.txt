@@ -1,0 +1,7 @@
+FAND's Natural Capital is built from six independently valued branches: fossil fuels, minerals, fisheries, agricultural land, forest timber, and forest cover. Each branch has its own builder script, source registry, and pedigree tracking.
+
+The critical difference you can see in these charts: FAND preserves market commodity prices in its stock valuations. CWoN deflates commodity prices, which — as we showed with the gold-oil ratio — destroys the relative-price signals between commodities.
+
+For Nigeria, a major oil producer, this matters enormously. FAND's NC per capita shows the oil price booms and busts that have defined Nigeria's development trajectory. CWoN's deflated series smooths those away — presenting a misleadingly stable picture of a fundamentally volatile resource endowment.
+
+For the advanced economies — US, Japan, Germany — NC per capita shows a long decline on a log scale, consistent with depletion and the shift toward service economies. FAND and CWoN broadly agree on the direction, but the magnitudes differ because of the deflator treatment.

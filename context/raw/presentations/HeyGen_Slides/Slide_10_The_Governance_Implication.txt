@@ -1,0 +1,7 @@
+This is the 'so what' slide. Frame it around the smart power system concept.
+
+1) Close the 629 area gaps with better source data (transliteration crosswalks, GDL matching).
+
+2) Drill down further — 58 TL2 regions with over 10 million people each need TL3 decomposition.
+
+3) Test whether the negative density-wealth correlation holds at finer grain, or whether it's an artifact of the current mixed-level structure.
