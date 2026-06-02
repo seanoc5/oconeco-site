@@ -1,31 +1,84 @@
 ---
-import { getEntry, render } from "astro:content";
 import SiteLayout from "../layouts/SiteLayout.astro";
+import SectionContext from "../components/SectionContext.astro";
 
-const entry = await getEntry("pages", "index");
-if (!entry) throw new Error("Missing src/content/pages/index.md");
-const { Content } = await render(entry);
+const title = "Oconeco";
+const description =
+  "OconEco publishes national balance sheets — measuring what 237 countries, 50 US states, and 3,258 US counties own in a single accounting framework called FAND.";
+
+const pathways = [
+  {
+    href: "/evidence/",
+    label: "The Data",
+    context:
+      "FAND results, navigated by where (geography) and what (balance-sheet component).",
+  },
+  {
+    href: "/framework/",
+    label: "What We Measure",
+    context:
+      "The accounting identity OconEco uses, the scales it operates at, and the vocabulary it introduces.",
+  },
+  {
+    href: "/methodology/",
+    label: "Methods",
+    context:
+      "How OconEco produces each published number, with the audit trail to back it.",
+  },
+];
 ---
 
-<SiteLayout
-  title={entry.data.title}
-  description={entry.data.description}
-  mainClass="has-hero"
->
+<SiteLayout title={title} description={description} mainClass="has-hero">
   <section class="hero" slot="hero">
-    <div class="hero-inner">
-      <h1>OconEco</h1>
-      {entry.data.tagline && (
-        <p class="hero-tagline">{entry.data.tagline}</p>
-      )}
-      <p class="hero-cta">
-        <a href="/our-services/">Service levels</a>
-        &nbsp;·&nbsp;
-        <a href="/ot/">Toolkit</a>
-        &nbsp;·&nbsp;
-        <a href="/contact/">Contact us</a>
+    <div class="hero-inner landing-lead">
+      <h1>OconEco publishes national balance sheets.</h1>
+      <p class="landing-lede">
+        We measure what 237 countries, 50 US states, and 3,258 US counties
+        <em>own</em> &mdash; produced assets, natural capital, human resources,
+        and substantive infrastructure &mdash; in a single accounting framework
+        called FAND. GDP measures earnings; FAND measures ownership.
       </p>
     </div>
   </section>
-  <Content />
+
+  {/*
+    Hook video stub — the 5-minute FAND TL1 Overview video.
+    Video file currently lives in OneDrive, not the repo. Replace the
+    placeholder block with the real <iframe src="..."> once John
+    supplies the final upload location (see issue #25 "Open after John sync").
+  */}
+  <section class="hero-video-stub" aria-labelledby="hero-video-heading">
+    <h2 id="hero-video-heading" class="visually-hidden">Overview video</h2>
+    <div class="hero-video-frame" role="img" aria-label="Video placeholder">
+      <div class="hero-video-overlay">
+        <p class="hero-video-overlay-title">Video coming soon</p>
+        <p>5-minute FAND TL1 Overview &mdash; upload location pending.</p>
+      </div>
+    </div>
+    <p class="hero-video-caption">
+      A five-minute walkthrough of the FAND framework at the country
+      (TL1) scale will live here once the file is published.
+    </p>
+  </section>
+
+  <p class="headline-stat">
+    <span class="headline-stat-number">7,101</span>
+    <span class="headline-stat-text">
+      administrative units across 237 countries &mdash; measured in one
+      crosstab.
+    </span>
+  </p>
+
+  <section class="pathway-cards" aria-label="Where to go next">
+    <ul>
+      {pathways.map((p) => (
+        <li>
+          <a class="pathway-card" href={p.href}>
+            <h3>{p.label}</h3>
+            <SectionContext>{p.context}</SectionContext>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
 </SiteLayout>
