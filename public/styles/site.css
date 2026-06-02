@@ -65,12 +65,12 @@ a:hover { color: var(--color-accent-deep); text-decoration-thickness: 2px; }
 .brand-mark { color: var(--color-accent); }
 .brand-logo {
   display: block;
-  height: 40px;
+  height: 64px;
   width: auto;
   max-width: 100%;
 }
 .footer-logo {
-  height: 22px;
+  height: 28px;
   width: auto;
   vertical-align: middle;
   margin-right: var(--space-2);
