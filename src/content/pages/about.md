@@ -33,3 +33,9 @@ FAND's pace and breadth — 128 builder scripts, 200+ countries, 3,258 US counti
 The contact form lives at [/contact/](/contact/).
 
 *(Placeholder. Replace with the About content packet — portrait, sharpened timeline entries, and finalized AI-augmented workflow note.)*
+
+## Working with OconEco
+
+OconEco's commercial work brings the FAND framework to specific decisions where comprehensive wealth accounting outperforms GDP-anchored analysis. Typical engagements include regional balance-sheet assessments for economic-development authorities, place-based capital-allocation reviews for institutional investors, and analytic-tool design for organizations managing natural-resource or human-capital portfolios.
+
+We're based in NE Florida and take a small number of new engagements per quarter. To discuss whether your problem fits, reach Sean O'Connor at [sean@oconeco.com](mailto:sean@oconeco.com) — please include a one-paragraph description of the decision you're trying to inform.
