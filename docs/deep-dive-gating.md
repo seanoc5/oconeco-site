@@ -134,6 +134,27 @@ The cookie value is `<reviewerId>.<sha256-hash>`, so you can't synthesise it
 by hand without knowing the password — use a cookie jar (`-c` / `-b`) or
 copy the value out of devtools after a real login.
 
+### Reading the logs
+
+`deep-dive-hit` fires on every gated request — including assets that live
+under `/deep-dive/*` and that a single page view might pull (CSS, images,
+attachments). For the binary "did this reviewer show up?" question, that's
+fine; raw counts will over-report engagement depth.
+
+When you want a meaningful per-reviewer count, filter to the login event
+or dedup by (reviewer, minute):
+
+```bash
+# distinct logins per reviewer
+wrangler pages deployment tail \
+  | jq 'select(.event=="deep-dive-login") | .reviewer' | sort | uniq -c
+
+# distinct (reviewer, minute) tuples across all hits
+wrangler pages deployment tail \
+  | jq -r 'select(.event=="deep-dive-hit") | "\(.reviewer)\t\(.ts[:16])"' \
+  | sort -u | cut -f1 | sort | uniq -c
+```
+
 For local iteration, `npx wrangler pages dev ./dist` after `npm run build`
 serves the static output with the Functions runtime so you can hit
 `http://127.0.0.1:8788/deep-dive/` and exercise the gate end-to-end. Set
