@@ -1,51 +1,78 @@
 /**
- * Pages Function: shared-password gate for /deep-dive/*
+ * Pages Function: per-reviewer password gate for /deep-dive/*
  *
- * Phase 1 gating per issue #27. Reads DEEP_DIVE_PASSWORD from the Pages env
- * (set as a Secret in the Cloudflare dashboard). On successful POST, sets a
- * 7-day wsr_session cookie and redirects to the originally requested path.
+ * Phase 1.5 gating per issue #45 (follow-up to #27 / PR #35). Reads a JSON
+ * map of reviewerId → password from DEEP_DIVE_REVIEWERS (set as a Secret in
+ * the Cloudflare dashboard). On successful POST, sets a 7-day wsr_session
+ * cookie that carries the reviewer ID; subsequent hits log
+ * { event:"deep-dive-hit", reviewer, path, ts } so CF tail / Logpush can
+ * attribute access without standing up fand-app's MemberController.
  *
- * Phase 2 (see docs/deep-dive-gating.md) will swap the password check for a
+ * Phase 2 (see docs/deep-dive-gating.md) will swap the JSON-map lookup for a
  * token-validation call against fand-app's MemberController; the URL surface
  * and cookie name stay the same so reviewer links don't break.
  */
 
 interface Env {
-  DEEP_DIVE_PASSWORD: string;
+  DEEP_DIVE_REVIEWERS: string;
 }
 
 const SESSION_COOKIE = "wsr_session";
 const SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 7; // 7 days
+const SESSION_SALT = "wsr-session-v2:";
 
 export const onRequest: PagesFunction<Env> = async (context) => {
   const { request, env, next } = context;
 
-  if (!env.DEEP_DIVE_PASSWORD) {
+  const reviewers = parseReviewers(env.DEEP_DIVE_REVIEWERS);
+  if (!reviewers) {
     return new Response("Deep Dive gate is not configured.", { status: 503 });
   }
 
-  const expectedSession = await deriveSessionToken(env.DEEP_DIVE_PASSWORD);
+  const url = new URL(request.url);
+  const reviewer = await identifyReviewer(request, reviewers);
 
-  if (hasValidSession(request, expectedSession)) {
+  if (reviewer) {
+    logHit(reviewer, url.pathname);
     return next();
   }
 
   if (request.method === "POST") {
-    return handleLoginPost(request, env, expectedSession);
+    return handleLoginPost(request, reviewers);
   }
 
-  return renderLoginPage(new URL(request.url).pathname, null, 401);
+  return renderLoginPage(url.pathname, null, 401);
 };
 
+type ReviewerMap = Map<string, string>;
+
+function parseReviewers(raw: string | undefined): ReviewerMap | null {
+  if (!raw) return null;
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    return null;
+  }
+  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return null;
+  const map = new Map<string, string>();
+  for (const [id, pw] of Object.entries(parsed as Record<string, unknown>)) {
+    if (typeof pw !== "string" || pw.length === 0) continue;
+    if (!/^[a-z0-9_-]{1,64}$/i.test(id)) continue;
+    map.set(id, pw);
+  }
+  return map.size > 0 ? map : null;
+}
+
 /**
- * The session cookie value is a SHA-256 of the current password rather than a
- * literal sentinel. Reading this source file (which is public) is not enough
- * to bypass the gate; you also need to know the password to compute the
- * expected cookie. Rotating the password also immediately invalidates every
- * outstanding session, since the derived token changes.
+ * Cookie shape: `<reviewerId>.<sha256(SESSION_SALT + reviewerId + ":" + password)>`.
+ * Reading this source file (which is public) is not enough to bypass the gate;
+ * you also need to know the reviewer's password to compute the expected hash.
+ * Rotating a single reviewer's password invalidates only that reviewer's
+ * outstanding sessions — other reviewers are not disrupted.
  */
-async function deriveSessionToken(password: string): Promise<string> {
-  const data = new TextEncoder().encode("wsr-session-v1:" + password);
+async function deriveSessionHash(reviewerId: string, password: string): Promise<string> {
+  const data = new TextEncoder().encode(SESSION_SALT + reviewerId + ":" + password);
   const digest = await crypto.subtle.digest("SHA-256", data);
   return bytesToHex(new Uint8Array(digest));
 }
@@ -58,21 +85,30 @@ function bytesToHex(bytes: Uint8Array): string {
   return out;
 }
 
-function hasValidSession(request: Request, expected: string): boolean {
+async function identifyReviewer(
+  request: Request,
+  reviewers: ReviewerMap,
+): Promise<string | null> {
   const cookieHeader = request.headers.get("Cookie") ?? "";
   for (const part of cookieHeader.split(";")) {
     const [name, ...rest] = part.trim().split("=");
-    if (name === SESSION_COOKIE && constantTimeEquals(rest.join("="), expected)) {
-      return true;
-    }
+    if (name !== SESSION_COOKIE) continue;
+    const value = rest.join("=");
+    const dot = value.indexOf(".");
+    if (dot <= 0 || dot === value.length - 1) return null;
+    const reviewerId = value.slice(0, dot);
+    const presentedHash = value.slice(dot + 1);
+    const password = reviewers.get(reviewerId);
+    if (!password) return null;
+    const expectedHash = await deriveSessionHash(reviewerId, password);
+    return constantTimeEquals(presentedHash, expectedHash) ? reviewerId : null;
   }
-  return false;
+  return null;
 }
 
 async function handleLoginPost(
   request: Request,
-  env: Env,
-  expectedSession: string,
+  reviewers: ReviewerMap,
 ): Promise<Response> {
   const url = new URL(request.url);
   let submitted = "";
@@ -83,18 +119,29 @@ async function handleLoginPost(
     return renderLoginPage(url.pathname, "Could not read form submission.", 400);
   }
 
-  if (!constantTimeEquals(submitted, env.DEEP_DIVE_PASSWORD)) {
+  let matched: string | null = null;
+  for (const [reviewerId, password] of reviewers) {
+    if (constantTimeEquals(submitted, password)) {
+      matched = reviewerId;
+      // No break — keep comparing to make timing uniform across map size.
+    }
+  }
+
+  if (!matched) {
     return renderLoginPage(url.pathname, "Incorrect password.", 401);
   }
 
+  const hash = await deriveSessionHash(matched, reviewers.get(matched)!);
   const cookie = [
-    `${SESSION_COOKIE}=${expectedSession}`,
+    `${SESSION_COOKIE}=${matched}.${hash}`,
     "Path=/deep-dive/",
     `Max-Age=${SESSION_MAX_AGE_SECONDS}`,
     "HttpOnly",
     "Secure",
     "SameSite=Lax",
   ].join("; ");
+
+  logHit(matched, url.pathname, "deep-dive-login");
 
   return new Response(null, {
     status: 303,
@@ -103,6 +150,10 @@ async function handleLoginPost(
       "Set-Cookie": cookie,
     },
   });
+}
+
+function logHit(reviewer: string, path: string, event = "deep-dive-hit"): void {
+  console.log(JSON.stringify({ event, reviewer, path, ts: new Date().toISOString() }));
 }
 
 function constantTimeEquals(a: string, b: string): boolean {
