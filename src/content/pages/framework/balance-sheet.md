@@ -19,12 +19,12 @@ It differs from a 10-K in two ways that define the whole project:
 
 The identity is **closed** — it must balance to the cent:
 
-```
-CW  = PA + NC + RW          Commonwealth = claim-rights (PA + NC) + residual wealth
-RW  = HR + SI               Residual Wealth = Human Resources + Substantive Infrastructure
-SI  = SR − DM               Substantive Infrastructure = substantive rights − deferred maintenance
-NW  = CW + CBA − CBL        Net Worth adds gross cross-border claims, nets the duties
-```
+<div class="identity">
+<div class="identity-row"><code>CW = PA + NC + RW</code><span class="gloss">Commonwealth = claim-rights (PA + NC) + Residual Wealth</span></div>
+<div class="identity-row"><code>RW = HR + SI</code><span class="gloss">Residual Wealth = Human Resources + Substantive Infrastructure</span></div>
+<div class="identity-row"><code>SI = SR − DM</code><span class="gloss">Substantive Infrastructure = substantive rights − deferred maintenance</span></div>
+<div class="identity-row"><code>NW = CW + CBA − CBL</code><span class="gloss">Net Worth adds gross cross-border claims, nets the duties</span></div>
+</div>
 
 > **RW is the parent of HR and SI — not a sibling.** Commonwealth splits first into claim-rights and **Residual Wealth (RW)**; RW then splits into Human Resources and Substantive Infrastructure. Older CWoN-era material calls RW "IC" (Intangible Capital); FAND uses **RW**, the column `rw_pc_usd`.
 
@@ -48,16 +48,20 @@ NW  = CW + CBA − CBL        Net Worth adds gross cross-border claims, nets the
 
 ## A worked example — the United States
 
-Illustrative per-capita figures from the current FAND dataset (2023; exact published values live on each country's balance-sheet page). The point is not the precise dollars — it is that **the identity closes**:
+The point is not the precise dollars — it is that **the identity closes**:
 
-| Term | Per capita | Identity |
-|---|--:|---|
-| **PA** Produced Assets | ~$212,000 | |
-| **NC** Natural Capital | ~$96,000 | |
-| **RW** Residual Wealth | ~$322,000 | = HR + SI |
-| &nbsp;&nbsp;↳ **HR** Human Resources | ~$226,000 | |
-| &nbsp;&nbsp;↳ **SI** Substantive Infrastructure | ~$96,000 | |
-| **CW** Commonwealth | **~$630,000** | **= PA + NC + RW** |
+<table class="ledger">
+<caption>Illustrative per-capita figures, current FAND dataset (2023). Exact published values live on each country's balance-sheet page.</caption>
+<thead><tr><th scope="col">Term</th><th scope="col" class="num">Per capita</th><th scope="col">Identity</th></tr></thead>
+<tbody>
+<tr><td><span class="term-abbr">PA</span> Produced Assets</td><td class="num">~$212,000</td><td></td></tr>
+<tr><td><span class="term-abbr">NC</span> Natural Capital</td><td class="num">~$96,000</td><td></td></tr>
+<tr><td><span class="term-abbr">RW</span> Residual Wealth</td><td class="num">~$322,000</td><td>= HR + SI</td></tr>
+<tr class="sub"><td class="term">↳ <span class="term-abbr">HR</span> Human Resources</td><td class="num">~$226,000</td><td></td></tr>
+<tr class="sub"><td class="term">↳ <span class="term-abbr">SI</span> Substantive Infrastructure</td><td class="num">~$96,000</td><td></td></tr>
+<tr class="total"><td><span class="term-abbr">CW</span> Commonwealth</td><td class="num">~$630,000</td><td>= PA + NC + RW</td></tr>
+</tbody>
+</table>
 
 Read it as: of every ~$630k of Commonwealth per American, roughly half is conventional produced assets and natural capital combined, and **the larger half is Residual Wealth** — most of *that* being Human Resources, the educated, healthy population. None of the RW half appears on a conventional national balance sheet.
 

@@ -12,6 +12,7 @@
 
   --font-display: "Source Serif 4", "Source Serif Pro", Georgia, "Iowan Old Style", serif;
   --font-body: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
 
   --space-1: 0.5rem;
   --space-2: 1rem;
@@ -428,6 +429,87 @@ a:hover { color: var(--color-accent-deep); text-decoration-thickness: 2px; }
   color: var(--color-muted);
   font-size: 0.9rem;
   margin: 0;
+}
+
+/* ----- Accounting identity block (framework pages) ----- */
+.identity {
+  background: var(--color-soft);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 2px;
+  padding: var(--space-2) var(--space-3);
+  margin: var(--space-3) 0;
+}
+.identity-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 1.5rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+.identity-row:last-child { border-bottom: 0; }
+.identity code {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background: none;
+}
+.identity .gloss { color: var(--color-muted); font-size: 0.9rem; }
+
+/* ----- Ledger table (worked balance-sheet example) ----- */
+.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-3) 0;
+  font-size: 1rem;
+}
+.ledger caption {
+  caption-side: bottom;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  text-align: left;
+  padding-top: var(--space-1);
+  font-style: italic;
+}
+.ledger th, .ledger td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--color-rule);
+  text-align: left;
+}
+.ledger thead th {
+  background: var(--color-soft);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  font-weight: 600;
+}
+.ledger .num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.ledger .term-abbr { color: var(--color-accent-deep); font-weight: 600; }
+.ledger .sub td { color: var(--color-muted); }
+.ledger .sub .term { padding-left: 1.75rem; }
+.ledger .total td {
+  border-top: 3px double var(--color-accent);
+  border-bottom: 0;
+  font-weight: 600;
+  color: var(--color-accent-deep);
+}
+.ledger .total .num { font-size: 1.05rem; }
+
+/* One restrained page-load reveal for the identity rows (motion-safe). */
+@media (prefers-reduced-motion: no-preference) {
+  .identity-row { opacity: 0; transform: translateY(4px); animation: identity-in 420ms ease forwards; }
+  .identity-row:nth-child(1) { animation-delay: 60ms; }
+  .identity-row:nth-child(2) { animation-delay: 140ms; }
+  .identity-row:nth-child(3) { animation-delay: 220ms; }
+  .identity-row:nth-child(4) { animation-delay: 300ms; }
+  @keyframes identity-in { to { opacity: 1; transform: none; } }
 }
 
 /* ----- Responsive ----- */
