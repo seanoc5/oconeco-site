@@ -13,7 +13,7 @@ The conceptual architecture behind the numbers. For institutional readers who wa
 
 ## The four sub-pages
 
-- **[The balance sheet equation](/framework/balance-sheet/)** — `CW = PA + NC + HR + SI`, with a worked example using one country's actual numbers.
+- **[The balance sheet equation](/framework/balance-sheet/)** — `CW = PA + NC + RW; RW = HR + SI`, with a worked example using one country's actual numbers.
 - **[Five spatial scales](/framework/scales/)** — TL1 (country) → TL2 (US state) → TL3 (US county) → Tract → Block Group. Same architecture at every level.
 - **[The "What" hierarchy](/framework/what-tree/)** — the 415-node classification tree that powers the thematic drill-down on every balance-sheet page.
 - **[Glossary of Novel Constructs](/framework/glossary/)** — 30 terms (Abductive Triage, Commonwealth-as-wēle, Synaptic Cleft, Hohfeldian classification, IS-Branch Principle, …) that define FAND's vocabulary precisely.

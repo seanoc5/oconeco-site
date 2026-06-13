@@ -13,7 +13,7 @@ John pioneered the **Changing Wealth of Nations** (CWoN) at the World Bank as pa
 
 ## What's different — the short version
 
-- **FAND's balance-sheet identity is closed.** `CW = PA + NC + HR + SI`, verified to $0.000000. The identity holds at every scale.
+- **FAND's balance-sheet identity is closed.** `CW = PA + NC + RW; RW = HR + SI`, verified to $0.000000. The identity holds at every scale.
 - **FAND measures substantive rights (HR + SR) explicitly.** CWoN treats human capital as residual; FAND derives it from a clean OLS production function (`ln(RW_pc) = α + β₁·MYS + β₂·min(LE,65) + β₃·t`, with N=10,031 country-years, R²=0.497).
 - **Cross-border is per-side, not net.** CBA (gross foreign assets) and CBL (gross foreign liabilities) are independent stocks. No NIIP netting — the gross flows reveal exposure that nets to nothing.
 - **The IS-Branch Principle.** Institutional infrastructure that conventional methodologies *assume* but don't *measure* (rule of law, trust in courts, institutional capacity). FAND measures it inside SR.
