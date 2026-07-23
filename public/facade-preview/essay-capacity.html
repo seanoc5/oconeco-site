@@ -1,0 +1,113 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Capacity, Not Uptake — FAND</title>
+<meta name="description" content="FAND — First Agentic Navigator for Development. A complete national balance-sheet identity for 200+ countries, honestly badged.">
+<style>
+:root{
+  --ink:#1b1b24; --muted:#5c5c6a; --paper:#fbfaf7; --line:#e4e1d8;
+  --teal:#0b6e6e; --teal-d:#075252; --gold:#b07a1e; --sand:#f3efe6;
+  --prod:#1b7f5a; --exp:#c07a00; --proto:#5a5a6e;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:17px/1.62 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+.wrap{max-width:820px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:Georgia,'Times New Roman',serif;line-height:1.2;color:var(--ink)}
+h1{font-size:2.05rem;margin:.2em 0 .3em}
+h2{font-size:1.5rem;margin:1.9em 0 .5em;padding-top:.4em}
+h3{font-size:1.16rem;margin:1.4em 0 .3em}
+p{margin:.7em 0}
+a{color:var(--teal-d);text-decoration:none;border-bottom:1px solid #bcd6d6}
+a:hover{background:#eef6f6}
+blockquote{margin:1.1em 0;padding:.6em 1.1em;background:var(--sand);
+  border-left:4px solid var(--teal);border-radius:0 6px 6px 0;color:#333}
+code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+pre{background:#1b1b24;color:#e8e8ea;padding:14px 16px;border-radius:8px;overflow:auto;font-size:.86rem;line-height:1.5}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.94rem}
+th,td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#f0ece2;font-family:Georgia,serif;font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+details{margin:1em 0;border:1px solid var(--line);border-radius:8px;background:#fff;overflow:hidden}
+details>summary{cursor:pointer;padding:.7em 1em;background:#f4f1ea;font-weight:600;font-family:Georgia,serif;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"▸ ";color:var(--teal)}
+details[open]>summary::before{content:"▾ "}
+details .inner{padding:.2em 1.1em 1em}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.03em;
+  padding:2px 8px;border-radius:20px;color:#fff;vertical-align:middle;text-transform:uppercase}
+.b-prod{background:var(--prod)} .b-exp{background:var(--exp)} .b-proto{background:var(--proto)}
+.reg{display:inline-block;font-size:.66rem;font-weight:700;color:var(--teal-d);
+  border:1px solid #bcd6d6;border-radius:4px;padding:0 5px;margin-right:4px;vertical-align:middle}
+/* header */
+header.site{background:var(--teal-d);color:#fff;position:sticky;top:0;z-index:50;box-shadow:0 1px 8px rgba(0,0,0,.15)}
+header.site .bar{max-width:900px;margin:0 auto;display:flex;align-items:center;
+  justify-content:space-between;padding:10px 22px;flex-wrap:wrap;gap:6px}
+header.site .brand{font-family:Georgia,serif;font-weight:700;font-size:1.15rem;color:#fff;border:0}
+header.site .brand span{opacity:.7;font-weight:400;font-size:.9rem}
+header.site nav a{color:#dff0f0;border:0;font-size:.92rem;margin-left:16px}
+header.site nav a:hover{color:#fff;background:transparent;text-decoration:underline}
+header.site nav a.active{color:#fff;font-weight:700;border-bottom:2px solid var(--gold)}
+/* hero */
+.hero{background:linear-gradient(160deg,#0b6e6e,#075252 70%);color:#fff;padding:52px 0 40px}
+.hero .wrap{max-width:820px}
+.hero h1{color:#fff;font-size:2.4rem;margin-top:0}
+.hero .sub{font-size:1.15rem;opacity:.94;max-width:60ch}
+.kicker{text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;color:#a9e0e0;font-weight:700;margin:0 0 4px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:26px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.card h3{margin:.1em 0 .3em;font-size:1.05rem}
+.card .sub{color:var(--muted);font-size:.9rem;margin:0 0 .5em}
+.card a{font-weight:600}
+.strip{background:var(--sand);border-radius:10px;padding:14px 18px;margin:22px 0}
+.strip ul{margin:.3em 0;padding-left:1.1em}
+.strip li{margin:.35em 0}
+.note{background:#fff8e8;border:1px solid #f0dfae;border-radius:8px;padding:.7em 1em;font-size:.9rem;color:#6b5418;margin:1.2em 0}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:20px 0}
+.tool{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.tool h3{margin-top:.1em}
+.tool .cta{display:inline-block;margin-top:.5em;background:var(--teal);color:#fff;
+  padding:7px 14px;border-radius:6px;border:0;font-weight:600;font-size:.9rem}
+.tool .cta:hover{background:var(--teal-d)}
+footer.site{border-top:1px solid var(--line);margin-top:50px;padding:26px 0;color:var(--muted);font-size:.86rem;background:#f4f1ea}
+.stage-banner{background:var(--gold);color:#fff;text-align:center;font-size:.82rem;padding:5px 10px;font-weight:600}
+.lede{font-size:1.12rem;color:#333}
+hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+</style></head><body>
+<div class="stage-banner">STAGED PREVIEW — pre-launch facade, static copy · numbers carry Production / Experimental / Prototype badges</div>
+<header class="site"><div class="bar">
+<a class="brand" href="index.html">FAND <span>· First Agentic Navigator for Development</span></a>
+<nav><a href="index.html" class="">Home</a><a href="about.html" class="">About</a><a href="framework.html" class="">Framework</a><a href="evidence.html" class="active">Evidence</a><a href="tools.html" class="">Tools</a></nav></div></header>
+
+<main class="wrap">
+<p class="kicker">Evidence essay · <span class="badge b-exp">Experimental</span></p>
+<h1>Capacity, Not Uptake</h1>
+<div class="note"><strong>FAND Provisional Subnational Exhibit — Not for Policy Citation.</strong> County figures are ordinal/relational (rank correlations), carry large margins of error, and are shown to demonstrate a structural finding, not to rank places.</div>
+<p class="lede">The largest line on a nation's balance sheet is the one no conventional account books: the trust infrastructure. So we took that figure down to individual US counties and asked — does it line up with the things researchers already use to measure "social capital"?</p>
+
+<p>The answer split cleanly in two, and the split is the finding. Measures of the <strong>opportunity</strong> to participate — how dense the nonprofit and associational fabric is — line up <strong>positively</strong> with the trust figure. Measures of <strong>realized</strong> participation — how much people actually turned out, clustered, joined — line up <strong>negatively</strong>.</p>
+<p>At first that looks like a contradiction. It isn't. The trust-infrastructure stock is a measure of <strong>capacity</strong> — the freedom and opportunity to act — not of <strong>uptake</strong>. A right is a <em>liberty</em>: the room to do a thing, whether or not it gets done. The measure behaves the way the concept says it should — which is the strongest thing an early-stage indicator can do.</p>
+
+<details><summary>The two families (Spearman ρ vs the FAND trust residual, N≈3,043 counties)</summary><div class="inner">
+<p><strong>Supply-side — ALIGNED (positive): latent civic capacity / opportunity.</strong></p>
+<table><tr><th>Indicator</th><th class="num">ρ</th><th>What it measures</th></tr>
+<tr><td>Nonprofit density (NCCS 2014)</td><td class="num">+0.38</td><td>organized civic infrastructure</td></tr>
+<tr><td>MapAgora "take action"</td><td class="num">+0.20</td><td>availability of channels to act</td></tr>
+<tr><td>MapAgora "volunteer"</td><td class="num">+0.10</td><td>volunteering opportunity</td></tr>
+<tr><td>MapAgora events / membership</td><td class="num">+0.04–0.08</td><td>associational opportunity</td></tr></table>
+<p><strong>Behavioral / density — PARADOX (negative): realized participation.</strong></p>
+<table><tr><th>Indicator</th><th class="num">ρ</th><th>What it measures</th></tr>
+<tr><td>Social clustering (Chetty Atlas)</td><td class="num">−0.30</td><td>how tightly people actually cluster</td></tr>
+<tr><td>JEC Social Capital Index</td><td class="num">−0.23</td><td>composite realized participation</td></tr>
+<tr><td>Civic organizations (Chetty)</td><td class="num">−0.21</td><td>realized organizational membership</td></tr>
+<tr><td>Association density / voting (Goetz)</td><td class="num">neg.</td><td>realized turnout &amp; joining</td></tr></table>
+<p>This is the de-residualization path: findings like this are how the trust figure stops being a residual — by recognizing and directly scoring its components against the balance-sheet slot they occupy. Recognition precedes valuation.</p>
+</div></details>
+<p style="font-size:.85rem;color:#666"><em>Sources: Kim, de Vries &amp; Han (2025) MapAgora; Rupasingha/Goetz/Freshwater NERCRD; Chetty et al. Social Capital Atlas (2022); JEC Social Capital Project (2018). FAND S323/S324. Experimental badge: subnational build deliberately gated.</em></p>
+<p><a href="evidence.html">← back to Evidence</a></p>
+</main>
+
+<footer class="site"><div class="wrap">
+<p><strong>FAND — First Agentic Navigator for Development</strong> · an OconEco project. Staged preview for selective review; not for citation. Every dollar figure carries an honesty badge; subnational figures are provisional.</p>
+<p>Virtually everywhere. Attached to Neptune Beach FL; Lexington KY; Charlottesville VA; Lincoln City NE; Cork City, Ireland.</p>
+</div></footer></body></html>

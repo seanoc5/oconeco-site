@@ -1,0 +1,126 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evidence — FAND</title>
+<meta name="description" content="FAND — First Agentic Navigator for Development. A complete national balance-sheet identity for 200+ countries, honestly badged.">
+<style>
+:root{
+  --ink:#1b1b24; --muted:#5c5c6a; --paper:#fbfaf7; --line:#e4e1d8;
+  --teal:#0b6e6e; --teal-d:#075252; --gold:#b07a1e; --sand:#f3efe6;
+  --prod:#1b7f5a; --exp:#c07a00; --proto:#5a5a6e;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:17px/1.62 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+.wrap{max-width:820px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:Georgia,'Times New Roman',serif;line-height:1.2;color:var(--ink)}
+h1{font-size:2.05rem;margin:.2em 0 .3em}
+h2{font-size:1.5rem;margin:1.9em 0 .5em;padding-top:.4em}
+h3{font-size:1.16rem;margin:1.4em 0 .3em}
+p{margin:.7em 0}
+a{color:var(--teal-d);text-decoration:none;border-bottom:1px solid #bcd6d6}
+a:hover{background:#eef6f6}
+blockquote{margin:1.1em 0;padding:.6em 1.1em;background:var(--sand);
+  border-left:4px solid var(--teal);border-radius:0 6px 6px 0;color:#333}
+code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+pre{background:#1b1b24;color:#e8e8ea;padding:14px 16px;border-radius:8px;overflow:auto;font-size:.86rem;line-height:1.5}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.94rem}
+th,td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#f0ece2;font-family:Georgia,serif;font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+details{margin:1em 0;border:1px solid var(--line);border-radius:8px;background:#fff;overflow:hidden}
+details>summary{cursor:pointer;padding:.7em 1em;background:#f4f1ea;font-weight:600;font-family:Georgia,serif;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"▸ ";color:var(--teal)}
+details[open]>summary::before{content:"▾ "}
+details .inner{padding:.2em 1.1em 1em}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.03em;
+  padding:2px 8px;border-radius:20px;color:#fff;vertical-align:middle;text-transform:uppercase}
+.b-prod{background:var(--prod)} .b-exp{background:var(--exp)} .b-proto{background:var(--proto)}
+.reg{display:inline-block;font-size:.66rem;font-weight:700;color:var(--teal-d);
+  border:1px solid #bcd6d6;border-radius:4px;padding:0 5px;margin-right:4px;vertical-align:middle}
+/* header */
+header.site{background:var(--teal-d);color:#fff;position:sticky;top:0;z-index:50;box-shadow:0 1px 8px rgba(0,0,0,.15)}
+header.site .bar{max-width:900px;margin:0 auto;display:flex;align-items:center;
+  justify-content:space-between;padding:10px 22px;flex-wrap:wrap;gap:6px}
+header.site .brand{font-family:Georgia,serif;font-weight:700;font-size:1.15rem;color:#fff;border:0}
+header.site .brand span{opacity:.7;font-weight:400;font-size:.9rem}
+header.site nav a{color:#dff0f0;border:0;font-size:.92rem;margin-left:16px}
+header.site nav a:hover{color:#fff;background:transparent;text-decoration:underline}
+header.site nav a.active{color:#fff;font-weight:700;border-bottom:2px solid var(--gold)}
+/* hero */
+.hero{background:linear-gradient(160deg,#0b6e6e,#075252 70%);color:#fff;padding:52px 0 40px}
+.hero .wrap{max-width:820px}
+.hero h1{color:#fff;font-size:2.4rem;margin-top:0}
+.hero .sub{font-size:1.15rem;opacity:.94;max-width:60ch}
+.kicker{text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;color:#a9e0e0;font-weight:700;margin:0 0 4px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:26px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.card h3{margin:.1em 0 .3em;font-size:1.05rem}
+.card .sub{color:var(--muted);font-size:.9rem;margin:0 0 .5em}
+.card a{font-weight:600}
+.strip{background:var(--sand);border-radius:10px;padding:14px 18px;margin:22px 0}
+.strip ul{margin:.3em 0;padding-left:1.1em}
+.strip li{margin:.35em 0}
+.note{background:#fff8e8;border:1px solid #f0dfae;border-radius:8px;padding:.7em 1em;font-size:.9rem;color:#6b5418;margin:1.2em 0}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:20px 0}
+.tool{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.tool h3{margin-top:.1em}
+.tool .cta{display:inline-block;margin-top:.5em;background:var(--teal);color:#fff;
+  padding:7px 14px;border-radius:6px;border:0;font-weight:600;font-size:.9rem}
+.tool .cta:hover{background:var(--teal-d)}
+footer.site{border-top:1px solid var(--line);margin-top:50px;padding:26px 0;color:var(--muted);font-size:.86rem;background:#f4f1ea}
+.stage-banner{background:var(--gold);color:#fff;text-align:center;font-size:.82rem;padding:5px 10px;font-weight:600}
+.lede{font-size:1.12rem;color:#333}
+hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+</style></head><body>
+<div class="stage-banner">STAGED PREVIEW — pre-launch facade, static copy · numbers carry Production / Experimental / Prototype badges</div>
+<header class="site"><div class="bar">
+<a class="brand" href="index.html">FAND <span>· First Agentic Navigator for Development</span></a>
+<nav><a href="index.html" class="">Home</a><a href="about.html" class="">About</a><a href="framework.html" class="">Framework</a><a href="evidence.html" class="active">Evidence</a><a href="tools.html" class="">Tools</a></nav></div></header>
+
+<main class="wrap">
+<p class="kicker">The Evidence</p>
+<h1>We rebuilt the whole ledger — and it runs.</h1>
+<p class="lede">Not a manifesto about what national accounts <em>should</em> measure. A working balance sheet for 200-plus countries and 3,000-plus US counties, one identity, 75 years — with every number carrying its own honesty label.</p>
+
+<div class="strip"><ul>
+<li>A complete national balance sheet — <strong>CW = PA + NC + HR + SI</strong> — for 200+ countries, 1950–2025. <span class="badge b-prod">Production</span></li>
+<li>7,360 administrative roots across 237 countries — 97.6% of world population — and a <strong>38× measurement asymmetry</strong>. <span class="badge b-exp">Experimental</span></li>
+<li>A county-level finding: the <em>opportunity</em> to participate tracks hidden wealth better than participation itself. <span class="badge b-exp">Experimental</span></li>
+</ul></div>
+
+<h2>The anchor exhibit — the United States, whole</h2>
+<p>Start with a country you know. Here is the United States as a balance sheet instead of an income statement.</p>
+<blockquote>
+<p><strong>The United States, per person, 2025</strong> <span class="badge b-prod">Production</span></p>
+<table>
+<tr><th></th><th class="num">Per capita</th><th>What it is</th></tr>
+<tr><td>Produced Assets (PA)</td><td class="num">$244,619</td><td>roads, plant, housing, machines</td></tr>
+<tr><td>Natural Capital (NC)</td><td class="num">$14,258</td><td>severable resources: fuels, minerals, timber, farmland</td></tr>
+<tr><td>Cross-border claim-rights (CBA)</td><td class="num">$62,768</td><td>foreign assets US residents hold</td></tr>
+<tr><td>Human Resources (HR)</td><td class="num">$410,547</td><td>the capitalized productive value of people</td></tr>
+<tr><td>Substantive Rights (SR)</td><td class="num">$750,927</td><td>the "free" trust infrastructure — the largest single line</td></tr>
+<tr><td><em>(less) cross-border duties + deferred maintenance</em></td><td class="num">−$89,174</td><td>what the nation owes abroad and to its own upkeep</td></tr>
+<tr><td><strong>Net Worth (NW)</strong></td><td class="num"><strong>$1,384,850</strong></td><td><strong>the bottom line</strong></td></tr>
+</table>
+<p style="font-size:.85rem;color:#666">Population 347 million. In 1955 the same figure was $39,803. <em>Badge: Production. USA_Decadal, gen. 2026-05-10; identity closes to its check field, sub-1% disclosed decadal-rounding residual.</em></p>
+</blockquote>
+<p><strong>The one thing to notice:</strong> the biggest number on the American balance sheet is not the built economy and not even its people's earning power — it is <em>Substantive Rights</em>, the trust infrastructure that no conventional account books at all. GDP cannot see it. This ledger starts there. <a href="tools.html">Open the live US ledger →</a></p>
+
+<h2>The two readings</h2>
+<p>The anchor shows the ledger <em>populated</em>. The two essays show what it lets you <em>see</em> that GDP cannot — one at the top of the spine, one at the bottom.</p>
+<div class="cards">
+<div class="card"><h3><a href="essay-takeoff.html">Take-Off in Convergence Terms</a></h3><p class="sub"><span class="badge b-prod">Production</span></p><p>Put 240 countries on one axis against the US frontier, and the Bretton-Woods record reads very differently: of ~46 countries that peaked under the fixed-rate system, 42 have fallen back below 30% of the US frontier — a 91% non-convergence rate.</p></div>
+<div class="card"><h3><a href="essay-capacity.html">Capacity, Not Uptake</a></h3><p class="sub"><span class="badge b-exp">Experimental</span></p><p>Take the trust-infrastructure residual to the US county and it splits cleanly: the <em>opportunity</em> to participate moves with hidden wealth; <em>realized</em> participation moves against it — exactly what the theory predicts if a substantive right is a liberty.</p></div>
+</div>
+
+<h2>The Global Roots annex <span class="badge b-exp">Experimental</span></h2>
+<p>The balance sheet is not only national. The same identity executes downward through a single <strong>Where hierarchy</strong> — 7,360 administrative roots across 237 countries, covering 97.6% of world population — rendered as a <strong>collapsible tree, not a map</strong> (subnational boundary shapefiles don't reliably exist outside the OECD/EU, so FAND keys on units, not borders). The tree makes the project's founding measurement fact legible: a <strong>38-fold asymmetry</strong> between how well-measured the rich-and-sparse world is versus the poor-and-dense. <a href="tools.html">Open the Where-Tree explorer →</a></p>
+<div class="note">This section never mixes a Production national number and a Prototype block-group number in the same frame without the badge transition being the explicit subject.</div>
+</main>
+
+<footer class="site"><div class="wrap">
+<p><strong>FAND — First Agentic Navigator for Development</strong> · an OconEco project. Staged preview for selective review; not for citation. Every dollar figure carries an honesty badge; subnational figures are provisional.</p>
+<p>Virtually everywhere. Attached to Neptune Beach FL; Lexington KY; Charlottesville VA; Lincoln City NE; Cork City, Ireland.</p>
+</div></footer></body></html>

@@ -1,0 +1,121 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About — FAND</title>
+<meta name="description" content="FAND — First Agentic Navigator for Development. A complete national balance-sheet identity for 200+ countries, honestly badged.">
+<style>
+:root{
+  --ink:#1b1b24; --muted:#5c5c6a; --paper:#fbfaf7; --line:#e4e1d8;
+  --teal:#0b6e6e; --teal-d:#075252; --gold:#b07a1e; --sand:#f3efe6;
+  --prod:#1b7f5a; --exp:#c07a00; --proto:#5a5a6e;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:17px/1.62 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+.wrap{max-width:820px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:Georgia,'Times New Roman',serif;line-height:1.2;color:var(--ink)}
+h1{font-size:2.05rem;margin:.2em 0 .3em}
+h2{font-size:1.5rem;margin:1.9em 0 .5em;padding-top:.4em}
+h3{font-size:1.16rem;margin:1.4em 0 .3em}
+p{margin:.7em 0}
+a{color:var(--teal-d);text-decoration:none;border-bottom:1px solid #bcd6d6}
+a:hover{background:#eef6f6}
+blockquote{margin:1.1em 0;padding:.6em 1.1em;background:var(--sand);
+  border-left:4px solid var(--teal);border-radius:0 6px 6px 0;color:#333}
+code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+pre{background:#1b1b24;color:#e8e8ea;padding:14px 16px;border-radius:8px;overflow:auto;font-size:.86rem;line-height:1.5}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.94rem}
+th,td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#f0ece2;font-family:Georgia,serif;font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+details{margin:1em 0;border:1px solid var(--line);border-radius:8px;background:#fff;overflow:hidden}
+details>summary{cursor:pointer;padding:.7em 1em;background:#f4f1ea;font-weight:600;font-family:Georgia,serif;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"▸ ";color:var(--teal)}
+details[open]>summary::before{content:"▾ "}
+details .inner{padding:.2em 1.1em 1em}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.03em;
+  padding:2px 8px;border-radius:20px;color:#fff;vertical-align:middle;text-transform:uppercase}
+.b-prod{background:var(--prod)} .b-exp{background:var(--exp)} .b-proto{background:var(--proto)}
+.reg{display:inline-block;font-size:.66rem;font-weight:700;color:var(--teal-d);
+  border:1px solid #bcd6d6;border-radius:4px;padding:0 5px;margin-right:4px;vertical-align:middle}
+/* header */
+header.site{background:var(--teal-d);color:#fff;position:sticky;top:0;z-index:50;box-shadow:0 1px 8px rgba(0,0,0,.15)}
+header.site .bar{max-width:900px;margin:0 auto;display:flex;align-items:center;
+  justify-content:space-between;padding:10px 22px;flex-wrap:wrap;gap:6px}
+header.site .brand{font-family:Georgia,serif;font-weight:700;font-size:1.15rem;color:#fff;border:0}
+header.site .brand span{opacity:.7;font-weight:400;font-size:.9rem}
+header.site nav a{color:#dff0f0;border:0;font-size:.92rem;margin-left:16px}
+header.site nav a:hover{color:#fff;background:transparent;text-decoration:underline}
+header.site nav a.active{color:#fff;font-weight:700;border-bottom:2px solid var(--gold)}
+/* hero */
+.hero{background:linear-gradient(160deg,#0b6e6e,#075252 70%);color:#fff;padding:52px 0 40px}
+.hero .wrap{max-width:820px}
+.hero h1{color:#fff;font-size:2.4rem;margin-top:0}
+.hero .sub{font-size:1.15rem;opacity:.94;max-width:60ch}
+.kicker{text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;color:#a9e0e0;font-weight:700;margin:0 0 4px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:26px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.card h3{margin:.1em 0 .3em;font-size:1.05rem}
+.card .sub{color:var(--muted);font-size:.9rem;margin:0 0 .5em}
+.card a{font-weight:600}
+.strip{background:var(--sand);border-radius:10px;padding:14px 18px;margin:22px 0}
+.strip ul{margin:.3em 0;padding-left:1.1em}
+.strip li{margin:.35em 0}
+.note{background:#fff8e8;border:1px solid #f0dfae;border-radius:8px;padding:.7em 1em;font-size:.9rem;color:#6b5418;margin:1.2em 0}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:20px 0}
+.tool{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.tool h3{margin-top:.1em}
+.tool .cta{display:inline-block;margin-top:.5em;background:var(--teal);color:#fff;
+  padding:7px 14px;border-radius:6px;border:0;font-weight:600;font-size:.9rem}
+.tool .cta:hover{background:var(--teal-d)}
+footer.site{border-top:1px solid var(--line);margin-top:50px;padding:26px 0;color:var(--muted);font-size:.86rem;background:#f4f1ea}
+.stage-banner{background:var(--gold);color:#fff;text-align:center;font-size:.82rem;padding:5px 10px;font-weight:600}
+.lede{font-size:1.12rem;color:#333}
+hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+</style></head><body>
+<div class="stage-banner">STAGED PREVIEW — pre-launch facade, static copy · numbers carry Production / Experimental / Prototype badges</div>
+<header class="site"><div class="bar">
+<a class="brand" href="index.html">FAND <span>· First Agentic Navigator for Development</span></a>
+<nav><a href="index.html" class="">Home</a><a href="about.html" class="active">About</a><a href="framework.html" class="">Framework</a><a href="evidence.html" class="">Evidence</a><a href="tools.html" class="">Tools</a></nav></div></header>
+
+<main class="wrap">
+<h1>About — John C. O'Connor</h1>
+<p class="lede">The instruments that make decentralized, market-oriented decisions possible — across three decades inside the Bretton Woods institutions, and three generations of wealth accounting.</p>
+
+<p>I was born a week after Normandy, while the real work of Bretton Woods was under way in Atlantic City. When the IMF and I both turned twenty, I joined it — and spent the next three decades at the Bretton Woods institutions designing and managing the systems central authorities use to decide how and where to allocate resources.</p>
+
+<p>The capstone of that career was <em>Monitoring Environmental Progress</em> (World Bank, 1995) — the report that pioneered modern wealth accounting. The Bank still updates it, most recently as <em>The Changing Wealth of Nations</em>. I took early retirement the year it was published, because the work convinced me of something the institutions weren't built to act on: our democracy requires more bottom-up decisions. Everything since — the Everglades, Abu Dhabi, Gaia Metrics, sciGaia's wealth metrics for Montana, and now FAND — has been about building the instruments that make decentralized, market-oriented decisions possible.</p>
+
+<p>FAND is the third generation of that work, and the one the first two were waiting for. What made the 1995 wealth metrics thin was never the concept — it was the cost of quality-controlling qualitative information at scale. Agentic AI has now made that cost collapse. So we are rebuilding the full ledger: what a society owns, what it owes, and the trust infrastructure that never made it onto anyone's balance sheet.</p>
+
+<h2>Career</h2>
+<table>
+<tr><th>Year(s)</th><th>Role</th><th>One line</th></tr>
+<tr><td>1964</td><td>Joined the IMF</td><td>Decision-support systems just before computerization; 'knowledge broker' between systems experts and economists.</td></tr>
+<tr><td>1968, 1992</td><td>UN System of National Accounts</td><td>Contributor to both SNA revisions.</td></tr>
+<tr><td>1982–84</td><td>IMF</td><td>Created and managed the Fund's monitoring system for international banking.</td></tr>
+<tr><td>1985</td><td>IMF External Debt Advisor, Bolivia</td><td>Debt-crisis fieldwork.</td></tr>
+<tr><td>1986–92</td><td>World Bank — Chief of Comparative Analysis &amp; Data</td><td>Overhauled the Bank's decision-support system; architect of what became DataBank; absorbed the formerly planned economies into the data system.</td></tr>
+<tr><td>1992–95</td><td>World Bank — Senior Advisor, Environment Dept.</td><td>Created the Bank's environmental indicator system; manager and primary author of <em>Monitoring Environmental Progress</em> (1995) — origin of <em>The Changing Wealth of Nations</em>.</td></tr>
+<tr><td>1996–99</td><td>Florida Center for Environmental Studies</td><td>Senior researcher, initial stage of Everglades restoration — bottom-up decision-making in practice.</td></tr>
+<tr><td>2006</td><td>UN FAO</td><td>Assessed forecasting methodology and projections/history integration.</td></tr>
+<tr><td>2007–09</td><td>Environment Agency, Abu Dhabi</td><td>Team lead, wealth assessment — Emirate sustainability framework.</td></tr>
+<tr><td>2009</td><td>Bibliotheca Alexandrina</td><td>Co-chaired SDI &amp; Metrics conference with Ismail Serageldin.</td></tr>
+<tr><td>2010–13</td><td>Gaia Metrics (co-founder)</td><td>Corporate intangibles and 'free' ecoservices; SDR Data Prep; CSR QuickStart with CSRwire.</td></tr>
+<tr><td>2015</td><td>sciGaia</td><td>Led design of TrueView wealth metrics; primary author, <em>Montana's Renewable Portfolio</em>.</td></tr>
+<tr><td>2019–</td><td>OconEco</td><td>Multi-Local Analytics: a smart grid for decentralized allocation of real as well as financial resources.</td></tr>
+<tr><td>2025–</td><td>FAND</td><td>First Agentic Navigator for Development — the full ledger, rebuilt: 200+ countries, 3,000+ US counties, one balance-sheet identity.</td></tr>
+</table>
+
+<h2>How this work is made</h2>
+<p>FAND is built by one economist working with agentic AI as a full research partner — drafting, coding, auditing, and challenging, across several hundred logged working sessions. Every number on this site traces to a reproducible pipeline with a source registry and audit trail; every methodological choice is codified in a public Operational Guideline. The workflow itself is part of the proof: the point of FAND is that contextual quality control has become cheap enough for one person and a machine to do what once took a department.</p>
+
+<h2>The book</h2>
+<p><em>My Life in Numbers: Bretton Woods and Beyond</em> — a view of the world economy from 1944 to (projected) 2044, from someone who spent the whole run inside its instrument panel. Draft chapters will preview here.</p>
+</main>
+
+<footer class="site"><div class="wrap">
+<p><strong>FAND — First Agentic Navigator for Development</strong> · an OconEco project. Staged preview for selective review; not for citation. Every dollar figure carries an honesty badge; subnational figures are provisional.</p>
+<p>Virtually everywhere. Attached to Neptune Beach FL; Lexington KY; Charlottesville VA; Lincoln City NE; Cork City, Ireland.</p>
+</div></footer></body></html>

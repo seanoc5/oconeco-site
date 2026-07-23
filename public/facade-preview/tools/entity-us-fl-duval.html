@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duval County, FL — Commonwealth Balance Sheet</title>
+<meta name="fand:badge" content="experimental">
+<meta name="fand:entity" content="US-FL-12031">
+<meta name="fand:vintage" content="2005-2025">
+<style>
+body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; margin: 2rem; background: #fafafa; color: #1a1a1a; }
+h1 { font-size: 1.4rem; margin-bottom: 0.3rem; }
+.subtitle { color: #555; font-size: 0.85rem; margin-bottom: 0.75rem; }
+.badgebar { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 4px; color: #fff; font-size: 0.75rem;
+         font-weight: 700; letter-spacing: 0.03em; background: #b8860b; }
+.badge-def { font-size: 0.75rem; color: #444; }
+.watermark { font-size: 0.72rem; color: #7a5c00; background: #fff8e1; border: 1px solid #f0d98c;
+             padding: 4px 8px; border-radius: 3px; margin-bottom: 1rem; }
+.watermark.prod { color: #14532d; background: #eaf7ef; border-color: #b7e0c5; }
+.exportbar { margin-bottom: 0.75rem; }
+.exportbar button { font-size: 0.75rem; padding: 4px 10px; margin-right: 6px; cursor: pointer;
+                    border: 1px solid #bbb; border-radius: 4px; background: #fff; }
+table { border-collapse: collapse; width: 100%; font-size: 0.8rem; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+th { background: #2c3e50; color: white; padding: 8px 10px; text-align: right; font-weight: 600; position: sticky; top: 0; }
+th:nth-child(1), th:nth-child(2), th:nth-child(3), th:nth-child(4) { text-align: left; }
+td { padding: 4px 10px; border-bottom: 1px solid #eee; text-align: right; white-space: nowrap; }
+td:nth-child(1) { font-family: 'Consolas', monospace; font-size: 0.75rem; color: #666; text-align: left; }
+td:nth-child(2) { text-align: left; max-width: 340px; }
+td:nth-child(3), td:nth-child(4) { text-align: left; font-size: 0.7rem; color: #888; }
+td:nth-child(5) { width: 5px; }
+tr.header-l0 td { background: #2c3e50; color: white; font-weight: 700; font-size: 0.85rem; }
+tr.header-l1 td { background: #ecf0f1; font-weight: 600; }
+tr.memo td { color: #999; font-style: italic; }
+tr.spacer { height: 8px; }
+tr.spacer td { border: none; }
+tr:hover:not(.spacer):not(.header-l0) td { background: #f7f9fa; }
+.footer { margin-top: 1rem; font-size: 0.7rem; color: #888; }
+</style>
+</head>
+<body>
+<h1>Duval County, FL — Commonwealth Balance Sheet</h1>
+<div class="badgebar">
+  <span class="badge">Experimental</span>
+  <span class="badge-def">Provisional subnational; the badge and watermark travel with every number.</span>
+</div>
+<div class="watermark">⚠ FAND Provisional Subnational Exhibit - Not for Policy Citation</div>
+<div class="subtitle">County (bottom-up, ST = sum of child totals) · Data vintage 2005-2025 · Source: OconEco FAND · Generated 2026-06-01</div>
+<div class="exportbar">
+  <button onclick="dl('csv')">Download CSV (badged)</button>
+  <button onclick="dl('json')">Download JSON (badged)</button>
+</div>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th><th>Unit</th><th>Source</th><th></th><th>2005</th><th>2015</th><th>2025</th></tr>
+</thead>
+<tbody>
+<tr class="header-l0"><td></td><td>DUVAL COUNTY, FL — COMMONWEALTH BALANCE SHEET (Experimental)</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class="header-l1"><td>1.1.1</td><td>Claim-Rights_pc (= PA + NC + CBA)</td><td>USD pc</td><td>FIXTURE</td><td></td><td>158,200</td><td>214,700</td><td>276,900</td></tr>
+<tr class="data"><td>1.1.1.2</td><td>  PA_pc (Produced Assets)</td><td>USD pc</td><td>FIXTURE</td><td></td><td>112,900</td><td>143,600</td><td>210,300</td></tr>
+<tr class="data"><td>1.1.1.3</td><td>  NC_pc (Natural Capital)</td><td>USD pc</td><td>FIXTURE</td><td></td><td>7,100</td><td>9,800</td><td>12,400</td></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr class="header-l1"><td>1.2.4</td><td>NW_pc (Net Worth per capita)</td><td>USD pc</td><td>FIXTURE</td><td></td><td>701,000</td><td>812,000</td><td>1,209,000</td></tr>
+</tbody>
+</table>
+<div class="footer">
+  OconEco · First Agentic Navigator for Development (FAND) · CW = PA + NC + HR + SR − DM · NW = CW + CBA − CBL<br>
+  FIXTURE sample panel for generator validation — NOT canonical figures.<br>
+  Data sources: FIXTURE — sample values for BT-050 D2 generator validation only.
+</div>
+<script id="fand-data" type="application/json">{"badge": {"badge": "Experimental", "definition": "Provisional subnational; the badge and watermark travel with every number.", "termCode": "experimental", "watermark": "\"FAND Provisional Subnational Exhibit - Not for Policy Citation\" inside chart frames, CSV header rows, and xlsx cover cells."}, "columns": ["2005", "2015", "2025"], "entity": {"id": "US-FL-12031", "levelLabel": "County (bottom-up, ST = sum of child totals)", "name": "Duval County, FL", "tier": "TL3"}, "identity": "CW = PA + NC + HR + SR − DM · NW = CW + CBA − CBL", "rows": [{"class": "header-l0", "code": "", "desc": "DUVAL COUNTY, FL — COMMONWEALTH BALANCE SHEET (Experimental)", "source": "", "unit": "", "values": ["", "", ""]}, {"class": "header-l1", "code": "1.1.1", "desc": "Claim-Rights_pc (= PA + NC + CBA)", "source": "FIXTURE", "unit": "USD pc", "values": ["158,200", "214,700", "276,900"]}, {"class": "data", "code": "1.1.1.2", "desc": "  PA_pc (Produced Assets)", "source": "FIXTURE", "unit": "USD pc", "values": ["112,900", "143,600", "210,300"]}, {"class": "data", "code": "1.1.1.3", "desc": "  NC_pc (Natural Capital)", "source": "FIXTURE", "unit": "USD pc", "values": ["7,100", "9,800", "12,400"]}, {"class": "header-l1", "code": "1.2.4", "desc": "NW_pc (Net Worth per capita)", "source": "FIXTURE", "unit": "USD pc", "values": ["701,000", "812,000", "1,209,000"]}], "sources": "FIXTURE — sample values for BT-050 D2 generator validation only.", "vintage": {"dataVintage": "2005-2025", "generated": "2026-06-01", "sourceNote": "FIXTURE sample panel for generator validation — NOT canonical figures."}}</script>
+<script>
+// In-memory data island only (no browser-storage APIs). Exports carry the badge + vintage so a
+// downloaded file cannot be stripped of its status line (BADGE-STD D7).
+const D = JSON.parse(document.getElementById('fand-data').textContent);
+function headerLines(kind) {
+  const b = D.badge, v = D.vintage, e = D.entity;
+  const wm = b.termCode === 'production' ? 'Production — publishable without qualification.' : b.watermark;
+  const pre = kind === 'csv' ? '# ' : '';
+  return [
+    pre + 'FAND / OconEco — ' + e.name + ' (' + e.id + ')',
+    pre + 'Data-Status Badge: ' + b.badge + ' [' + b.termCode + ']',
+    pre + 'Watermark: ' + wm,
+    pre + 'Data vintage: ' + (v.dataVintage||'') + '  |  Generated: ' + (v.generated||''),
+    pre + 'Accounting identity: ' + D.identity,
+  ];
+}
+function csvEsc(s) { s = (s==null?'':String(s)); return /[",\n]/.test(s) ? '"'+s.replace(/"/g,'""')+'"' : s; }
+function toCSV() {
+  const lines = headerLines('csv');
+  lines.push('');
+  lines.push(['Code','Description','Unit','Source', ...D.columns].map(csvEsc).join(','));
+  for (const r of D.rows) {
+    const vals = (r.values||[]).slice(0, D.columns.length);
+    while (vals.length < D.columns.length) vals.push('');
+    lines.push([r.code||'', r.desc||'', r.unit||'', r.source||'', ...vals].map(csvEsc).join(','));
+  }
+  return lines.join('\n') + '\n';
+}
+function toJSON() {
+  return JSON.stringify({
+    _manifest: {
+      entity: D.entity, badge: D.badge, vintage: D.vintage,
+      identity: D.identity, sources: D.sources,
+      note: 'Badge + watermark are part of the payload; do not publish figures without them.'
+    },
+    columns: D.columns, rows: D.rows
+  }, null, 2);
+}
+function dl(kind) {
+  const text = kind === 'csv' ? toCSV() : toJSON();
+  const mime = kind === 'csv' ? 'text/csv' : 'application/json';
+  const blob = new Blob([text], {type: mime + ';charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = D.entity.id + '_' + D.badge.termCode + '.' + kind;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(a.href);
+}
+</script>
+</body>
+</html>
