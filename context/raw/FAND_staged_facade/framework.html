@@ -1,0 +1,184 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Framework — FAND</title>
+<meta name="description" content="FAND — First Agentic Navigator for Development. A complete national balance-sheet identity for 200+ countries, honestly badged.">
+<style>
+:root{
+  --ink:#1b1b24; --muted:#5c5c6a; --paper:#fbfaf7; --line:#e4e1d8;
+  --teal:#0b6e6e; --teal-d:#075252; --gold:#b07a1e; --sand:#f3efe6;
+  --prod:#1b7f5a; --exp:#c07a00; --proto:#5a5a6e;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:17px/1.62 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+.wrap{max-width:820px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:Georgia,'Times New Roman',serif;line-height:1.2;color:var(--ink)}
+h1{font-size:2.05rem;margin:.2em 0 .3em}
+h2{font-size:1.5rem;margin:1.9em 0 .5em;padding-top:.4em}
+h3{font-size:1.16rem;margin:1.4em 0 .3em}
+p{margin:.7em 0}
+a{color:var(--teal-d);text-decoration:none;border-bottom:1px solid #bcd6d6}
+a:hover{background:#eef6f6}
+blockquote{margin:1.1em 0;padding:.6em 1.1em;background:var(--sand);
+  border-left:4px solid var(--teal);border-radius:0 6px 6px 0;color:#333}
+code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+pre{background:#1b1b24;color:#e8e8ea;padding:14px 16px;border-radius:8px;overflow:auto;font-size:.86rem;line-height:1.5}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.94rem}
+th,td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#f0ece2;font-family:Georgia,serif;font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+details{margin:1em 0;border:1px solid var(--line);border-radius:8px;background:#fff;overflow:hidden}
+details>summary{cursor:pointer;padding:.7em 1em;background:#f4f1ea;font-weight:600;font-family:Georgia,serif;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"▸ ";color:var(--teal)}
+details[open]>summary::before{content:"▾ "}
+details .inner{padding:.2em 1.1em 1em}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.03em;
+  padding:2px 8px;border-radius:20px;color:#fff;vertical-align:middle;text-transform:uppercase}
+.b-prod{background:var(--prod)} .b-exp{background:var(--exp)} .b-proto{background:var(--proto)}
+.reg{display:inline-block;font-size:.66rem;font-weight:700;color:var(--teal-d);
+  border:1px solid #bcd6d6;border-radius:4px;padding:0 5px;margin-right:4px;vertical-align:middle}
+/* header */
+header.site{background:var(--teal-d);color:#fff;position:sticky;top:0;z-index:50;box-shadow:0 1px 8px rgba(0,0,0,.15)}
+header.site .bar{max-width:900px;margin:0 auto;display:flex;align-items:center;
+  justify-content:space-between;padding:10px 22px;flex-wrap:wrap;gap:6px}
+header.site .brand{font-family:Georgia,serif;font-weight:700;font-size:1.15rem;color:#fff;border:0}
+header.site .brand span{opacity:.7;font-weight:400;font-size:.9rem}
+header.site nav a{color:#dff0f0;border:0;font-size:.92rem;margin-left:16px}
+header.site nav a:hover{color:#fff;background:transparent;text-decoration:underline}
+header.site nav a.active{color:#fff;font-weight:700;border-bottom:2px solid var(--gold)}
+/* hero */
+.hero{background:linear-gradient(160deg,#0b6e6e,#075252 70%);color:#fff;padding:52px 0 40px}
+.hero .wrap{max-width:820px}
+.hero h1{color:#fff;font-size:2.4rem;margin-top:0}
+.hero .sub{font-size:1.15rem;opacity:.94;max-width:60ch}
+.kicker{text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;color:#a9e0e0;font-weight:700;margin:0 0 4px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:26px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.card h3{margin:.1em 0 .3em;font-size:1.05rem}
+.card .sub{color:var(--muted);font-size:.9rem;margin:0 0 .5em}
+.card a{font-weight:600}
+.strip{background:var(--sand);border-radius:10px;padding:14px 18px;margin:22px 0}
+.strip ul{margin:.3em 0;padding-left:1.1em}
+.strip li{margin:.35em 0}
+.note{background:#fff8e8;border:1px solid #f0dfae;border-radius:8px;padding:.7em 1em;font-size:.9rem;color:#6b5418;margin:1.2em 0}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:20px 0}
+.tool{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.tool h3{margin-top:.1em}
+.tool .cta{display:inline-block;margin-top:.5em;background:var(--teal);color:#fff;
+  padding:7px 14px;border-radius:6px;border:0;font-weight:600;font-size:.9rem}
+.tool .cta:hover{background:var(--teal-d)}
+footer.site{border-top:1px solid var(--line);margin-top:50px;padding:26px 0;color:var(--muted);font-size:.86rem;background:#f4f1ea}
+.stage-banner{background:var(--gold);color:#fff;text-align:center;font-size:.82rem;padding:5px 10px;font-weight:600}
+.lede{font-size:1.12rem;color:#333}
+hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+</style></head><body>
+<div class="stage-banner">STAGED PREVIEW — pre-launch facade, static copy · numbers carry Production / Experimental / Prototype badges</div>
+<header class="site"><div class="bar">
+<a class="brand" href="index.html">FAND <span>· First Agentic Navigator for Development</span></a>
+<nav><a href="index.html" class="">Home</a><a href="about.html" class="">About</a><a href="framework.html" class="active">Framework</a><a href="evidence.html" class="">Evidence</a><a href="tools.html" class="">Tools</a></nav></div></header>
+
+<main class="wrap">
+<p class="kicker">The Framework</p>
+<h1>A country, read like a company that answers to its owners</h1>
+<p class="lede">Companies answer to their owners with a balance sheet — what they own, what they owe, what's left over. FAND does the same for a country. The twist is <em>who the owners are</em>: not shareholders, but the governed.</p>
+<p><span class="badge b-prod">Production</span> the worked example on this page is Production-grade; every subnational figure keeps its own badge.</p>
+
+<h2>Read it like a 10-K — three layers, one number</h2>
+<p>Theodore Porter, the historian of measurement whose work shaped the original 1995 wealth accounts, called this a <strong>thin description</strong>: an honest surface that earns trust <em>only if</em> the commensurate detail is there to back it when you ask. FAND is built as three nested layers, the way a corporate 10-K is:</p>
+<ol>
+<li><strong>The balance sheet</strong> — one page, one bottom line: <strong>Net Worth</strong>. What the nation owns, what it owes, and the trust infrastructure in between.</li>
+<li><strong>The items</strong> — drill into any line and it opens: produced assets, natural capital, human resources, substantive rights.</li>
+<li><strong>The transactions</strong> — drill again and you reach the flows that changed the items over time — the income-statement side.</li>
+</ol>
+<p>The design goal, in John's phrase, is <strong>"minimizing how many <em>Whys</em> get to <em>Oh</em>"</strong>: a reader should be able to keep asking <em>why is that number what it is?</em> and keep getting an answer, until the <em>why</em> resolves to an <em>oh — I see</em>. Nothing bottoms out in "trust us."</p>
+
+<details><summary>The two branches: a photograph and a video</summary><div class="inner">
+<p>The split between "items" and "transactions" is the framework's highest-order sorting decision, and it has a simple test — the <strong>photograph test</strong>:</p>
+<ul>
+<li>A <strong>stock</strong> is something you could photograph at an instant: a building, a forest, a bank balance, a population count. Stocks live in the <strong>Portfolio</strong> branch — the balance sheet.</li>
+<li>A <strong>flow</strong> is an activity that only makes sense over a span of time: production, spending, income, service delivery — a video, not a photograph. Flows live in the <strong>Wheel of Wealth</strong> branch — the income statement.</li>
+</ul>
+<p><strong>Avatars.</strong> A few balance-sheet items can't literally be photographed but still have to be modeled — <em>Human Resources</em> is the clearest case. These modeled stocks are called <strong>avatars</strong>, and they are flagged as such, openly, so a reader always knows which numbers are observed and which are inferred.</p>
+</div></details>
+
+<h2>A communication system, not a report</h2>
+<p>Here is where FAND stops being a 10-K. A corporate report is a one-way document: <strong>management</strong> reports <em>to</em> the <strong>owners</strong>. FAND is not a report. It is a <strong>communication system between</strong> them — and the roles are the ones the American founders assigned. <strong>Management is government. The owners are the governed</strong> — everyone who lives in a place or holds a claim on it.</p>
+<p>That single reframing is the whole reason the site is built from the bottom up. A company's owners are handed a finished statement. A nation's owners are supposed to be the <em>source</em> of the values on it. So the aggregate balance sheet you meet at the top of the site is not a verdict handed down — it is built to become a rollup of what the owners value: <strong>ST = Σ(CT)</strong>, the sum of its parts, extended all the way down.</p>
+
+<h2>Recognize before you value — and why that needs AI</h2>
+<p>The framework performs two operations on anything people care about, and it keeps them strictly separate:</p>
+<ul>
+<li><strong>Recognize.</strong> Acknowledge that something exists and matters enough that <em>someone, somewhere</em> has spent effort measuring or arguing about it. Recognition is deliberately generous.</li>
+<li><strong>Value.</strong> Assign it a worth. Valuation is contested by nature — and those disagreements are themselves information.</li>
+</ul>
+<p>Conventional statistics collapse these two steps, and in doing so they quietly let the <em>measurement</em> decide the <em>values</em> — a trap the philosopher C. Thi Nguyen calls <strong>value capture</strong>. FAND refuses the collapse: <strong>recognition is expansive; valuation is deferred to the people whose values they are.</strong> A thing recognized but not yet priced is not worth zero — it is <em>recognized and awaiting judgment</em>, which is a completely different statement. Reversing the 1890 <strong>Hollerith Pivot</strong> is the entire reason the instrument is built with agentic AI.</p>
+
+<details><summary>"Valuing at zero is not caution — it is an assertion" (OG-001)</summary><div class="inner">
+<blockquote>By recognizing only market claim-rights, orthodox national accounting "does not merely omit the other entitlements — it effectively values them at zero. A person's liberty to spend time with family, their power to participate in governance, their immunity from arbitrary interference: these are real positions … and they consume the same finite resource — time — as any employment contract. Valuing them at zero is not caution; it is an assertion that systematically distorts every allocation decision built on the accounts."</blockquote>
+<p>Two mechanisms make this concrete: <strong>commensuration</strong> (Espeland &amp; Stevens) renders some things visible and comparable while making everything it can't price invisible; <strong>value capture</strong> (Nguyen) is what happens next, once life is reduced to the shared scale. FAND's defense is structural: recognition is comprehensive and valuation is deferred, so the classification scheme never decides what things are worth.</p>
+</div></details>
+
+<h2 id="identity">The identity, worked — one equation, every scale</h2>
+<p>Every entity on the site — world, country, state, county, block group — resolves the <em>same</em> balance-sheet identity. Here it is, worked on the anchor exhibit: the <strong>United States, per person, 2025</strong> <span class="badge b-prod">Production</span>.</p>
+<pre>CW = PA + NC + HR + SR − DM        Commonwealth — the productive base
+NW = CW + CBA − CBL                Net Worth — adds cross-border claim-rights, nets duties</pre>
+<blockquote>
+<table>
+<tr><th>Line</th><th>Symbol</th><th class="num">Per capita</th><th>What it is</th></tr>
+<tr><td>Produced Assets</td><td>PA</td><td class="num">$244,619</td><td>roads, plant, housing, machines — the built economy</td></tr>
+<tr><td>Natural Capital</td><td>NC</td><td class="num">$14,258</td><td>severable claim-rights: fuels, minerals, timber, farmland</td></tr>
+<tr><td>Human Resources</td><td>HR</td><td class="num">$410,547</td><td>the capitalized productive value of people</td></tr>
+<tr><td>Substantive Rights</td><td>SR</td><td class="num">$750,927</td><td>the "free" trust infrastructure — the largest single line</td></tr>
+<tr><td><em>(less) Deferred Maintenance</em></td><td>DM</td><td class="num"><em>see note</em></td><td>the trust-infrastructure deficit, when the floor binds</td></tr>
+<tr><td>Cross-border claim-rights</td><td>CBA</td><td class="num">$62,768</td><td>foreign assets residents hold</td></tr>
+<tr><td><em>(less) cross-border duties + upkeep</em></td><td>CBL</td><td class="num">−$89,174</td><td>what the nation owes abroad and to its own maintenance</td></tr>
+<tr><td><strong>Net Worth</strong></td><td><strong>NW</strong></td><td class="num"><strong>$1,384,850</strong></td><td><strong>the bottom line</strong></td></tr>
+</table>
+<p style="font-size:.85rem;color:#666"><em>Badge: Production. USA_Decadal, S257/S308 cascade. The identity closes to its check field in the versioned data package; a sub-1% visible residual is disclosed decadal-rounding, not a plug.</em></p>
+</blockquote>
+<p><strong>The one thing to notice:</strong> the biggest number on the American balance sheet is not the built economy, and not even its people's earning power — it is <strong>Substantive Rights</strong>, the trust infrastructure that conventional accounts book at zero. The framework is built the way it is precisely so that this line has somewhere to live.</p>
+
+<details><summary>Where each number comes from — and the two honest residuals</summary><div class="inner">
+<pre>CW = PA + NC + RW           RW (Residual Wealth) = CW − physical − natural capital
+RW = HR + SI                HR recovered by regression; SI is what's left
+SI = SR − DM                the 20%-floor decomposition
+∴  CW = PA + NC + HR + SR − DM
+NW = CW + CBA − CBL</pre>
+<ul>
+<li><strong>PA</strong> — net stock of produced fixed assets: OECD balance-sheet data extended to ~210 countries by a perpetual-inventory model.</li>
+<li><strong>NC</strong> — <em>only severable claim-rights</em> (fuels, minerals, timber, farmland, fisheries). Ecosystem services like mangrove flood protection and hydropower are <strong>not</strong> here — they sit under Substantive Rights, because no counterparty has a <em>duty</em> to provide them. Valued by a three-halo method, never imported from CWoN.</li>
+<li><strong>HR</strong> — capitalized productive value of people, recovered by a <em>single</em> regression of residual wealth on mean years of schooling and life-expectancy-capped-at-65, fit once at the global level and applied unchanged at every scale (Spec D-cap: α=4.748, β_MYS=0.293, β_LE=0.072, β_t=−0.674; R²=0.497, N=10,031).</li>
+<li><strong>SI / SR / DM</strong> — Social Infrastructure is the honest residual, SI = CW − PA − NC − HR, split against a structural floor of 20% of Commonwealth: SR = max(SI, 0.20·CW) is the asset side, DM = max(0, 0.20·CW − SI) the liability side (binds in 96 of 194 countries in 2020). The 20% is a <strong>structural prior, not an estimate</strong> — meant to be displaced by local evidence.</li>
+<li><strong>CBA / CBL</strong> — foreign claim-rights held and duties owed, from IMF international-investment-position data.</li>
+</ul>
+</div></details>
+
+<h2>Why GDP can't see the biggest number — Hohfeld's missing columns</h2>
+<p>In 1913 Wesley Hohfeld showed that every legal relationship is one of <strong>eight positions in four correlative pairs</strong> — Right/Duty, Liberty/No-right, Power/Liability, Immunity/Disability. The System of National Accounts recognizes <strong>only the first pair</strong>: claim-rights and their duties. Everything else a society holds — the <em>liberty</em> to use one's own time, the <em>power</em> to participate in governance, the <em>immunity</em> from arbitrary interference — falls outside the accounting boundary and is therefore, silently, valued at nothing. FAND's entire analytical frontier is exactly the material SNA leaves out.</p>
+
+<details><summary>The full Hohfeldian mapping</summary><div class="inner">
+<table>
+<tr><th>FAND construct</th><th>Hohfeldian position</th><th>SNA-visible?</th></tr>
+<tr><td>PA — Produced Assets</td><td>First-order Right (duty-bearer: counterparty)</td><td>Yes — SNA core</td></tr>
+<tr><td>NC — Natural Capital</td><td>First-order Right (duty-bearer: extractor)</td><td>Partially</td></tr>
+<tr><td>Cross-border (CBA/CBL)</td><td>First-order Right / Duty, cross-border</td><td>Yes</td></tr>
+<tr><td>HR — Human Resources</td><td>First-order Liberty / No-right</td><td>No</td></tr>
+<tr><td>SR — Substantive Rights</td><td>Second-order Power / Immunity + Liberty</td><td>No</td></tr>
+<tr><td>RW — Residual Wealth</td><td>None — a residual defined by subtraction</td><td>N/A</td></tr>
+</table>
+<p>SNA's choice to operationalize only Right/Duty reflected administrative feasibility in the 1950s, not conceptual completeness — the punch card couldn't read the other columns, so they were dropped. Hohfeld's framework predates that choice by four decades.</p>
+</div></details>
+
+<h2>From residual to recognized — the base-primary mechanism</h2>
+<p>Social Infrastructure is a <em>residual</em> in the current build — the framework is honest that this is the surgeon's-triage stopgap, not the destination. The destination is <strong>de-residualization</strong>: recognizing and scoring the components of trust infrastructure directly. FAND does <strong>not</strong> compute what each component is worth. It fixes the credible dollar totals (the 20% floor) and seeds a defensible, open list of components; then a <strong>geolocated consensus process among the governed allocates the total among the components.</strong> FAND computes the <em>thin</em> dollar envelope; the owners supply the <em>thick</em> allocation within it.</p>
+<p>Not every account carries the same evidential weight. Some estimates are the core convention — load-bearing, published with an uncertainty band. Others are satellite accounts (water, carbon) kept to one side. <a href="core-and-satellites.html">How the core and its satellites are separated →</a></p>
+
+<p><a href="evidence.html"><strong>See the roots →</strong></a> the ledger populated, and the two readings GDP cannot make.</p>
+</main>
+
+<footer class="site"><div class="wrap">
+<p><strong>FAND — First Agentic Navigator for Development</strong> · an OconEco project. Staged preview for selective review; not for citation. Every dollar figure carries an honesty badge; subnational figures are provisional.</p>
+<p>Virtually everywhere. Attached to Neptune Beach FL; Lexington KY; Charlottesville VA; Lincoln City NE; Cork City, Ireland.</p>
+</div></footer></body></html>
