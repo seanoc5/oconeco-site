@@ -1,54 +1,63 @@
 ---
 title: "Five spatial scales"
 slug: "framework/scales"
-description: "TL1 (country) → TL2 (US state) → TL3 (US county) → Tract → Block Group. Same architecture, different cross-border story."
-sectionContext: "From the World down to the Census Block Group, in five spatial levels."
+description: "TL1 (country) → TL2 (US state) → TL3 (US county) → tract → block group. The same balance-sheet identity at every level — what changes is the meaning of cross-border."
+tagline: "The same balance sheet, from the World down to the Census block group."
+sectionContext: "Five spatial levels, one architecture — and where the cross-border story changes."
 ---
-
-> **Strawman.** Real version uses the five-scale diagram from `FAND_Long_Haul.md` rendered as an SVG with alt text.
 
 # Five spatial scales
 
-The same balance-sheet identity applies at every level. What changes is the *meaning of cross-border* — and that's where the most interesting empirical content lives.
+The [balance-sheet identity](/framework/balance-sheet/) holds at every territorial level — country, state, county, and below. The architecture does not change as you descend; what changes is the **meaning of cross-border**, and that is where the most interesting empirical content lives.
 
 ## The five scales
 
-| Scale | What | Where it lives |
+| Scale | What | Coverage |
 |---|---|---|
 | **TL1** | Country | 200+ countries, 1950–2025 |
-| **TL2** | US state | 51 states |
-| **TL3** | US county | 3,258 counties |
-| **Tract** | Census tract | Future — drives commuter-flow analysis |
-| **Block Group** | Census block group | Future — smallest unit at which the identity still holds |
+| **TL2** | US state | 51 states + DC |
+| **TL3** | US county | ~3,258 counties |
+| **Tract** | Census tract | Roadmap — drives commuter-flow analysis |
+| **Block group** | Census block group | Roadmap — the smallest unit at which the identity still closes |
 
-The two-version architecture for the US (TL1 internationally comparable vs FIPS=00000 bottom-up enriched) is detailed at [/evidence/us-states/](/evidence/us-states/).
+TL1 is complete and verified; the US subnational exercise extends the *same* balance sheet down to TL2 and TL3, proving the architecture works at every level. Tract and block group are on the roadmap.
+
+## The two-version architecture for the United States
+
+The US appears twice, distinguished by identifier system — and the gap between the two records *is* a measurement:
+
+- **`iso3 = USA` (TL1)** — internationally comparable, top-down. The reference.
+- **`fips = 00000` (bottom-up)** — the US rebuilt from its counties up, enriched with jurisdiction-specific liabilities (intergenerational accounts, local institutional knowledge) that only exist where national statistical systems report them.
+
+The bottom-up Commonwealth runs **+5.9%** above the TL1 reference (a net-debtor ownership position the international view misses), while bottom-up Natural Capital lands **−24.8%** below it (county allocation undershoots the national figure). The difference between the two is the empirical content of local institutional knowledge — see [US states](/evidence/us-states/).
 
 ## What cross-border means at each scale
 
 | Scale | Cross-border story | Magnitude |
 |---|---|---|
-| **Country** | International. Foreign assets vs foreign debt. IMF data. | USA net position: −$15 trillion |
-| **State** | International + interstate. Where people *live* vs where they *work* across state lines. | 13–399× larger than international for commuter-belt states |
-| **County** | Commuter flows dominate. Income earned in one county, spent in another. | The defining relationship at this scale |
+| **Country** | International — foreign assets vs foreign liabilities (IMF data). | USA net position ≈ −$15 trillion |
+| **State** | International *plus* interstate — where people live vs where they work across state lines. | 13–399× larger than the international flow for commuter-belt states |
+| **County** | Commuter flows dominate — income earned in one county, spent in another. | The defining relationship at this scale |
 
-## What stays invariant
+At the country level cross-border is a footnote to a mostly-closed economy; by the county level it is the headline. The identity absorbs all of it without changing shape.
 
-Per `Subnational_Architecture_Universal_vs_CountrySpecific.md` (referenced in the State of FAND briefing §3.1):
+## What stays invariant across scales
 
-- The balance-sheet identity
-- The What codes
-- HR regression coefficients
-- Valuation parameters (r=4%, severance=10%, …)
-- Frame architecture
-- Tab homology
+The same engine powers 200 countries and the US deep dive because a fixed core is shared at every level:
+
+- the balance-sheet identity;
+- the **What** classification codes;
+- the HR regression coefficients (invariant across TL1/TL2/TL3);
+- the valuation parameters (discount rate, severance rate, …);
+- the frame architecture and tab homology.
 
 ## What is country-specific
 
-- Source agencies (BEA vs IMF, BLS vs ILO, …)
-- Entity gazetteers (FIPS vs ISO3)
-- Allocation methods
-- Temporal coverage
+Loaded from configuration, not hardcoded:
 
-The universal/specific separation is what lets the same engine power 200 countries plus the US deep dive.
+- source agencies (BEA vs IMF, BLS vs ILO, …);
+- entity gazetteers (FIPS vs ISO 3166);
+- allocation methods;
+- temporal coverage.
 
-*(Placeholder. Replace with the SVG diagram and full prose from FAND_Long_Haul.md.)*
+This universal-vs-specific separation is what lets one architecture serve every territorial level and every country without forking the model.
