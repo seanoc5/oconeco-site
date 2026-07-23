@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /deep-dive/
+Disallow: /voice-ab/
 
 Sitemap: https://oconeco.com/sitemap-index.xml

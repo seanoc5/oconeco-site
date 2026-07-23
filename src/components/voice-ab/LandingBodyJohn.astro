@@ -1,0 +1,81 @@
+---
+// Landing body, Arm A — adapted from context/raw/FAND_staged_facade/index.html
+import SectionContext from "../SectionContext.astro";
+
+const pathways = [
+  {
+    href: "/evidence/",
+    label: "The Data",
+    context: "200+ countries, 3,000+ counties, 75 years, one identity — see the roots.",
+  },
+  {
+    href: "/framework/",
+    label: "What We Measure",
+    context:
+      "The balance-sheet identity FAND uses to read a country like a company that answers to its owners.",
+  },
+  {
+    href: "/methodology/",
+    label: "Methods",
+    context:
+      "How each number earns its badge — Production, Experimental, or Prototype — and the audit trail behind it.",
+  },
+];
+---
+
+<section class="hero-video-stub" aria-labelledby="hero-video-heading">
+  <h2 id="hero-video-heading" class="visually-hidden">Overview video</h2>
+  <div class="hero-video-frame">
+    <video class="hero-video" controls preload="metadata" playsinline>
+      <source src="/video/FAND_TL1_Overview.mp4" type="video/mp4" />
+      <p>
+        Your browser can't play HTML5 video.
+        <a href="/video/FAND_TL1_Overview.mp4">Download the MP4</a> (17 MB).
+      </p>
+    </video>
+  </div>
+  <p class="hero-video-caption">
+    A five-minute walkthrough of the FAND framework at the country (TL1) scale.
+  </p>
+</section>
+
+<p class="headline-stat">
+  <span class="headline-stat-number">237</span>
+  <span class="headline-stat-text">
+    countries &mdash; one accounting crosstab, and a ledger the owners can
+    finally read.
+  </span>
+</p>
+
+<blockquote>
+  <p>
+    In the founders' usage, "wealth" still carried its older sense &mdash;
+    <strong>weal</strong>, the flourishing of the commonweal (from
+    <em>wele</em>, "well-being"). FAND writes that older sense as
+    <strong>Welth</strong>: not just cash flow, but the organic,
+    multi-dimensional condition of a people doing well.
+  </p>
+  <p>
+    To protect that Welth, the Constitution built <strong>the Enumeration</strong>
+    (Article I, &sect;2) &mdash; a literal ledger of consent, tying
+    representation and taxation to the physical reality of the people. In
+    1890 that tether snapped: the punch-card tabulator made data processing
+    cheap, but the cost of quality control stayed fixed, so the accounts
+    collapsed toward whatever a punch card could read. FAND is the
+    correction &mdash; agentic AI is the first technology cheap enough to
+    rebuild the full ledger, from the roots up.
+  </p>
+</blockquote>
+
+<section class="pathway-cards" aria-label="Where to go next">
+  <ul>
+    {pathways.map((p) => (
+      <li>
+        <a class="pathway-card" href={p.href}>
+          <h3>{p.label}</h3>
+          <SectionContext>{p.context}</SectionContext>
+        </a>
+      </li>
+    ))}
+  </ul>
+</section>

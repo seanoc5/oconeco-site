@@ -1,0 +1,70 @@
+---
+interface Props {
+  arm: "a" | "b" | "c";
+  kind: "landing" | "framework";
+}
+const { arm, kind } = Astro.props;
+
+const LABELS: Record<"landing" | "framework", Record<"a" | "b" | "c", string>> = {
+  landing: {
+    a: "Arm A — John's voice",
+    b: "Arm B — descriptive-neutral",
+    c: "Arm C — hybrid (John's voice on this page)",
+  },
+  framework: {
+    a: "Arm A — John's voice",
+    b: "Arm B — descriptive-neutral",
+    c: "Arm C — hybrid (descriptive-neutral on this page)",
+  },
+};
+
+const label = LABELS[kind][arm];
+const arms: Array<"a" | "b" | "c"> = ["a", "b", "c"];
+
+function armPath(a: string) {
+  return kind === "framework" ? `/voice-ab/${a}/framework/` : `/voice-ab/${a}/`;
+}
+---
+
+<div class="voice-ab-banner" role="note">
+  <p class="voice-ab-banner-label">
+    <strong>Voice A/B preview</strong> — {label}. Not part of the live site.
+  </p>
+  <p class="voice-ab-banner-nav">
+    Compare this {kind === "framework" ? "framework index" : "landing page"}:
+    {arms.map((a, i) => (
+      <Fragment>
+        {i > 0 && " · "}
+        {a === arm ? (
+          <span aria-current="true">{a.toUpperCase()}</span>
+        ) : (
+          <a href={armPath(a)}>{a.toUpperCase()}</a>
+        )}
+      </Fragment>
+    ))}
+    &nbsp;·&nbsp;<a href="/voice-ab/">all arms</a>
+  </p>
+</div>
+
+<style>
+  .voice-ab-banner {
+    background: #fff4d6;
+    border-bottom: 2px solid #caa227;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+  .voice-ab-banner p {
+    margin: 0.15rem 0;
+  }
+  .voice-ab-banner-label strong {
+    color: #6b4e00;
+  }
+  .voice-ab-banner a {
+    color: #6b4e00;
+    text-decoration: underline;
+  }
+  .voice-ab-banner [aria-current="true"] {
+    font-weight: 700;
+  }
+</style>

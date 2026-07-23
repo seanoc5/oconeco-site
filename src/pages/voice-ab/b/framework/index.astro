@@ -1,0 +1,21 @@
+---
+// Framework index, Arm B (descriptive-neutral)
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+import SectionContext from "../../../../components/SectionContext.astro";
+import VoiceAbBanner from "../../../../components/voice-ab/VoiceAbBanner.astro";
+import FrameworkBodyNeutral from "../../../../components/voice-ab/FrameworkBodyNeutral.astro";
+
+const title = "Voice A/B — Framework (Arm B)";
+const description =
+  "Framework index, Arm B: descriptive-neutral, the site's current register. Voice A/B preview — not part of the live site.";
+---
+
+<SiteLayout title={title} description={description} isArticle={true}>
+  <VoiceAbBanner arm="b" kind="framework" />
+  <h1>Framework</h1>
+  <SectionContext>
+    The accounting identity OconEco uses, the scales it operates at, and the
+    vocabulary it introduces.
+  </SectionContext>
+  <FrameworkBodyNeutral />
+</SiteLayout>

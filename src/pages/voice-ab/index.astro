@@ -1,0 +1,56 @@
+---
+// Voice A/B overview — issue #67 (part of epic #65).
+// Not linked from the live site's nav; excluded from robots.txt.
+import SiteLayout from "../../layouts/SiteLayout.astro";
+
+const title = "Voice A/B — Overview";
+const description =
+  "Three tone variants of the landing page and framework index, for side-by-side review. Not part of the live site.";
+---
+
+<SiteLayout title={title} description={description} isArticle={true}>
+  <h1>Voice A/B: three arms</h1>
+  <p>
+    Two representative pages &mdash; the landing page and the
+    <code>/framework/</code> index &mdash; rendered in three tone variants,
+    so the voice question (issue #67, part of epic #65) can be decided once
+    and then applied mechanically across the rest of the site. These pages
+    sit outside the live site's navigation and are not linked from it.
+  </p>
+
+  <h2>Arm A &mdash; John's voice</h2>
+  <p>
+    Prose adapted from John's staged-facade bundle
+    (<code>context/raw/FAND_staged_facade/index.html</code> and
+    <code>framework.html</code>) &mdash; the Ship-of-State framing,
+    Welth/the Enumeration, the 10-K analogy, in full, on both pages.
+  </p>
+  <ul>
+    <li><a href="/voice-ab/a/">Landing</a></li>
+    <li><a href="/voice-ab/a/framework/">Framework index</a></li>
+  </ul>
+
+  <h2>Arm B &mdash; descriptive-neutral</h2>
+  <p>
+    The site's current register &mdash; the same register used today on
+    <code>/about/</code>, <code>/methodology/</code>, and
+    <code>/evidence/</code>.
+  </p>
+  <ul>
+    <li><a href="/voice-ab/b/">Landing</a></li>
+    <li><a href="/voice-ab/b/framework/">Framework index</a></li>
+  </ul>
+
+  <h2>Arm C &mdash; hybrid</h2>
+  <p>
+    John's voice on the landing page, a persuasion surface; descriptive-neutral
+    on the framework index, a reference/scannable surface. Each page reuses
+    the exact copy from Arm A or Arm B respectively &mdash; the hybrid is a
+    choice of <em>which page gets which voice</em>, not a blended tone
+    within a page.
+  </p>
+  <ul>
+    <li><a href="/voice-ab/c/">Landing</a> (John's voice)</li>
+    <li><a href="/voice-ab/c/framework/">Framework index</a> (descriptive-neutral)</li>
+  </ul>
+</SiteLayout>
