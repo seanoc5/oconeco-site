@@ -31,6 +31,10 @@ description: "Top-level pages of the OconEco site, grouped by section."
 - [Source agency directory](/methodology/sources/)
 - [Replication package](/methodology/replication/)
 
+**Tools — working prototypes**
+
+- [Tools overview](/tools/)
+
 **Deep Dive — gated institutional materials**
 
 - [Deep Dive overview](/deep-dive/)
