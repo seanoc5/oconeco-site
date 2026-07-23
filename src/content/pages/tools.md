@@ -9,11 +9,11 @@ These are working prototypes, not polished apps — opened directly, not embedde
 
 ## The tools
 
-- **[US Commonwealth ledger](/tools/entity-us.html)** — Production. The United States balance sheet, the anchor exhibit, as a live page: PA · NC · HR · SR · DM · NW, decadal, 1955–2025.
-- **[Where-Tree explorer](/tools/where-explorer.html)** — Experimental. The collapsible Where-hierarchy — world → country → state → county — with five indicator columns and per-node download. Keys on units, not borders.
-- **[FAND Explorer](/tools/fand-explorer.html)** — Prototype. An early integrated navigator across the balance-sheet items; the working sketch of the reader-facing tool.
-- **[The Currentness Switch (OCF demo)](/tools/ocf-demo.html)** — Experimental. Toggle "as reported" vs the O'Connor Carry-Forward nowcast on the US recognition margin, 1950–2031 — how FAND keeps a level current without overwriting the measured record.
-- **[Florida — state annex](/tools/entity-us-fl.html)** — Experimental. The state layer as a labeled provisional annex (ST = Σ(CT), bottom-up).
-- **[Duval County — county annex](/tools/entity-us-fl-duval.html)** — Experimental. The county layer, fed by courthouse records and administrative rolls where agency panels stop. Margins of error are large; the page says so directly.
+- **[US Commonwealth ledger](/tools/entity-us)** — Production. The United States balance sheet, the anchor exhibit, as a live page: PA · NC · HR · SR · DM · NW, decadal, 1955–2025.
+- **[Where-Tree explorer](/tools/where-explorer)** — Experimental. The collapsible Where-hierarchy — world → country → state → county — with five indicator columns and per-node download. Keys on units, not borders.
+- **[FAND Explorer](/tools/fand-explorer)** — Prototype. An early integrated navigator across the balance-sheet items; the working sketch of the reader-facing tool.
+- **[The Currentness Switch (OCF demo)](/tools/ocf-demo)** — Experimental. Toggle "as reported" vs the O'Connor Carry-Forward nowcast on the US recognition margin, 1950–2031 — how FAND keeps a level current without overwriting the measured record.
+- **[Florida — state annex](/tools/entity-us-fl)** — Experimental. The state layer as a labeled provisional annex (ST = Σ(CT), bottom-up).
+- **[Duval County — county annex](/tools/entity-us-fl-duval)** — Experimental. The county layer, fed by courthouse records and administrative rolls where agency panels stop. Margins of error are large; the page says so directly.
 
 Each tool opens as its own page — use your browser's back button (or the small "← OconEco" link in the corner) to return here.
