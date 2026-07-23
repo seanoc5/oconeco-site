@@ -11,7 +11,7 @@ sectionContext: "FAND results, navigated by where (geography) and what (balance-
 
 This is the lead section of the site by design. Per the strategic brief: *"Lead with this, not theory."*
 
-OconEco's FAND project has computed a complete national balance sheet — `CW = PA + NC + HR + SI` — for 200+ countries from 1950–2025, plus US state-level and county-level extensions. The identity is verified to $0.000000. The pipeline is reproducible. The numbers are here.
+OconEco's FAND project has computed a complete national balance sheet — `CW = PA + NC + RW; RW = HR + SI` — for 200+ countries from 1950–2025, plus US state-level and county-level extensions. The identity is verified to $0.000000. The pipeline is reproducible. The numbers are here.
 
 ## Five drill-downs
 
