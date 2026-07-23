@@ -1,0 +1,140 @@
+---
+// Framework index, Arm A — adapted from
+// context/raw/FAND_staged_facade/framework.html
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+import SectionContext from "../../../../components/SectionContext.astro";
+import VoiceAbBanner from "../../../../components/voice-ab/VoiceAbBanner.astro";
+
+const title = "Voice A/B — Framework (Arm A)";
+const description =
+  "Framework index, Arm A: John's voice, adapted from the FAND staged-facade bundle. Voice A/B preview — not part of the live site.";
+---
+
+<SiteLayout title={title} description={description} isArticle={true}>
+  <VoiceAbBanner arm="a" kind="framework" />
+  <h1>A country, read like a company that answers to its owners</h1>
+  <SectionContext>
+    The accounting identity FAND uses, the scales it operates at, and the
+    vocabulary it introduces.
+  </SectionContext>
+
+  <p>
+    Companies answer to their owners with a balance sheet &mdash; what they
+    own, what they owe, what's left over. FAND does the same for a country.
+    The twist is <em>who the owners are</em>: not shareholders, but the
+    governed.
+  </p>
+
+  <h2>Read it like a 10-K</h2>
+  <p>
+    FAND is built as three nested layers, the way a corporate 10-K is:
+    <strong>the balance sheet</strong> (one page, one bottom line &mdash;
+    Net Worth), <strong>the items</strong> (produced assets, natural
+    capital, human resources, substantive rights), and
+    <strong>the transactions</strong> (the flows that changed those items
+    over time). The goal, in John's phrase, is
+    <strong>"minimizing how many <em>Whys</em> get to <em>Oh</em>"</strong>
+    &mdash; a reader should be able to keep asking why a number is what it
+    is, and keep getting an answer, until the <em>why</em> resolves to an
+    <em>oh &mdash; I see</em>. Nothing bottoms out in "trust us."
+  </p>
+
+  <h2>A photograph and a video</h2>
+  <p>
+    The split between items and transactions has a simple test &mdash; the
+    <strong>photograph test</strong>. A <strong>stock</strong> is something
+    you could photograph at an instant: a building, a forest, a bank
+    balance, a population count. A <strong>flow</strong> is an activity that
+    only makes sense over a span of time: production, spending, income. A
+    few stocks &mdash; Human Resources chief among them &mdash; can't
+    literally be photographed but still have to be modeled; FAND calls
+    these <strong>avatars</strong>, and flags them as such, so a reader
+    always knows which numbers are observed and which are inferred.
+  </p>
+
+  <h2>A communication system, not a report</h2>
+  <p>
+    A corporate report is one-way: management reports to the owners. FAND
+    is not a report &mdash; it is a <strong>communication system
+    between</strong> them, with the roles the American founders assigned:
+    <strong>management is government; the owners are the governed</strong>.
+    That is why the balance sheet at the top of the site is not a verdict
+    handed down &mdash; it is built to become a rollup of what the owners
+    value, all the way down.
+  </p>
+
+  <h2>Recognize before you value</h2>
+  <p>
+    FAND performs two operations on anything people care about, and keeps
+    them strictly separate. <strong>Recognize</strong> &mdash; acknowledge
+    that something exists and matters enough that someone has spent effort
+    measuring or arguing about it; recognition is deliberately generous.
+    <strong>Value</strong> &mdash; assign it a worth; valuation is
+    contested by nature, and those disagreements are themselves
+    information. Conventional statistics collapse these two steps, quietly
+    letting the measurement decide the values. FAND refuses the collapse: a
+    thing recognized but not yet priced is <em>recognized and awaiting
+    judgment</em> &mdash; not worth zero.
+  </p>
+
+  <h2 id="identity">The identity, worked</h2>
+  <p>
+    Every entity on the site &mdash; world, country, state, county, block
+    group &mdash; resolves the <em>same</em> identity. Here it is, worked on
+    the anchor exhibit: the United States, per person, 2025.
+  </p>
+  <pre>CW = PA + NC + HR + SR &minus; DM        Commonwealth &mdash; the productive base
+NW = CW + CBA &minus; CBL                Net Worth &mdash; adds cross-border claim-rights, nets duties</pre>
+  <ul>
+    <li><strong>Produced Assets (PA)</strong> &mdash; $244,619 &mdash; roads, plant, housing, machines, the built economy</li>
+    <li><strong>Natural Capital (NC)</strong> &mdash; $14,258 &mdash; severable claim-rights: fuels, minerals, timber, farmland</li>
+    <li><strong>Human Resources (HR)</strong> &mdash; $410,547 &mdash; the capitalized productive value of people</li>
+    <li><strong>Substantive Rights (SR)</strong> &mdash; $750,927 &mdash; the "free" trust infrastructure, the largest single line</li>
+    <li><strong>Cross-border claim-rights (CBA)</strong> &mdash; $62,768 &mdash; foreign assets residents hold</li>
+    <li><em>(less)</em> cross-border duties + upkeep (CBL) &mdash; &minus;$89,174</li>
+    <li><strong>Net Worth (NW) &mdash; $1,384,850</strong> &mdash; the bottom line</li>
+  </ul>
+  <p>
+    The biggest number on the American balance sheet is not the built
+    economy, and not even its people's earning power &mdash; it is
+    <strong>Substantive Rights</strong>, the trust infrastructure
+    conventional accounts book at zero. The framework is built the way it
+    is precisely so that this line has somewhere to live.
+  </p>
+
+  <h2>Why GDP can't see the biggest number</h2>
+  <p>
+    In 1913 Wesley Hohfeld showed that every legal relationship is one of
+    eight positions in four correlative pairs &mdash; Right/Duty,
+    Liberty/No-right, Power/Liability, Immunity/Disability. The System of
+    National Accounts recognizes only the first pair. Everything else a
+    society holds &mdash; the liberty to use one's own time, the power to
+    participate in governance, the immunity from arbitrary interference
+    &mdash; falls outside the accounting boundary and is therefore,
+    silently, valued at nothing. FAND's entire analytical frontier is
+    exactly the material the SNA leaves out.
+  </p>
+
+  <h2>The four sub-pages</h2>
+  <ul>
+    <li>
+      <a href="/framework/balance-sheet/">The balance sheet equation</a>
+      &mdash; worked with one country's actual numbers.
+    </li>
+    <li>
+      <a href="/framework/scales/">Five spatial scales</a> &mdash; country
+      &rarr; state &rarr; county &rarr; tract &rarr; block group, same
+      architecture at every level.
+    </li>
+    <li>
+      <a href="/framework/what-tree/">The "What" hierarchy</a> &mdash; the
+      415-node classification tree behind every drill-down.
+    </li>
+    <li>
+      <a href="/framework/glossary/">Glossary of Novel Constructs</a>
+      &mdash; the vocabulary FAND uses to say precisely what it means.
+    </li>
+  </ul>
+
+  <p><a href="/evidence/"><strong>See the roots &rarr;</strong></a> the ledger populated, and the readings GDP cannot make.</p>
+</SiteLayout>

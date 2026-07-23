@@ -1,0 +1,16 @@
+---
+import SiteLayout from "../../../layouts/SiteLayout.astro";
+import VoiceAbBanner from "../../../components/voice-ab/VoiceAbBanner.astro";
+import LandingHeroJohn from "../../../components/voice-ab/LandingHeroJohn.astro";
+import LandingBodyJohn from "../../../components/voice-ab/LandingBodyJohn.astro";
+
+const title = "Voice A/B — Landing (Arm A)";
+const description =
+  "Landing page, Arm A: John's voice, adapted from the FAND staged-facade bundle. Voice A/B preview — not part of the live site.";
+---
+
+<SiteLayout title={title} description={description} mainClass="has-hero">
+  <VoiceAbBanner slot="hero" arm="a" kind="landing" />
+  <LandingHeroJohn slot="hero" />
+  <LandingBodyJohn />
+</SiteLayout>

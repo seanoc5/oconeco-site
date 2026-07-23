@@ -1,0 +1,19 @@
+---
+// Landing, Arm C (hybrid) — persuasion surface, so this page uses John's
+// voice, same content as Arm A's landing. See framework/index.astro for the
+// neutral half of the hybrid.
+import SiteLayout from "../../../layouts/SiteLayout.astro";
+import VoiceAbBanner from "../../../components/voice-ab/VoiceAbBanner.astro";
+import LandingHeroJohn from "../../../components/voice-ab/LandingHeroJohn.astro";
+import LandingBodyJohn from "../../../components/voice-ab/LandingBodyJohn.astro";
+
+const title = "Voice A/B — Landing (Arm C, hybrid)";
+const description =
+  "Landing page, Arm C: hybrid — John's voice on this persuasion surface, descriptive-neutral on the framework index. Voice A/B preview — not part of the live site.";
+---
+
+<SiteLayout title={title} description={description} mainClass="has-hero">
+  <VoiceAbBanner slot="hero" arm="c" kind="landing" />
+  <LandingHeroJohn slot="hero" />
+  <LandingBodyJohn />
+</SiteLayout>

@@ -1,0 +1,84 @@
+---
+// Landing, Arm B (descriptive-neutral) — mirrors the live landing page
+// (src/pages/index.astro) as-is; this IS the current site register.
+import SiteLayout from "../../../layouts/SiteLayout.astro";
+import SectionContext from "../../../components/SectionContext.astro";
+import VoiceAbBanner from "../../../components/voice-ab/VoiceAbBanner.astro";
+
+const title = "Voice A/B — Landing (Arm B)";
+const description =
+  "Landing page, Arm B: descriptive-neutral, the site's current register. Voice A/B preview — not part of the live site.";
+
+const pathways = [
+  {
+    href: "/evidence/",
+    label: "The Data",
+    context:
+      "FAND results, navigated by where (geography) and what (balance-sheet component).",
+  },
+  {
+    href: "/framework/",
+    label: "What We Measure",
+    context:
+      "The accounting identity OconEco uses, the scales it operates at, and the vocabulary it introduces.",
+  },
+  {
+    href: "/methodology/",
+    label: "Methods",
+    context:
+      "How OconEco produces each published number, with the audit trail to back it.",
+  },
+];
+---
+
+<SiteLayout title={title} description={description} mainClass="has-hero">
+  <VoiceAbBanner slot="hero" arm="b" kind="landing" />
+  <section class="hero" slot="hero">
+    <div class="hero-inner landing-lead">
+      <h1>OconEco publishes national balance sheets.</h1>
+      <p class="landing-lede">
+        We measure what 237 countries &mdash; plus growing subnational coverage
+        of states, provinces, and counties &mdash; <em>own</em>: produced
+        assets, natural capital, human resources, and substantive
+        infrastructure, in a single accounting framework called FAND. GDP
+        measures earnings; FAND measures ownership.
+      </p>
+    </div>
+  </section>
+
+  <section class="hero-video-stub" aria-labelledby="hero-video-heading">
+    <h2 id="hero-video-heading" class="visually-hidden">Overview video</h2>
+    <div class="hero-video-frame">
+      <video class="hero-video" controls preload="metadata" playsinline>
+        <source src="/video/FAND_TL1_Overview.mp4" type="video/mp4" />
+        <p>
+          Your browser can't play HTML5 video.
+          <a href="/video/FAND_TL1_Overview.mp4">Download the MP4</a> (17 MB).
+        </p>
+      </video>
+    </div>
+    <p class="hero-video-caption">
+      A five-minute walkthrough of the FAND framework at the country (TL1) scale.
+    </p>
+  </section>
+
+  <p class="headline-stat">
+    <span class="headline-stat-number">237</span>
+    <span class="headline-stat-text">
+      countries &mdash; measured in one accounting crosstab.
+    </span>
+  </p>
+
+  <section class="pathway-cards" aria-label="Where to go next">
+    <ul>
+      {pathways.map((p) => (
+        <li>
+          <a class="pathway-card" href={p.href}>
+            <h3>{p.label}</h3>
+            <SectionContext>{p.context}</SectionContext>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</SiteLayout>

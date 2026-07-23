@@ -1,0 +1,23 @@
+---
+// Framework index, Arm C (hybrid) — reference/scannable surface, so this
+// page uses descriptive-neutral voice, same content as Arm B's framework
+// index. See ../index.astro (the landing page) for the John's-voice half.
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+import SectionContext from "../../../../components/SectionContext.astro";
+import VoiceAbBanner from "../../../../components/voice-ab/VoiceAbBanner.astro";
+import FrameworkBodyNeutral from "../../../../components/voice-ab/FrameworkBodyNeutral.astro";
+
+const title = "Voice A/B — Framework (Arm C, hybrid)";
+const description =
+  "Framework index, Arm C: hybrid — descriptive-neutral on this reference surface, John's voice on the landing page. Voice A/B preview — not part of the live site.";
+---
+
+<SiteLayout title={title} description={description} isArticle={true}>
+  <VoiceAbBanner arm="c" kind="framework" />
+  <h1>Framework</h1>
+  <SectionContext>
+    The accounting identity OconEco uses, the scales it operates at, and the
+    vocabulary it introduces.
+  </SectionContext>
+  <FrameworkBodyNeutral />
+</SiteLayout>
