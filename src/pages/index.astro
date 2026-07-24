@@ -6,6 +6,21 @@ const title = "Oconeco";
 const description =
   "OconEco publishes the FAND national balance sheets: 237 countries today, with growing subnational coverage, in an accounting framework that complements GDP.";
 
+const storyArc = [
+  {
+    heading: "1 · The ancient myth",
+    text: "Governance as blind trust in a master pilot.",
+  },
+  {
+    heading: "2 · The American correction",
+    text: "Governance as a strict charter where the chart belongs to the sovereign owners.",
+  },
+  {
+    heading: "3 · The modern failure",
+    text: "A reductionist instrument panel (GDP) that tracks fuel burn but ignores whether the hull is rotting.",
+  },
+];
+
 const pathways = [
   {
     href: "/evidence/",
@@ -31,13 +46,13 @@ const pathways = [
 <SiteLayout title={title} description={description} mainClass="has-hero">
   <section class="hero" slot="hero">
     <div class="hero-inner landing-lead">
-      <h1>OconEco publishes national balance sheets.</h1>
+      <p class="landing-kicker">Back to the Future &mdash; The Ledger of Consent</p>
+      <h1>The Ship of State has a glitch in its instrument panel.</h1>
       <p class="landing-lede">
-        We measure what 237 countries &mdash; plus growing subnational coverage
-        of states, provinces, and counties &mdash; <em>own</em>: produced
-        assets, natural capital, human resources, and substantive
-        infrastructure, in a single accounting framework called FAND. GDP
-        measures earnings; FAND measures ownership.
+        Plato thought the passengers were blind cargo and the captain ruled by
+        divine right. The American founders disagreed &mdash; they wrote a
+        contract that made the passengers the <em>owners</em>, and the
+        Enumeration the <em>rudder</em>. FAND restores the rudder.
       </p>
     </div>
   </section>
@@ -58,6 +73,67 @@ const pathways = [
     </p>
   </section>
 
+  <p class="landing-body-lede">
+    A country's wealth is not its cash flow. It is what it <em>owns</em>
+    &mdash; produced assets, natural capital, human resources, and substantive
+    infrastructure &mdash; what it owes, and the trust infrastructure in
+    between. GDP measures earnings; FAND measures ownership. GDP tracks the
+    fuel burn. FAND tracks the hull.
+  </p>
+
+  <section class="story-cards" aria-label="The story in three acts">
+    <ul>
+      {storyArc.map((s) => (
+        <li class="story-card">
+          <h3>{s.heading}</h3>
+          <p>{s.text}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="landing-story" aria-label="The Ledger of Consent">
+    <p>
+      In the founders' late-18th-century usage, "wealth" still carried its
+      older sense &mdash; <strong>weal</strong>, the condition of being well,
+      the flourishing of the commonweal (Middle English <em>welthe</em>, from
+      <em>wele</em>, "well-being"). It was never just a measure of cash flow.
+      FAND writes that older sense as <strong>Welth</strong>. The founders were
+      <em>founding gardeners</em>: practical vitalists who tracked the unnamed
+      miracles of photosynthesis and the rhizosphere because they understood
+      that prosperity, like nature, is organic and multi-dimensional.
+    </p>
+    <p>
+      To protect that Welth, the Constitution established a contract between
+      the government and the governed. Its steering gear was a radical tool
+      &mdash; <strong>the Enumeration</strong> (Article I, &sect;2): a literal
+      <em>Ledger of Consent</em>, tying representation and taxation to the
+      physical reality of the people. Not ballast to hold the ship in place,
+      but the rudder by which the owners steer it.
+    </p>
+    <p>
+      <strong>In 1890 the tether snapped.</strong> Facing a data backlog, the
+      Census adopted Hollerith's punch-card tabulator. Processing became cheap
+      overnight &mdash; but the cost of <em>data quality control</em> stayed
+      fixed. That asymmetry forced a catastrophic reductionism: the punch card
+      couldn't read social trust, institutional reliability, or the organic
+      dimensions of Welth, so the state stopped measuring them. Rich
+      "chymistry" collapsed into sterile "chemistry" &mdash; and eventually
+      into GDP, a metric that counts the liquidation of a forest as growth.
+    </p>
+    <p>
+      <strong>FAND is the correction.</strong> Agentic AI is the first
+      technology that performs <em>contextual</em> quality control at
+      near-zero marginal cost. That makes it feasible, for the first time
+      since 1890, to rebuild the full multi-dimensional ledger of Welth
+      &mdash; Social Infrastructure, Commonwealth, Natural Capital &mdash;
+      without it collapsing under its own administrative weight. And because
+      contextual measurement is finally cheap, the ledger can be rebuilt the
+      way the founding gardeners understood growth &mdash;
+      <strong>from the roots up.</strong>
+    </p>
+  </section>
+
   <p class="headline-stat">
     <span class="headline-stat-number">237</span>
     <span class="headline-stat-text">
@@ -65,7 +141,33 @@ const pathways = [
     </span>
   </p>
 
-  <section class="pathway-cards" aria-label="Where to go next">
+  <aside class="signal-strip" aria-labelledby="latest-signals-heading">
+    <p id="latest-signals-heading" class="signal-strip-heading">
+      <strong>Latest signals</strong>
+    </p>
+    <ul>
+      <li>
+        A complete national balance sheet &mdash;
+        <code>CW = PA + NC + RW; RW = HR + SI</code> &mdash; for 200+
+        countries, 1950&ndash;2025.
+        <span class="badge badge-prod">Production</span>
+      </li>
+      <li>
+        7,101 administrative units across 237 countries &mdash; and a
+        <strong>38&times; measurement asymmetry</strong> between rich-sparse
+        and poor-dense regions.
+        <span class="badge badge-exp">Experimental</span>
+      </li>
+      <li>
+        A county-level finding: the <em>opportunity</em> to participate tracks
+        a community's hidden wealth better than participation itself.
+        <span class="badge badge-exp">Experimental</span>
+      </li>
+    </ul>
+  </aside>
+
+  <section class="pathway-cards" aria-labelledby="choose-depth-heading">
+    <h2 id="choose-depth-heading">Choose your depth</h2>
     <ul>
       {pathways.map((p) => (
         <li>
@@ -77,4 +179,9 @@ const pathways = [
       ))}
     </ul>
   </section>
+
+  <p class="tools-cta">
+    <a href="/tools/"><strong>Enter the Navigation Room &rarr;</strong></a>
+    &nbsp;test the live explorers and the worked US ledger.
+  </p>
 </SiteLayout>
