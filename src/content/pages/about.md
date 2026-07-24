@@ -1,39 +1,53 @@
 ---
 title: "About"
 slug: "about"
-description: "OconEco was founded by John O'Connor — 60 years of designing national-scale measurement systems, from IMF 1964 to FAND today."
-sectionContext: "John O'Connor's lineage, OconEco's research note, and how to work with us."
+description: "OconEco was founded by John C. O'Connor — three decades inside the Bretton Woods institutions, three generations of wealth accounting, and now FAND."
+sectionContext: "Founded by John C. O'Connor — the story and the career in his words, and how to work with us."
 ---
 
-> **Strawman.** Replaces the legacy `/about-us/` once IA is approved. Per Website Brief §"About" — career timeline + AI-augmented workflow note + contact.
 
-# About OconEco
+OconEco was founded by John C. O'Connor. The story, the career, and the book below are in his words; the practical details of working with us follow at the bottom of the page.
 
-OconEco was founded by John O'Connor. The career timeline below spans 60 years of designing decision-support systems for measuring what countries — and later, smaller jurisdictions — actually have.
+*The instruments that make decentralized, market-oriented decisions possible — across three decades inside the Bretton Woods institutions, and three generations of wealth accounting.*
 
-## Career timeline
+I was born a week after Normandy, while the real work of Bretton Woods was under way in Atlantic City. When the IMF and I both turned twenty, I joined it — and spent the next three decades at the Bretton Woods institutions designing and managing the systems central authorities use to decide how and where to allocate resources.
 
-| Year | Role | Institution |
+The capstone of that career was [*Monitoring Environmental Progress*](http://documents.worldbank.org/curated/en/378701468765915443/Monitoring-environmental-progress-a-report-on-work-in-progress) (World Bank, 1995) — the report that pioneered modern wealth accounting. The Bank still updates it, most recently as *The Changing Wealth of Nations*. I took early retirement the year it was published, because the work convinced me of something the institutions weren't built to act on: our democracy requires more bottom-up decisions. Everything since — the Everglades, Abu Dhabi, Gaia Metrics, sciGaia's wealth metrics for Montana, and now FAND — has been about building the instruments that make decentralized, market-oriented decisions possible.
+
+FAND is the third generation of that work, and the one the first two were waiting for. What made the 1995 wealth metrics thin was never the concept — it was the cost of quality-controlling qualitative information at scale. Agentic AI has now made that cost collapse. So we are rebuilding the full ledger: what a society owns, what it owes, and the trust infrastructure that never made it onto anyone's balance sheet.
+
+## Career
+
+| Year(s) | Role | One line |
 |---|---|---|
-| **1964** | Joined as one of the first designers of computerized economic data systems | IMF |
-| **1968** | Contributor to the System of National Accounts (SNA) | UN Statistical Commission |
-| **1970s** | Field work on national accounting in Bolivia and other Latin American economies | IMF |
-| **1986** | Chief of Comparative Analysis and Data; built the World Bank DataBank | World Bank |
-| **1995** | Led MEP 1995 — the methodological program that pioneered the *Changing Wealth of Nations* | World Bank |
-| **2006–present** | Founder, OconEco. Long-form development of the FAND balance-sheet framework. | OconEco |
-| **2025–present** | FAND public release: 200+ countries, 1950–2025, plus US state and county extensions | OconEco |
+| 1964 | Joined the IMF | Decision-support systems just before computerization; "knowledge broker" between systems experts and economists. |
+| 1968, 1992 | UN System of National Accounts | Contributor to both SNA revisions. |
+| 1982–84 | IMF | Created and managed the Fund's monitoring system for international banking. |
+| 1985 | IMF External Debt Advisor, Bolivia | Debt-crisis fieldwork. |
+| 1986–92 | World Bank — Chief of Comparative Analysis & Data | Overhauled the Bank's decision-support system; architect of what became DataBank; absorbed the formerly planned economies into the data system. |
+| 1992–95 | World Bank — Senior Advisor, Environment Dept. | Created the Bank's environmental indicator system; manager and primary author of *Monitoring Environmental Progress* (1995) — origin of *The Changing Wealth of Nations*. |
+| 1996–99 | Florida Center for Environmental Studies | Senior researcher, initial stage of Everglades restoration — bottom-up decision-making in practice. |
+| 2006 | UN FAO | Assessed forecasting methodology and projections/history integration. |
+| 2007–09 | Environment Agency, Abu Dhabi | Team lead, wealth assessment — Emirate sustainability framework. |
+| 2009 | Bibliotheca Alexandrina | Co-chaired SDI & Metrics conference with Ismail Serageldin. |
+| 2010–13 | Gaia Metrics (co-founder) | Corporate intangibles and "free" ecoservices; SDR Data Prep; CSR QuickStart with CSRwire. |
+| 2015 | sciGaia | Led design of TrueView wealth metrics; primary author, [*Montana's Renewable Portfolio*](https://www.scigaia.com/wp-content/uploads/2021/10/Montana-Renewable-Portfolio-Economic-Benefits-2015.pdf). |
+| 2019– | OconEco | Multi-Local Analytics: a smart grid for decentralized allocation of real as well as financial resources. |
+| 2025– | FAND | First Agentic Navigator for Development — the full ledger, rebuilt: 200+ countries, 3,000+ US counties, one balance-sheet identity. |
 
-FAND is the continuation of MEP 1995 — what the Changing Wealth of Nations would look like if you could rebuild it with modern data, modern compute, and the lessons of three decades watching what worked and what didn't.
+## How this work is made
 
-## AI-augmented research
+FAND is built by one economist working with agentic AI as a full research partner — drafting, coding, auditing, and challenging, across several hundred logged working sessions. Every number on this site traces to a reproducible pipeline with a source registry and audit trail; every methodological choice is codified in a public Operational Guideline. The workflow itself is part of the proof: the point of FAND is that contextual quality control has become cheap enough for one person and a machine to do what once took a department.
 
-FAND's pace and breadth — 128 builder scripts, 200+ countries, 3,258 US counties, a closed balance-sheet identity verified to $0.000000 — would not be possible without close collaboration with AI tooling. The methodological decisions are John's; the codification, validation, and documentation are done in tight loops with AI assistants. The decision is John's; the typing is shared. We say this explicitly because the institutional audience deserves to know how the work gets done.
+The scale of the current release — 128 builder scripts, 200+ countries, 3,258 US counties, a closed balance-sheet identity verified to $0.000000 — is what that workflow makes possible. We say this explicitly because the institutional audience deserves to know how the work gets done.
+
+## The book
+
+*My Life in Numbers: Bretton Woods and Beyond* — a view of the world economy from 1944 to (projected) 2044, from someone who spent the whole run inside its instrument panel. Draft chapters will preview here.
 
 ## Contact
 
-The contact form lives at [/contact/](/contact/).
-
-*(Placeholder. Replace with the About content packet — portrait, sharpened timeline entries, and finalized AI-augmented workflow note.)*
+The contact form is below, under [Working with OconEco](#working-with-oconeco). Postal address and office hours are at [/contact/](/contact/).
 
 ## Working with OconEco
 
