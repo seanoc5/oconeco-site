@@ -195,6 +195,11 @@ a:hover { color: var(--color-accent-deep); text-decoration-thickness: 2px; }
 .site-main.has-hero { padding-top: var(--space-4); }
 
 /* ----- Landing (home) lead ----- */
+/* Hero text shares the centered --max-content column of .site-main, not the
+   wide header container, so the lead aligns with the page body below it. */
+.hero-inner.landing-lead {
+  max-width: var(--max-content);
+}
 .landing-lead h1 {
   font-size: clamp(2rem, 4.2vw, 3.25rem);
   max-width: 22ch;
