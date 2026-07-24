@@ -2,10 +2,9 @@
 title: "About"
 slug: "about"
 description: "OconEco was founded by John C. O'Connor — three decades inside the Bretton Woods institutions, three generations of wealth accounting, and now FAND."
-sectionContext: "John O'Connor's lineage, how the work is made, and how to work with us."
+sectionContext: "Founded by John C. O'Connor — the story and the career in his words, and how to work with us."
 ---
 
-# About OconEco
 
 OconEco was founded by John C. O'Connor. The story, the career, and the book below are in his words; the practical details of working with us follow at the bottom of the page.
 
