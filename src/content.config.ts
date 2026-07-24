@@ -14,4 +14,34 @@ const pages = defineCollection({
   }),
 });
 
-export const collections = { pages };
+const link = z.object({
+  label: z.string(),
+  href: z.string(),
+  badge: z.string().optional(),
+  note: z.string().optional(),
+});
+
+const roles = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/roles" }),
+  schema: z.object({
+    role: z.string(),
+    slug: z.string(),
+    title: z.string(),
+    description: z.string().optional(),
+    painPoint: z.string(),
+    toolLink: link,
+    curatedLinks: z.array(link),
+    featuredEssay: z.object({
+      title: z.string(),
+      href: z.string(),
+      note: z.string().optional(),
+    }),
+    cta: z.object({
+      label: z.string(),
+      href: z.string(),
+      text: z.string().optional(),
+    }),
+  }),
+});
+
+export const collections = { pages, roles };

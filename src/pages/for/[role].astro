@@ -1,0 +1,94 @@
+---
+import { getCollection, render } from "astro:content";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import SectionContext from "../../components/SectionContext.astro";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("roles");
+  return entries.map((entry) => ({
+    params: { role: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, description, painPoint, toolLink, curatedLinks, featuredEssay, cta } =
+  entry.data;
+---
+
+<SiteLayout title={title} description={description} isArticle={true}>
+  <h1>{title}</h1>
+  <SectionContext>{painPoint}</SectionContext>
+
+  <Content />
+
+  <section class="pathway-cards role-pathway" aria-label="Start here">
+    <h2>Start here</h2>
+    <ul>
+      <li>
+        <a class="pathway-card" href={toolLink.href}>
+          <h3>
+            {toolLink.label}
+            {toolLink.badge && <span class="role-badge">{toolLink.badge}</span>}
+          </h3>
+          {toolLink.note && <p class="section-context">{toolLink.note}</p>}
+        </a>
+      </li>
+      <li>
+        <a class="pathway-card" href={featuredEssay.href}>
+          <h3>Featured essay — {featuredEssay.title}</h3>
+          {featuredEssay.note && <p class="section-context">{featuredEssay.note}</p>}
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section aria-label="Related pages">
+    <h2>Related pages</h2>
+    <ul class="role-links">
+      {curatedLinks.map((link) => (
+        <li>
+          <a href={link.href}>{link.label}</a>
+          {link.badge && <span class="role-badge">{link.badge}</span>}
+          {link.note && <span class="role-link-note"> — {link.note}</span>}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section aria-label="Get in touch">
+    <h2>{cta.label}</h2>
+    {cta.text && <p>{cta.text}</p>}
+    <p><a href={cta.href}>{cta.label} →</a></p>
+  </section>
+</SiteLayout>
+
+<style>
+  .role-pathway h2,
+  section h2 {
+    margin-top: var(--space-4, 2rem);
+  }
+  .role-badge {
+    display: inline-block;
+    margin-left: 0.5em;
+    padding: 0.1em 0.5em;
+    border: 1px solid var(--color-rule, #ccc);
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--color-muted, #666);
+    vertical-align: middle;
+  }
+  .role-links {
+    padding-left: 1.2rem;
+  }
+  .role-links li {
+    margin-bottom: 0.5rem;
+  }
+  .role-link-note {
+    color: var(--color-muted, #666);
+  }
+</style>
