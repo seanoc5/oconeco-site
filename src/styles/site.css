@@ -207,6 +207,105 @@ a:hover { color: var(--color-accent-deep); text-decoration-thickness: 2px; }
   max-width: 60ch;
 }
 
+.landing-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin: 0 0 var(--space-1);
+}
+.landing-body-lede {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  line-height: 1.5;
+  margin: 0 0 var(--space-4);
+}
+
+/* ----- Story cards (home, three-act arc) ----- */
+.story-cards ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-4);
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+.story-card {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-rule);
+  border-radius: 6px;
+  background: var(--color-bg);
+  margin: 0;
+}
+.story-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  margin: 0 0 var(--space-1);
+  color: var(--color-accent-deep);
+  font-weight: 600;
+}
+.story-card p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--color-muted);
+}
+
+/* ----- Landing story block (voiced centerpiece, home) ----- */
+.landing-story {
+  background: var(--color-soft);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0 6px 6px 0;
+  padding: var(--space-3);
+  margin: var(--space-4) 0;
+}
+.landing-story p { margin: 0 0 var(--space-2); }
+.landing-story p:last-child { margin-bottom: 0; }
+
+/* ----- Signal strip + honesty badges (home) ----- */
+.signal-strip {
+  background: var(--color-soft);
+  border: 1px solid var(--color-rule);
+  border-radius: 6px;
+  padding: var(--space-2) var(--space-3);
+  margin: var(--space-4) 0;
+}
+.signal-strip-heading { margin: 0 0 var(--space-1); }
+.signal-strip ul { margin: 0; padding-left: 1.1rem; }
+.signal-strip li { margin-bottom: var(--space-1); }
+.signal-strip li:last-child { margin-bottom: 0; }
+.signal-strip code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+.badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 1px 8px;
+  border-radius: 999px;
+  color: #fff;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.badge-prod { background: var(--color-accent); }
+.badge-exp { background: #a06a12; }
+
+/* ----- Tools CTA (home) ----- */
+.tools-cta {
+  margin: var(--space-4) 0 0;
+  font-size: 1.05rem;
+}
+.tools-cta a {
+  color: var(--color-accent-deep);
+  text-decoration: none;
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 2px;
+}
+.tools-cta a:hover { color: var(--color-accent); border-bottom-color: var(--color-accent-deep); }
+
 /* ----- Hero video stub (home) ----- */
 .hero-video-stub { margin: 0 0 var(--space-5); }
 .hero-video-frame {
